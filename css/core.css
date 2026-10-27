@@ -1,0 +1,607 @@
+/*
+  NOTE ON LAYER ORDER: the @layer declaration lives in reset.css, which
+  is always linked first. It is not repeated here - repeating it is a
+  silent no-op that creates confusion about which file is authoritative.
+
+  core.css includes:
+  - theme tokens
+  - layout primitives (the systems that arrange the page: .container,
+    .grid, .stack, .cluster, etc.)
+  - a small set of default core patterns
+  - utilities: small, atomic, single-property helper classes
+    (.text-muted, .justify-center, .divider, etc.) - see the @layer
+    utilities comment further down for why these are split out from
+    layout rather than grouped with it.
+
+  reset.css also contributes to the utilities layer (:focus-visible,
+  .visually-hidden) - both merge into one layer regardless of which
+  file declares them. Specialized modules stay in css/components/.
+*/
+
+
+/* =====================
+   Tokens and theme defaults
+   ===================== */
+@layer tokens {
+  :root {
+    color-scheme: dark;
+    --color-bg: #020617;
+    --color-text: #e5e7eb;
+    --color-accent-seed: #8b5cf6;
+    --color-accent-default: color-mix(in oklab, var(--color-accent-seed) 82%, var(--color-bg) 18%);
+    --color-accent: var(--color-accent-default);
+    --color-on-accent: var(--color-text);
+    /* --color-accent, mixed toward the page background, reads well as
+       a fill but fails contrast as text (as low as 2.2:1 measured on
+       the default dark theme). This variant is for exactly that case:
+       accent-colored TEXT on a surface (.text-accent, active/selected
+       states, badge labels). Never use it as a background fill;
+       --color-accent already covers that and pairs correctly with
+       --color-on-accent.
+
+       light-dark() rather than one fixed mix, because "lighten the
+       seed for contrast" only works on a dark theme - on a light
+       theme (color-scheme: light, as every customised site in this
+       project sets) the surface is already light, so the SAME mix
+       toward white gets less readable, not more (measured as low as
+       1.2:1 on a light site theme). A light theme needs the opposite
+       adjustment: darken the seed instead. Each branch is verified at
+       >=6:1 against every theme (default + all 5 site themes) tested
+       when this was added - comfortable margin above the 4.5:1 floor,
+       not a bare pass.
+
+       light-dark() is Baseline: Newly available (shipped everywhere
+       since May 2024, not yet Widely available), an exception to this
+       framework's usual Widely-available bar for core tokens - see
+       docs/index.html's browser support policy. Accepted here because
+       an unsupporting browser's fallback is harmless: the custom
+       property's invalid value resolves to the inherited text color
+       instead, which is always legible, just without the extra
+       light/dark-aware contrast boost. */
+    --color-accent-text: light-dark(
+      color-mix(in oklab, var(--color-accent-seed) 75%, black 25%),
+      color-mix(in oklab, var(--color-accent-seed) 75%, white 25%)
+    );
+    /* Semantic status colours - override in custom.css if needed */
+    --color-error:   #fca5a5;
+    --color-success: #86efac;
+    --color-warning: #fde68a;
+    --color-info:    #93c5fd;
+
+    --color-surface: color-mix(in oklab, var(--color-bg) 90%, var(--color-text) 10%);
+    --color-elevated: color-mix(in oklab, var(--color-bg) 82%, var(--color-text) 18%);
+    /* 80%, not the original 65% - measured against the two darkest
+       surfaces this is actually used as text on: --color-elevated
+       (footers, badges) and .media-gallery__caption's own darker
+       color-mix(surface, black) background. 65% passed the default
+       dark palette against --color-elevated (4.60:1) but fell short
+       everywhere else - as low as 3.76:1 against the caption
+       background on a customised site theme, against a 4.5:1 floor.
+       80% clears BOTH backgrounds on the default palette and every
+       customised site theme (4.86 the closest margin, 9.05 the most). */
+    --color-muted: color-mix(in oklab, var(--color-text) 80%, var(--color-bg));
+    --color-border: color-mix(in oklab, var(--color-surface) 70%, var(--color-text) 18%);
+    --color-border-strong: color-mix(in oklab, var(--color-surface) 45%, var(--color-text) 35%);
+    --color-hover: color-mix(in oklab, var(--color-bg) 85%, var(--color-accent));
+    --color-backdrop: rgb(0 0 0 / 0.85);
+
+    --shadow-elevated: 0 12px 36px color-mix(in oklab, var(--color-bg) 50%, transparent);
+
+    --container-max: 1200px;
+    --content-max: 70ch;
+
+    --nav-height: 64px;
+
+    --space-unit: 0.25rem;
+    --space-2: calc(var(--space-unit) * 2);
+    --space-4: calc(var(--space-unit) * 4);
+    --space-6: calc(var(--space-unit) * 6);
+    --space-8: calc(var(--space-unit) * 8);
+    --space-12: calc(var(--space-unit) * 12);
+    --space-16: calc(var(--space-unit) * 16);
+    --space-24: calc(var(--space-unit) * 24);
+
+    /*
+      TYPOGRAPHY
+
+      Plain rem literals from a small, fixed set below - not a
+      --text-xs/sm/md/lg/xl token family. See docs/index.html's
+      Conventions section for why. Fluid clamp() display headings
+      match the ones already used in hero.css, so the two stay
+      consistent with each other.
+
+        0.75rem   badges, captions, table meta
+        0.9rem    secondary text, form help, errors
+        1rem      body copy
+        1.125rem  card titles
+        1.375rem  panel and drawer headings
+        1.5rem    footer and nav brand
+        1.75rem / 2.5rem / 3rem   display sizes
+    */
+
+    /*
+      FUTURE (CSS-only, blocked on support) - text-box-trim
+      Engines:  all three shipped - Chrome/Edge 133+, Safari 18.2+,
+                Firefox 154+. Global 84%. Checked 2026-08-21.
+      Blocked on: user adoption, not implementation. Firefox 154 is
+                recent enough that real-world coverage is still
+                climbing, and this changes vertical rhythm, so
+                supporting and non-supporting browsers would space
+                headings differently while it settles.
+      What it buys: removes the font's built-in half-leading above and
+                below a heading, so the gap you set in a .stack is the
+                gap you actually see. Right now every heading carries
+                invisible padding that varies by font, which is why
+                heading spacing needs eyeballing per component.
+      Ship when: Firefox 154 has been out long enough that the split
+                stops being visible in class. Purely cosmetic, so it
+                can go in without a fallback whenever you decide.
+
+        :is(h1, h2, h3, .card__title, .subsection-title) {
+          text-box-trim: trim-both;
+          text-box-edge: cap alphabetic;
+        }
+    */
+
+    --max-w-narrow: 800px;
+
+    --radius: 8px;
+    --radius-lg: 16px;
+
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+  }
+}
+
+
+@layer layout {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Direct child only - the docs site nests its <main> inside .shell,
+     which already sizes itself via grid. This only ever touches the
+     plain header/main/footer page shape. */
+  body > main {
+    flex: 1 0 auto;
+  }
+
+  .container {
+    width: min(100% - 2rem, var(--container-max));
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  /* Cancels .section's top padding for a section that follows another
+     section with no visual gap wanted (e.g. immediately after a hero,
+     or a two-part page intro split across two .section blocks). Only
+     the top is flush - .section's bottom padding is untouched, so the
+     next section down still gets normal breathing room. */
+  .section--flush-start {
+    padding-block-start: 0;
+  }
+
+  section {
+    scroll-margin-block-start: calc(var(--nav-height) + 1rem);
+  }
+
+  /* -----------------------------------------------------------------
+     GRID PRIMITIVE
+
+     Two coexisting APIs, both passed in from the HTML as inline
+     custom properties:
+
+       --col-count / -md / -lg   a number of equal-width columns
+       --col-widths / -md / -lg  a full grid-template-columns value
+                                 for columns of differing widths
+
+     At any one breakpoint --col-widths* wins over --col-count*.
+     Each breakpoint builds its own complete --col-layout-* value; if
+     neither token is set for that breakpoint the variable resolves to
+     the guaranteed-invalid value, so var() falls through to the next
+     breakpoint down. A breakpoint's own layout therefore always beats
+     a smaller breakpoint's, whichever tokens happen to be set.
+  ----------------------------------------------------------------- */
+  .grid {
+    list-style: none;
+    padding: 0;
+    --col-layout: var(
+      --col-widths,
+      repeat(var(--col-count, 1), minmax(0, 1fr))
+    );
+    --col-layout-md: var(
+      --col-widths-md,
+      repeat(var(--col-count-md), minmax(0, 1fr))
+    );
+    --col-layout-lg: var(
+      --col-widths-lg,
+      repeat(var(--col-count-lg), minmax(0, 1fr))
+    );
+
+    display: grid;
+    gap: var(--grid-gap, var(--space-6));
+    grid-template-columns: var(--col-layout);
+  }
+
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: var(--col-layout-md, var(--col-layout));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: var(--col-layout-lg, var(--col-layout-md, var(--col-layout)));
+    }
+  }
+
+  .auto-grid {
+    list-style: none;
+    padding: 0;
+    --min: 18rem;
+    display: grid;
+    gap: var(--grid-gap, var(--space-6));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+  }
+
+  .stack > * + * {
+    margin-block-start: var(--stack-space, var(--space-4));
+  }
+
+  .cluster {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--cluster-gap, var(--space-4));
+    align-items: center;
+  }
+
+  .cluster--between {
+    justify-content: space-between;
+  }
+
+  .cluster--end {
+    justify-content: flex-end;
+  }
+
+  .auto-grid--sm {
+    --min: 16rem;
+  }
+}
+
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-4);
+    z-index: 300;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform var(--transition-fast);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    /* Named explicitly rather than "transition: var(--transition-fast)"
+       (shorthand for transition-property: all) - a future style added
+       to a hover/active/disabled state (padding, width, whatever)
+       would otherwise animate silently, whether that was wanted or
+       not. Add new properties here deliberately when a variant
+       actually needs them to transition. */
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      opacity var(--transition-fast);
+  }
+
+  .btn--primary {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    border-color: color-mix(in oklab, var(--color-accent) 62%, var(--color-text) 38%);
+  }
+
+  .btn--primary:hover {
+    background: color-mix(in oklab, var(--color-accent) 88%, var(--color-text) 12%);
+    border-color: color-mix(in oklab, var(--color-accent) 54%, var(--color-text) 46%);
+  }
+
+  .btn--secondary {
+    background: color-mix(in oklab, var(--color-surface) 86%, var(--color-text) 14%);
+    color: var(--color-text);
+    border-color: color-mix(in oklab, var(--color-surface) 55%, var(--color-text) 45%);
+  }
+
+  .btn--secondary:hover {
+    background: color-mix(in oklab, var(--color-surface) 78%, var(--color-text) 22%);
+  }
+
+  /* .card, .card__title, and .card p - see css/components/card.css for
+     the standalone reference copy of this component. Baked in here
+     too since nearly every page in this project uses it. */
+  /*
+    container-type/container-name make .card a named containment
+    context, so the @container rule below responds to the CARD's own
+    width, not the viewport. A card squeezed into a 3-column grid stays
+    compact; the same card alone in a single column gets more breathing
+    room, regardless of browser width.
+
+    Note container-type: inline-size implies contain: layout, which
+    makes .card a containing block for absolutely positioned
+    descendants. Every component that positions absolutely already
+    carries its own positioned wrapper (.timeline__item,
+    .loading-overlay) or lives in the top layer (popovers, lightbox),
+    so nothing in this framework moves. Worth knowing if you add one
+    that doesn't.
+  */
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--card-padding, var(--space-6));
+    min-height: var(--card-min-height, auto);
+    container-type: inline-size;
+    container-name: card;
+  }
+
+  /* .card__title, not a bare "h3" element selector - a card's heading
+     can legitimately be an h2 or h3 depending on the page's own
+     outline, so the styling hook is a class, not a tag. */
+  .card__title {
+    font-size: var(--card-heading-size, 1.125rem);
+    font-weight: 600;
+    margin-block-end: var(--space-2);
+  }
+
+  .card p {
+    color: var(--color-muted);
+    font-size: var(--card-body-size, 0.9375rem);
+    line-height: 1.6;
+  }
+
+  /*
+    Once a card is wide enough to carry it, both the title and body
+    step up - calculated from --card-heading-size/--card-body-size
+    rather than set as second fixed sizes, so overriding those hooks
+    moves both steps together. Nothing here asks how big the WINDOW
+    is - the same card is compact in a 3-up grid and roomier in a
+    single column, on the same screen, at the same moment.
+
+    380px is measured on the CONTENT box, so with --space-6 padding
+    and a 1px border it actually trips at roughly 430px of card. That
+    is about where a card stops feeling like a tile and starts feeling
+    like a panel.
+  */
+  @container card (min-width: 380px) {
+    .card__title {
+      font-size: calc(var(--card-heading-size, 1.125rem) + 0.25rem);
+    }
+
+    .card p {
+      font-size: calc(var(--card-body-size, 0.9375rem) + 0.0625rem);
+      line-height: 1.7;
+    }
+  }
+
+  /* Flags a card as a destructive/high-caution area (a "danger zone"
+     block of irreversible actions) - the same warning-colour intent
+     as .btn--danger, applied to the container instead of a button. */
+  .card--danger {
+    border-color: var(--color-error);
+  }
+
+  /* .section-header and its parts - see css/components/section-header.css
+     for the standalone reference copy. Baked in here too since almost
+     every page in this project uses it. */
+  .section-header {
+    --stack-space: var(--space-2);
+    margin-block-end: var(--space-8);
+  }
+
+  .section-header__eyebrow {
+    display: block;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+
+  .section-header__title {
+    font-size: clamp(1.6rem, 1.5rem + 0.35vw, 1.75rem);
+    line-height: 1.1;
+  }
+
+  .section-header__intro {
+    font-size: 1rem;
+    max-width: clamp(32ch, 95vw, var(--container-max));
+    color: var(--color-muted);
+    text-wrap: balance;
+  }
+
+  /* .site-footer and its parts - see css/components/site-footer.css
+     for the standalone reference copy. Baked in here too since every
+     page in this project uses it (it's simple enough, ~30 lines, that
+     it doesn't justify being a component-only file - see
+     site-footer.css's own note). */
+  .site-footer {
+    padding-block: var(--space-12);
+    background: var(--color-elevated);
+    border-block-start: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .site-footer__title {
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-footer__nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin-block-end: var(--space-8);
+  }
+
+  .site-footer__nav a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .site-footer__nav a:hover {
+    color: var(--color-accent-text);
+  }
+
+  .site-footer__copyright {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+  }
+
+  /* Extra breathing room above a manually-spaced page section that
+     follows a two-column layout with no .stack ancestor to hand the
+     gap to itself - e.g. a "Related products" block on a product
+     detail page. */
+  .related-products {
+    margin-block-start: var(--space-24);
+  }
+}
+
+
+/*
+  Small, atomic, single-property helper classes - deliberately placed
+  in utilities rather than layout. The layer order (see the top of
+  this file) puts utilities last, so these reliably win over a
+  components-layer rule that happens to set the same property,
+  which is the whole point of a utility class. reset.css also
+  contributes to this same layer (:focus-visible, .visually-hidden) -
+  cascade layers accumulate by name across files, so both live in one
+  merged "utilities" layer regardless of which file declares them.
+*/
+@layer utilities {
+  .text-muted { color: var(--color-muted); }
+  .text-error { color: var(--color-error); }
+  .text-accent { color: var(--color-accent-text); }
+
+  /* Resets color back to the normal body tone - for un-muting one
+     word or phrase inside an otherwise .text-muted parent, e.g. a
+     result count that should read as normal text in a muted sentence. */
+  .text-normal { color: var(--color-text); }
+
+  /* Two size helpers, not a full set - anything else smaller or
+     larger than body size is a component's own font-size decision,
+     not a utility. These two cover the common case: secondary text a
+     notch below body size, wherever it turns up (tables, cards, meta
+     rows, form hints). Pairs with .text-muted for that pattern:
+       <p class="text-muted text-sm">Last updated 3 hours ago</p> */
+  .text-sm { font-size: 0.9rem; }
+  .text-xs { font-size: 0.75rem; }
+
+  .text-center { text-align: center; }
+  .no-underline { text-decoration: none; }
+  .items-center { align-items: center; }
+  .items-start { align-items: start; }
+  .items-end { align-items: flex-end; }
+  .justify-center { justify-content: center; }
+  .flex-1 { flex: 1; }
+
+  /* A one-off grid-child placement hook - most .grid usages don't need
+     child-level spanning, so this stays a single atomic utility rather
+     than a general --col-span custom-property API. */
+  .col-span-2 { grid-column: span 2; }
+
+  /* A <hr> reset to a plain 1px rule - the browser default <hr> has a
+     3D-inset border box that never matches this framework's flat look. */
+  .divider {
+    border: none;
+    border-block-start: 1px solid var(--color-border);
+  }
+
+  /* For a list that needs a class for something other than layout
+     (.stack for item spacing, .text-sm for size) but is still real
+     bulleted content - see reset.css's note on why that class alone
+     doesn't strip its own markers the way an actual layout component
+     does. padding-inline-start is a smaller-than-native 1.5rem rather
+     than the browser's ~2.5rem default, sized for sitting inside a
+     compact panel or dialog rather than a full page. */
+  .list-disc {
+    list-style: disc;
+    padding-inline-start: 1.5rem;
+  }
+
+  /* The opposite direction: a classed <ul>/<ol> that isn't one of the
+     framework's own layout components (those strip their own markers
+     directly - see reset.css) but still isn't real bulleted content -
+     e.g. .stack reused purely to space out a list of cards, or a
+     skeleton-loading placeholder list. */
+  .list-none {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* A small bold heading for organizing content within a single page
+     or panel - one step below .section-header__title, and without
+     its own margin so spacing stays under the caller's control
+     (a .stack gap, an explicit margin-block-end, etc). */
+  .subsection-title {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  /* An inline class-name reference inside a heading shouldn't inherit
+     the heading's own size and weight - it's a citation, not part of
+     the heading text itself. */
+  .subsection-title code {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+  /* A trailing annotation after a subsection-title's own text - an
+     implementation note or file reference, de-emphasized and pushed
+     right rather than part of the heading itself. */
+  .subsection-title__note {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-muted);
+    margin-inline-start: var(--space-4);
+  }
+
+  .text-nowrap { white-space: nowrap; }
+
+  /* Single-line truncation with an ellipsis - needs a bounded or
+     shrinkable width on the element to have any visible effect. */
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .max-w-narrow {
+    max-width: var(--max-w-narrow, 800px);
+    margin-inline: auto;
+  }
+}

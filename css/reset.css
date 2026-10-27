@@ -1,0 +1,147 @@
+@layer tokens, reset, layout, components, utilities;
+
+@layer reset {
+	
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+  }
+ 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /*
+    An open overlay locks the page behind it, so a drawer, modal or
+    lightbox can't be scrolled out from under the user.
+
+    Opt out with data-no-scroll-lock on anything that is anchored to
+    the page rather than covering it - an action menu, a popover card,
+    and any tooltip or dropdown you add later. Those are small enough
+    that the page behind them is still the thing being read, and
+    freezing it makes a menu feel like a broken page, especially on
+    touch where the natural reflex is to swipe.
+
+    Locking is the default because forgetting the attribute on a
+    drawer only leaves a scrollable background, which is untidy;
+    forgetting it the other way round would freeze the page under a
+    tooltip, which looks broken.
+
+    No layout shift comes with this: scrollbar-gutter: stable above
+    keeps the gutter reserved, so nothing jumps sideways when the
+    scrollbar goes away.
+  */
+  body:has(:popover-open:not([data-no-scroll-lock]), dialog:modal) {
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, figure {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  /*
+    Plain HTML should stay usable; framework classes enhance it. A bare
+    <ul>/<ol> with no class is ordinary content - it keeps its native
+    bullets/numbers and indent (margin is still zeroed above, along
+    with every other block element, so it lines up with the rest of
+    the page - only list-style/padding are left alone here).
+
+    NO BLANKET CLASSED-LIST RESET. An earlier version of this rule
+    stripped list-style/padding from ANY classed <ul>/<ol> - simple,
+    but it couldn't tell "classed because it's a layout primitive"
+    (.auto-grid, .media-gallery, .list-group, .cluster, .grid) from
+    "classed for something unrelated" (.stack for spacing, .text-sm
+    for size) on a list that's still real bulleted content. The second
+    case kept losing its bullets with no visible reason why.
+
+    Instead, each layout component strips list-style/padding on
+    itself, in its own file (.grid and .cluster in core.css,
+    .media-gallery in gallery.css, .list-group in data-display.css,
+    .form-steps/.form__errors in form-extended.css, .site-nav .menu/
+    .sub-menu in header-nav.css, etc) - it's part of what makes that
+    component a component, not a side effect of a global attribute
+    selector. Building a new list-based component works the same way:
+    add list-style: none; padding: 0; directly to ITS rule.
+
+    Two narrow utilities in core.css cover what a per-component rule
+    can't: .list-disc restores bullets on a real content list that
+    still needs an unrelated class (see dialog.html/shell.html);
+    .list-none strips them from a one-off list that isn't a named
+    component - .stack reused purely to space out cards (cart.html) or
+    a skeleton-loading placeholder list (skeleton.html).
+  */
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+} 
+  
+@layer utilities {
+  
+  :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    /* clip-path only. The old `clip: rect(0 0 0 0)` fallback was
+       removed deliberately: it is a deprecated property (stylelint
+       flags it), and it only buys support for browsers older than
+       2016 - while this framework already requires the Popover API
+       and ::details-content, which need 2023+. Carrying a fallback
+       for browsers that could never run the rest of the framework
+       is dead weight. */
+    clip-path: inset(50%) !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+
+}
