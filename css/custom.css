@@ -328,6 +328,23 @@
 
 
 @layer components {
+
+   /*  Arial fonts to be used as per styleguide, weight can be adjusted overall for headings as we see fit, just added placeholder value for now.  */
+   h1,
+   h2,
+   h3,
+   h4,
+   p,
+   span {
+      font-family: Arial, Helvetica, sans-serif;
+   }
+
+   h1,
+   h2,
+   h3,
+   h4 {
+      font-weight: 600;
+   }
   
   /* .btn-general for all buttons, then include an additional class for colors from below */
   .btn-general {
