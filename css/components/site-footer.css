@@ -1,0 +1,63 @@
+/*
+  site-footer.css
+  ---------------------------------------------------------------------
+  The closing footer block: copyright line, footer nav, closing brand.
+
+  NOTE: .site-footer and its parts are used on every page in this
+  project, so they are also baked directly into core.css - that copy
+  is what actually renders on any page that only loads core.css. This
+  file exists as a standalone, single-component reference copy only
+  (every component in this project gets one) - it documents which
+  rules belong to this component. Never link it directly: linking
+  core.css already gets you these rules, and linking both would load
+  the same selectors twice.
+
+  Requires: css/reset.css, css/core.css
+
+  HTML STRUCTURE:
+    <footer class="site-footer stack">
+      <h2 class="site-footer__title">Brand</h2>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+      </nav>
+      <p class="site-footer__copyright">Copyright text.</p>
+    </footer>
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+  .site-footer {
+    padding-block: var(--space-12);
+    background: var(--color-elevated);
+    border-block-start: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .site-footer__title {
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-footer__nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin-block-end: var(--space-8);
+  }
+
+  .site-footer__nav a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .site-footer__nav a:hover {
+    color: var(--color-accent-text);
+  }
+
+  .site-footer__copyright {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+  }
+}
