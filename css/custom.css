@@ -490,6 +490,11 @@
       height: calc(var(--nav-height) * 3);
       width: auto;
       margin-block-start: -2.5rem;
+      margin-inline: -2.5rem 2.5rem;
+   }
+
+   .site-footer__copyright {
+      margin-inline-start: -2.5rem;
    }
 
    .footer-block nav {
