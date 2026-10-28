@@ -360,6 +360,7 @@
     transition: transform .15s ease, box-shadow .15s ease;
   }
 
+  /* Button colors, including drop shadow and outlines */
   .btn-cta {
     background: var(--color-text);
     color: var(--color-bg);
