@@ -503,7 +503,7 @@
       text-align: start;
    }
 
-   .contact {
+   .contact p {
       margin-block-end: var(--space-2);
    }
 }
