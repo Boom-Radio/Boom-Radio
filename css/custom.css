@@ -471,6 +471,7 @@
       background: var(--color-text);
       color: var(--color-accent);
       padding-block-end: var(--space-2);
+      border-block-start: 2px solid var(--color-accent);
    }
 
    .site-footer__nav {
