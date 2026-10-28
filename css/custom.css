@@ -489,7 +489,7 @@
       display: block;
       height: calc(var(--nav-height) * 3);
       width: auto;
-      margin-block-start: -2.5rem;
+      margin-block-start: -2.8rem;
       margin-inline: -2.5rem 2.5rem;
    }
 
