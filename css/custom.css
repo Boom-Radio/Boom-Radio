@@ -348,46 +348,124 @@
   
   /* .btn-general for all buttons, then include an additional class for colors from below */
   .btn-general {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 30px;
-    font-size: 20px;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 999px;
-    box-shadow: 5px 5px 0 #1C0B07;
-    transition: transform .15s ease, box-shadow .15s ease;
+      --px: 0.8rem;
+      --py: 0.65rem;
+      padding: var(--py) var(--px);
+      --btn-shadow: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      border-radius: 999px;
+      filter: drop-shadow(4px 4px 0 var(--btn-shadow));
+      transition: transform .15s ease, filter .15s ease, padding .15s ease, margin .15s ease;
+
+      background-clip: padding-box;
   }
+
+  .arrow {
+      display: inline-block;         
+      transition: transform .15s ease;
+   }
+
+   .btn-general:hover {
+      transform: translate(3px, 3px);
+      filter: drop-shadow(1px 1px 0 var(--btn-shadow));
+   }
+
+   /* Hover: arrow pushes right */
+   .btn-general:hover .arrow,
+   .btn-general:focus-visible .arrow {
+      transform: translateX(5px);
+   }
+
+   .btn-general:active {
+      transform: translate(3px 3px);
+      filter: drop-shadow(1px 1px 0 var(--btn-shadow));
+      padding: calc(var(--py) - 2px) calc(var(--px) + 2px);
+      margin-inline: -2px;
+   }
+
+   .btn-general:focus-visible { 
+      outline: 3px solid var(--color-accent); 
+      outline-offset: 4px; 
+   }
+
+   /* Respect reduced-motion settings */
+   @media (prefers-reduced-motion: reduce) {
+      .btn-general, .arrow { transition: none; }
+      .btn-general:hover,
+      .btn-general:active,
+      .btn-general:hover .arrow,
+      .btn-general:focus-visible .arrow { transform: none; }
+   }
 
   /* Button colors, including drop shadow and outlines */
   .btn-cta {
-    background: var(--color-text);
-    color: var(--color-bg);
-    border: var(--color-accent);
-    filter: drop-shadow(4px 4px 4px var(--color-accent));
+      --btn-shadow: var(--color-accent);
+      background: var(--color-text);
+      color: var(--color-bg);
+      border: 2px solid var(--color-accent);
   }
 
   .btn-bg {
-    background: var(--color-bg);
-    color: var(--color-text);
-    border: var(--color-text);
-    filter: drop-shadow(4px 4px 4px var(--color-text));
+      --btn-shadow: var(--color-text);
+      background: var(--color-bg);
+      color: var(--color-text);
+      border: 2px solid var(--color-text);
   }
 
   .btn-accent-light {
-    background: var(--color-accent);
-    color: var(--color-text);
-    border: var(--color-bg);
-    filter: drop-shadow(4px 4px 4px var(--color-bg));
+      --btn-shadow: var(--color-bg);
+      background: var(--color-accent);
+      color: var(--color-text);
+      border: 2px solid var(--color-bg);
   }
 
   .btn-accent-dark {
-    background: var(--color-accent);
-    color: var(--color-text);
-    border: var(--color-text);
-    filter: drop-shadow(4px 4px 4px var(--color-text));
+      --btn-shadow: var(--color-text);
+      background: var(--color-accent);
+      color: var(--color-text);
+      border: 2px solid var(--color-text);
   }
+
+  /* ------- NAVIGATION ------- */
+  .site-header {
+      background: var(--color-bg);
+      border-block-end: 1px solid var(--color-border);
+  }
+
+  .site-nav__link {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+  }
+
+   .site-header__brand img {
+      height: var(--nav-height);
+      width: auto;
+   }
+
+   .dot {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #FF4B3E;
+      animation: pulse 1.4s ease-in-out infinite;
+   }
+
+   /* Makes the cta button dot a pulsing glow */
+   @keyframes pulse {
+      0%   { opacity: 1; }
+      50%  { opacity: .35; }
+      100% { opacity: 1; }
+   }
+
+   /* Accessibility */
+   @media (prefers-reduced-motion: reduce) {
+      .dot { animation: none; }
+   }
+
   
 }
 
@@ -395,10 +473,5 @@
 @layer utilities {
   /*
     Custom utility classes - sit in the highest-priority layer.
-
-    .demo-outline {
-      outline: 1px dashed color-mix(in oklab, var(--color-accent) 45%, transparent);
-      outline-offset: 4px;
-    }
   */
 }

@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+
+    <link rel="stylesheet" href="css/components/header-nav.css">
+
+
+    <link rel="stylesheet" href="css/custom.css">
     <title>Document</title>
 </head>
 <body>
-    <!-- Content -->
+    <header class="site-header drawer-right">
+        <div class="site-header__inner container">
+            <a href="#" class="site-header__brand">
+                <img src="img/boom-black.png" alt="Site Logo">
+            </a>
+            <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Menu">
+            <span aria-hidden="true">☰</span>
+            <span class="visually-hidden">Menu</span>
+            </button>
+            <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+            <a href="#" class="site-nav__link">Home</a>
+            <a href="#" class="site-nav__link">Hosts</a>
+            <a href="#" class="site-nav__link">News</a>
+             <a href="#" class="site-nav__link btn-general btn-cta"><span class="dot"></span> On Air: Listen Live</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+     <script src="js/carousel-arrow-addon.js"></script>
 </body>
 </html>

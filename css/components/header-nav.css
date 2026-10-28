@@ -1,0 +1,524 @@
+/*
+  header-nav.css
+  ---------------------------------------------------------------------
+  Sticky site header with a horizontal nav on desktop and an animated
+  slide-in drawer on mobile, powered by the native HTML Popover API.
+
+  GRACEFUL DEGRADATION:
+    The Popover API is Baseline: Newly available - shipped in every
+    core engine, but real and not universal in the installed base yet
+    (see docs/index.html's browser support policy), and unlike this
+    framework's other Popover-based components (which fail harmlessly
+    when unsupported), a hidden mobile nav with no fallback would make
+    navigation completely unreachable below 1024px for every visitor
+    on an unsupported browser.
+
+    So the mobile nav is built in two layers:
+      1. BASELINE - a plain, always-visible stacked list. This is
+         what every browser gets by default, including ones with no
+         Popover support at all.
+      2. ENHANCED - gated behind @supports selector(:popover-open),
+         a real feature-detection query (not a browser-version
+         guess). Only browsers that actually support the API get the
+         hidden/animated slide-in drawer, which overrides the
+         baseline entirely.
+
+    Worst case on an unsupported browser: a plain stacked nav list
+    instead of a drawer. Never: no navigation at all.
+
+  Requires: css/reset.css, css/core.css
+
+  DRAWER DIRECTION - set in HTML, not CSS:
+    Left drawer (default):  <header class="site-header">
+    Right drawer:           <header class="site-header drawer-right">
+
+    Direction is controlled by the private custom property --_drawer-slide
+    on .site-nav inside the mobile media query.  The underscore prefix
+    signals this is an internal implementation detail - not a public
+    token and not overridable from custom.css.
+
+      Default (left):  --_drawer-slide: -100%  (starts off-screen left)
+      drawer-right:    --_drawer-slide: 100%   (starts off-screen right)
+
+    RTL (right-to-left) language pages are also handled - directions
+    are swapped automatically when dir="rtl" is on the <html> element.
+
+  HAMBURGER BUTTON POSITION - controlled by DOM order in HTML:
+    The toggle button and brand link are siblings inside
+    .site-header__inner.  Their visual position on mobile follows
+    DOM order since the inner wrapper uses space-between flex.
+
+    Hamburger on the RIGHT (default):
+      <div class="site-header__inner container">
+        <a class="site-header__brand">Cascade</a>
+        <button class="site-header__toggle">...</button>
+        <nav class="site-nav" ...>...</nav>
+      </div>
+
+    Hamburger on the LEFT:
+      <div class="site-header__inner container">
+        <button class="site-header__toggle">...</button>
+        <a class="site-header__brand">Cascade</a>
+        <nav class="site-nav" ...>...</nav>
+      </div>
+
+    On desktop (1024px+) the toggle is hidden regardless of order.
+    The :has() selectors at the bottom of this file detect brand/nav
+    DOM order and position the desktop nav correctly for both layouts.
+
+  POPOVER API:
+    The <nav popover> and <button popovertarget="site-nav"> in HTML
+    wire the toggle to the nav panel automatically - no JavaScript.
+    The browser handles open/close, Escape key, and outside-click.
+
+  HTML STRUCTURE:
+    <header class="site-header">
+      <div class="site-header__inner container">
+        <a href="#" class="site-header__brand">Brand</a>
+        <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Menu">
+          <span aria-hidden="true">☰</span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+          <a href="#" class="site-nav__link">Home</a>
+          <a href="#" class="site-nav__link site-nav__link--cta">Get Started</a>
+        </nav>
+      </div>
+    </header>
+  ---------------------------------------------------------------------
+*/
+
+@layer tokens {
+  :root {
+    --drawer-width: min(86vw, 320px);
+    /*
+      Used only by .site-nav below - not shared with any other
+      component, so it lives here rather than in core.css.
+    */
+  }
+}
+
+@layer components {
+
+  /* -------------------------------------------------------------------
+     SITE HEADER
+
+     position: sticky + inset-block-start: 0
+       Header sticks to the top of the viewport as the user scrolls.
+       inset-block-start is the logical equivalent of top: 0.
+
+     z-index: 200
+       Sits above page content but below the skip link (z-index: 300).
+  ------------------------------------------------------------------- */
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 200;
+    min-height: var(--nav-height);
+    background: var(--color-elevated);
+    border-block-end: 1px solid var(--color-border);
+  }
+
+
+  /* -------------------------------------------------------------------
+     INNER WRAPPER
+
+     Flex row containing the brand link and the nav.
+     justify-content: space-between pushes brand left, nav right.
+     padding-inline adds horizontal edge padding without affecting
+     the container's max-width calculation.
+  ------------------------------------------------------------------- */
+  .site-header__inner {
+    min-height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-inline: 1rem;
+  }
+
+
+  /* -------------------------------------------------------------------
+     BRAND LINK
+
+     font-weight: 900 - heaviest available weight for logo-like presence.
+     white-space: nowrap - prevents the brand name wrapping to two lines.
+  ------------------------------------------------------------------- */
+  .site-header__brand {
+    font-weight: 900;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    text-decoration: none;
+    color: var(--color-text);
+    /* A flex item's default min-width: auto prevents it from shrinking
+       below its unwrapped text width, so a long brand name would push
+       the whole header (and document) wider than the viewport without
+       this. min-inline-size: 0 lets it shrink; the rest truncates what
+       no longer fits instead of wrapping or overflowing. */
+    min-inline-size: 0;
+    max-inline-size: calc(100% - 60px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+  /* -------------------------------------------------------------------
+     HAMBURGER TOGGLE BUTTON
+
+     Visible on mobile only - hidden at 1024px+ (see desktop query).
+
+     inline-size / block-size - logical equivalents of width / height.
+     display: grid + place-items: center - centres the icon.
+     44px × 44px meets WCAG 2.5.5 Target Size (Enhanced), Level AAA -
+     the 24px×24px figure in 2.5.8 Target Size (Minimum) is the AA
+     tier; this control clears the stricter AAA one.
+  ------------------------------------------------------------------- */
+  .site-header__toggle {
+    inline-size: 44px;
+    block-size: 44px;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .site-header__toggle:hover {
+    color: var(--color-accent-text);
+    border-color: var(--color-accent);
+    background: var(--color-hover);
+  }
+
+  /* place-items: center above centers this span's box exactly, but the
+     ☰ glyph's own ink isn't centered within that box in system-ui -
+     measured 1.5px low. This nudges the visible strokes, not the box,
+     back to true center. */
+  .site-header__toggle span[aria-hidden="true"] {
+    transform: translateY(-1.5px);
+  }
+
+
+  /* -------------------------------------------------------------------
+     WORDPRESS COMPATIBILITY
+
+     Matches class names WordPress outputs for nav menus so this
+     framework works in WordPress themes without modification.
+  ------------------------------------------------------------------- */
+  .site-nav .menu,
+  .site-nav .sub-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav .menu-item {
+    list-style: none;
+  }
+
+
+  /* -------------------------------------------------------------------
+     NAV LINKS - shared mobile + desktop styles
+  ------------------------------------------------------------------- */
+  .site-nav__link,
+  .site-nav .menu a {
+    display: block;
+    padding: 0.65rem 0.8rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  /* -------------------------------------------------------------------
+     CTA LINK - styled as a filled accent button in the nav
+  ------------------------------------------------------------------- */
+  .site-nav__link--cta {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .site-nav__link--cta:hover {
+    background: color-mix(in oklab, var(--color-accent) 82%, var(--color-text) 18%);
+    color: var(--color-on-accent);
+  }
+
+
+  /* -------------------------------------------------------------------
+     ACTIVE PAGE STATES - WordPress compatibility
+  ------------------------------------------------------------------- */
+  .site-nav .current-menu-item > a,
+  .site-nav .current-menu-ancestor > a,
+  .site-nav .current_page_item > a,
+  .site-nav .current_page_parent > a {
+    color: var(--color-accent-text);
+  }
+
+
+  /* ===================================================================
+     MOBILE NAV DRAWER - max-width: 1023px
+     =================================================================== */
+  @media (max-width: 1023px) {
+
+    /* Lets the baseline .site-nav drop to its own full-width row
+       below the brand/toggle row instead of squeezing into it. No
+       effect once Popover support takes .site-nav out of flow
+       entirely (position: fixed) in the @supports block below. */
+    .site-header__inner {
+      flex-wrap: wrap;
+    }
+
+    /* -----------------------------------------------------------------
+       BASELINE - always visible, no Popover support required
+    ----------------------------------------------------------------- */
+    .site-nav {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      gap: var(--space-2);
+      padding: var(--space-6);
+      background: var(--color-elevated);
+      border-block-start: 1px solid var(--color-border);
+    }
+
+    /* WordPress menu wrapper - applies in both the baseline and the
+       enhanced drawer below, since it's about menu structure, not
+       Popover behaviour. */
+    .site-nav > .menu,
+    .site-nav > div > .menu {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      inline-size: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* No working toggle without Popover support - the nav above is
+       already visible, so hide the button rather than leave a dead
+       click target next to it. */
+    @supports not selector(:popover-open) {
+      .site-header__toggle {
+        display: none;
+      }
+    }
+
+    /* -----------------------------------------------------------------
+       ENHANCED - real Popover API support, feature-detected
+
+       Overrides every property that matters from the baseline above
+       with the hidden/animated slide-in drawer treatment.
+    ----------------------------------------------------------------- */
+    @supports selector(:popover-open) {
+
+      .site-nav {
+        /*
+          --_drawer-slide
+          ----------------
+          Private custom property - underscore prefix signals this is
+          internal and not overridable from custom.css.
+
+          Controls the off-screen starting position for the slide animation:
+            -100% = starts off-screen to the LEFT  (default)
+             100% = starts off-screen to the RIGHT (.drawer-right)
+
+          Overridden below by .site-header.drawer-right and [dir="rtl"].
+        */
+        --_drawer-slide: -100%;
+
+        position: fixed;
+        inset-block-start: var(--nav-height);  /* just below the sticky header */
+        inset-inline-start: 0;                 /* anchored to left edge         */
+        inset-inline-end: auto;
+        inline-size: var(--drawer-width);
+        max-inline-size: 100%;
+        block-size: calc(100dvb - var(--nav-height)); /* fill remaining viewport */
+        margin: 0;
+        padding: var(--space-6);
+        display: none;                         /* hidden until :popover-open    */
+        flex-direction: column;
+        gap: var(--space-2);
+        background: var(--color-elevated);
+        border: 0;
+        border-inline-start: 0;
+        border-inline-end: 1px solid var(--color-border);
+        overflow-y: auto;
+        transform: translateX(var(--_drawer-slide));
+        transition: transform var(--transition-base);
+      }
+
+      /*
+        NOTE: display and overlay are intentionally NOT included in the
+        transition, despite transition-behavior: allow-discrete being
+        available in modern browsers.
+
+        Including display in the transition causes the nav to briefly
+        appear as visible when resizing the viewport downward across the
+        1024px breakpoint - the browser animates display: flex → none
+        and renders the nav during that animation.
+
+        Keeping only transform in the transition means:
+         - The drawer snaps hidden/visible (display change is instant)
+         - The slide animation still runs via transform
+         - @starting-style still provides the entry animation start point
+         - No flash on viewport resize
+      */
+
+      /* RIGHT DRAWER - add class="drawer-right" to <header> */
+      .site-header.drawer-right .site-nav {
+        --_drawer-slide: 100%;
+
+        inset-inline-start: auto;
+        inset-inline-end: 0;
+        border-inline-end: 0;
+        border-inline-start: 1px solid var(--color-border);
+      }
+
+      /* RTL LANGUAGE SUPPORT */
+      :root[dir="rtl"] .site-nav {
+        --_drawer-slide: 100%;
+      }
+
+      :root[dir="rtl"] .site-header.drawer-right .site-nav {
+        --_drawer-slide: -100%;
+      }
+
+
+      /* -----------------------------------------------------------------
+         POPOVER OPEN STATE
+
+         The Popover API adds :popover-open when the drawer is open.
+         Switch display to flex and animate transform to 0 (on-screen).
+      ----------------------------------------------------------------- */
+      .site-nav:popover-open {
+        display: flex;
+        transform: translateX(0);
+      }
+
+      /*
+        @starting-style defines values the browser animates FROM on entry.
+        Even though display snaps instantly, @starting-style still provides
+        the transform start point - the drawer slides in from off-screen.
+      */
+      @starting-style {
+        .site-nav:popover-open {
+          transform: translateX(var(--_drawer-slide));
+        }
+      }
+
+
+      /* -----------------------------------------------------------------
+         BACKDROP - dimming overlay behind the drawer
+      ----------------------------------------------------------------- */
+      .site-nav::backdrop {
+        background: transparent;
+        transition: background var(--transition-base);
+      }
+
+      .site-nav:popover-open::backdrop {
+        background: var(--color-backdrop);
+      }
+
+      @starting-style {
+        .site-nav:popover-open::backdrop {
+          background: transparent;
+        }
+      }
+
+    } /* end @supports selector(:popover-open) */
+
+  } /* end @media (max-width: 1023px) */
+
+
+  /* ===================================================================
+     DESKTOP NAV - min-width: 1024px
+     Drawer becomes a horizontal inline flex row.  Toggle is hidden.
+     =================================================================== */
+  @media (min-width: 1024px) {
+
+    /* Toggle hidden - nav is always visible on desktop */
+    .site-header__toggle {
+      display: none;
+    }
+
+    /* Reset drawer styles - nav becomes a standard flex row */
+    .site-nav {
+      display: flex !important; /* overrides display: none from mobile */
+      position: static;
+      block-size: var(--nav-height);
+      align-items: center;
+      gap: var(--space-2);
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      overflow: visible;
+      transform: none;
+      transition: none;
+    }
+
+    /*
+      If the popover opens on desktop (e.g. window resized while drawer
+      was open), ensure it renders correctly within the header.
+      :has() detects which side the brand is on relative to the nav
+      and positions accordingly.
+    */
+    .site-header__inner:is(
+      :has(> .site-header__brand ~ .site-nav),
+      :has(> .site-nav ~ .site-header__brand)
+    ) .site-nav:popover-open {
+      position: fixed;
+      inset-block-start: 0;
+      inset-block-end: auto;
+      inline-size: auto;
+      block-size: var(--nav-height);
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      overflow: visible;
+      transform: none;
+    }
+
+    /* Brand left, nav right */
+    .site-header__inner:has(> .site-header__brand ~ .site-nav) .site-nav:popover-open {
+      inset-inline-start: auto;
+      inset-inline-end: max(1rem, calc((100vw - var(--container-max)) / 2 + 1rem));
+    }
+
+    /* Nav left, brand right */
+    .site-header__inner:has(> .site-nav ~ .site-header__brand) .site-nav:popover-open {
+      inset-inline-start: max(1rem, calc((100vw - var(--container-max)) / 2 + 1rem));
+      inset-inline-end: auto;
+    }
+
+    .site-header__inner:has(> .site-nav ~ .site-header__brand):has(.site-nav:popover-open) {
+      justify-content: flex-end;
+    }
+
+    /* WordPress menu on desktop */
+    .site-nav > .menu,
+    .site-nav > div > .menu {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* No backdrop on desktop */
+    .site-nav::backdrop {
+      display: none;
+    }
+
+  } /* end @media (min-width: 1024px) */
+
+} /* end @layer components */
