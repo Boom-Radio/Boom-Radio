@@ -36,7 +36,7 @@
         </div>
     </header>
     <main>
-        <section class="carousel container" data-carousel-autoplay aria-label="Example content carousel" aria-roledescription="carousel">
+        <section class="carousel section container" data-carousel-autoplay aria-label="Example content carousel" aria-roledescription="carousel">
             <button type="button" class="carousel-autoplay-toggle" hidden>Stop auto-advancing</button>
             <div class="carousel__track" tabindex="0">
             <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="1 of 3">
@@ -60,26 +60,26 @@
             <button type="button" class="carousel__control carousel__control--next" aria-label="Next slide"></button>
         </section>
 
-        <svg class="wave-marquee" viewBox="0 -80 1440 210" aria-hidden="true">
+        <svg class="wave-marquee" viewBox="0 -50 1440 150" aria-hidden="true">
             <defs>
                 <path id="wave" d="M-360 50 C -240 90, -120 90, 0 50
-                   C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50
-                   S 1680 10, 1800 50"/>
+                                C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50
+                                S 1680 10, 1800 50"/>
             </defs>
 
-            <!-- dark fill: same curve, closed off at the bottom of the viewBox -->
+            <!-- dark fill, closed off just below the lowest point of the wave -->
             <path fill="#180702"
-                    d="M0 50 C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50 L1440 130 L0 130 Z"/>
+                    d="M-10 50 L0 50 C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50 L1450 50 L1450 100 L-10 100 Z"/>
 
-            <!-- ribbon: same curve, lifted 30 units so it floats above the dark edge -->
-            <g transform="translate(0 -30)">
-                <use href="#wave" fill="none" stroke="#1C0B07" stroke-width="66"/>
-                <use href="#wave" fill="none" stroke="#F2551F" stroke-width="60"/>
+            <!-- ribbon, lifted 22 so it overlaps the dark fill slightly -->
+            <g transform="translate(0 -22)">
+                <use href="#wave" fill="none" stroke="#180702" stroke-width="50"/>
+                <use href="#wave" fill="none" stroke="#F2551F" stroke-width="44"/>
 
-                <text font-size="28" font-weight="700" fill="#1C0B07" dominant-baseline="central"
+                <text font-size="22" font-weight="700" fill="#180702" dominant-baseline="central"
                     textLength="2880" lengthAdjust="spacing">
                 <textPath href="#wave" startOffset="0">
-                    <animate attributeName="startOffset" from="-720" to="0" dur="15s" repeatCount="indefinite"/>
+                    <animate attributeName="startOffset" from="0" to="-720" dur="15s" repeatCount="indefinite"/>
                     ON AIR ● LISTEN NOW ● PERTH ●&#160;
                     ON AIR ● LISTEN NOW ● PERTH ●&#160;
                     ON AIR ● LISTEN NOW ● PERTH ●&#160;
