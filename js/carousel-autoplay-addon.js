@@ -76,7 +76,7 @@ document.querySelectorAll("[data-carousel-autoplay]").forEach((carousel) => {
   };
 
   const setToggleLabel = () => {
-    toggleBtn.textContent = playing ? "Stop auto-advancing" : "Resume auto-advancing";
+    toggleBtn.textContent = playing ? "Stop advance" : "Resume advance";
   };
 
   const stopAdvancing = () => {
