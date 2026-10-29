@@ -8,9 +8,13 @@
 
     <link rel="stylesheet" href="css/components/header-nav.css">
     <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/components/carousel.css">
+    <link rel="stylesheet" href="css/components/carousel-arrow-addon.css">
 
     <link rel="stylesheet" href="css/custom.css">
     <title>BOOM Radio</title>
+    <script src="js/carousel-arrow-addon.js" defer></script>
+    <script src="js/carousel-autoplay-addon.js" defer></script>
 </head>
 <body>
     <header class="site-header drawer-right">
@@ -32,7 +36,26 @@
         </div>
     </header>
     <main>
-
+        <section class="carousel container" data-carousel-autoplay aria-label="Example content carousel" aria-roledescription="carousel">
+            <button type="button" class="carousel-autoplay-toggle" hidden>Pause</button>
+            <div class="carousel__track" tabindex="0">
+            <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="1 of 3">
+                <figure class="carousel__media"><img src="img/boom-black.png" alt="Logo" loading="lazy"></figure>
+            </article>
+            <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="2 of 3">
+                <figure class="carousel__media"><img src="img/boom-white.png" alt="Logo" loading="lazy"></figure>
+            </article>
+            <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="3 of 3">
+                <figure class="carousel__media"><img src="img/boom-white.png" alt="Logo" loading="lazy"></figure>
+            </article>
+            </div>
+            <div class="carousel__copy stack">
+                <h1>NOT JUST NOISE</h1>
+            </div>
+            <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden></div>
+            <button type="button" class="carousel__control carousel__control--prev" aria-label="Previous slide"></button>
+            <button type="button" class="carousel__control carousel__control--next" aria-label="Next slide"></button>
+        </section>
     </main>
     <footer class="site-footer">
         <div class="container site-footer__content cluster">
@@ -67,6 +90,5 @@
             </article>
         </div>
     </footer>
-    <script src="js/carousel-arrow-addon.js"></script>
 </body>
 </html>

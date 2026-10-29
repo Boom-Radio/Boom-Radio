@@ -1,0 +1,178 @@
+/*
+  carousel.css
+  ---------------------------------------------------------------------
+  A horizontally scrolling set of slides that snap into place. No
+  JavaScript: the browser's own scroll-snap does the work, exactly as
+  <details> does for the accordion. Arrow buttons are an optional
+  addon (carousel-arrow-addon.css), not part of the base.
+
+  Requires: css/reset.css, css/core.css
+
+  HTML STRUCTURE:
+    <section class="carousel" aria-label="Recent projects">
+      <div class="carousel__track" tabindex="0">
+        <article class="carousel__slide grid" style="--col-count-lg: 2;">
+          <figure class="carousel__media"><img src="..." alt="..." /></figure>
+          <div class="carousel__copy stack">
+            <h3>Slide heading</h3>
+            <p>Whatever this slide is about.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  WHY tabindex="0" ON THE TRACK:
+    The base carousel has no buttons - scrolling IS the interaction. A
+    mouse or trackpad reaches it easily; without a tab stop a keyboard
+    user has no way in. tabindex="0" makes the scroll region focusable
+    so the arrow keys work, and reset.css already styles
+    [tabindex]:focus-visible, so the focus ring comes for free.
+
+  THE CONTENT COLUMN IS DELIBERATELY NEUTRAL:
+    .carousel__copy is a plain <div>. It is the one wrapper here that
+    exists for content rather than mechanics, and it groups a slide's
+    text into a single grid cell beside the media.
+
+    An earlier version used <blockquote class="carousel__copy">, which
+    forced every slide to be a quotation - including slides that were
+    route reports and product blurbs, with the author's name in a
+    <cite> (an element for the title of a work, not for a person).
+    A carousel holds testimonials, products, case studies or articles;
+    the base must not decide which.
+
+  VARIATION - testimonial:
+    <div class="carousel__copy stack">
+      <h3>Slide heading</h3>
+      <blockquote><p>The quoted sentence.</p></blockquote>
+      <p class="carousel__attribution"><strong>Name</strong><br />Role</p>
+    </div>
+
+  VARIATION - media opens a lightbox (requires lightbox.css):
+    Wrap the image in a .carousel__media-trigger button with
+    commandfor/command="show-modal" pointing at a matching
+    <dialog class="lightbox">. carousel-lightbox-variant.html has the
+    worked example.
+      <figure class="carousel__media">
+        <button type="button" class="carousel__media-trigger"
+                commandfor="shot-1" command="show-modal" aria-label="Open larger image">
+          <img src="..." alt="..." />
+        </button>
+      </figure>
+
+  ONLY ONE <div> HERE, AND IT EARNS ITS PLACE:
+    .carousel decorates (border, radius, background) and clips.
+    .carousel__track scrolls. Those are two different overflow values
+    on the same axis - hidden vs auto - so they cannot be the same
+    element. Everything else is a real element: <section> for the
+    named region, <article> per slide, <figure> and <blockquote> for
+    the content.
+
+    Earlier versions also had .carousel__viewport (which only set
+    width: 100%, something a block element already does) and
+    .carousel__slide-inner (which only set padding, now on the slide
+    itself). Both were removed - a wrapper that sets one property a
+    parent already provides is markup a developer has to read, copy,
+    and maintain for nothing.
+
+    The one thing that separation would have bought: with a third
+    element, .carousel could be overflow: visible and the inner one
+    could clip, letting arrows sit OUTSIDE the frame in the page
+    gutter. The current addon puts them inside, over the image, so
+    nothing needs to escape. If an arrows-outside variant is ever
+    wanted, that addon reintroduces the wrapper and documents it -
+    the same way gallery-book-addon.css adds what it needs rather
+    than the base carrying it for everyone.
+
+  Scroll-snap is not covered by the blanket reduced-motion rule in
+  reset.css, which only stops transitions and animations. Smooth
+  scrolling is neither, so .carousel__track guards itself below.
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+  .carousel {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .carousel__track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* Stops a swipe that reaches the last slide from continuing on to
+       scroll the page (or a parent scroller) behind it. */
+    overscroll-behavior-inline: contain;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__track { scroll-behavior: auto; }
+  }
+
+  /*
+    --carousel-slide-size controls how much of the track one slide
+    takes. Set it on the .carousel (or on :root for every carousel):
+
+      --carousel-slide-size: 100%;          one slide at a time
+      --carousel-slide-size: 50%;           two side by side
+      --carousel-slide-size: min(80%, 24rem);  peek at the next one
+
+    Left at the 100% default this behaves exactly as before, so
+    nothing that already uses the carousel changes.
+  */
+  .carousel__slide {
+    flex: 0 0 var(--carousel-slide-size, 100%);
+    scroll-snap-align: center;
+    /* A fast flick would otherwise skip several full-width slides at
+       once. This makes each one a hard stop. */
+    scroll-snap-stop: always;
+    padding: var(--space-6);
+  }
+
+  .carousel__media {
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .carousel__media-trigger {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .carousel__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel__copy h2,
+  .carousel__copy h3 {
+    margin-block-end: var(--space-2);
+    color: var(--color-text);
+  }
+
+  .carousel__copy p {
+    color: var(--color-muted);
+  }
+
+  /* A quotation is one of the things a slide can hold, not what a slide
+     is. Styled here so the base looks right when it is used, but the
+     anatomy above does not require it. */
+  .carousel__copy blockquote {
+    margin: 0;
+  }
+
+  .carousel__attribution {
+    margin-block-start: var(--space-4);
+    color: var(--color-muted);
+  }
+}
