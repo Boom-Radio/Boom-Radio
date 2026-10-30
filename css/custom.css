@@ -369,13 +369,15 @@
   
   /* .btn-general for all buttons, then include an additional class for colors from below */
   .btn-general {
-      --px: 0.8rem;
+      --px: 1.5rem;
       --py: 0.65rem;
-      padding: var(--py) var(--px);
+      --squish: 2px;
+      /* padding: var(--py) var(--px); */
+      padding-block: var(--py);
+      padding-inline: var(--px);
       --btn-shadow: transparent;
       display: inline-flex;
       align-items: center;
-      padding-inline: var(--space-8);
       gap: 10px;
       text-decoration: none;
       border-radius: 999px;
@@ -402,10 +404,15 @@
    }
 
    .btn-general:active {
-      transform: translate(3px 3px);
+      transform: translate(3px, 3px);
       filter: drop-shadow(1px 1px 0 var(--btn-shadow));
-      padding: calc(var(--py) - 2px) calc(var(--px) + 2px);
-      margin-inline: -2px;
+      /* padding: calc(var(--py) - 2px) calc(var(--px) + 2px); */
+      /* margin-inline: -2px; */
+      padding-block: calc(var(--py) - var(--squish));
+      padding-inline: calc(var(--px) - var(--squish));
+
+      margin-block: var(--squish);
+      margin-inline: var(--squish);
    }
 
    .btn-general:focus-visible { 
@@ -765,10 +772,6 @@
       margin-top: auto;
       align-self: flex-end;
       font-size: 1.25rem;
-   }
-
-   .site-about__teaser--nav a {
-      padding-inline: var(--space-12);
    }
 
    .about-teaser__img {
