@@ -1,0 +1,53 @@
+/*
+  section-header.css
+  ---------------------------------------------------------------------
+  The eyebrow + title + intro block used to open nearly every section
+  on a page.
+
+  NOTE: .section-header and its parts are used on almost every page,
+  so they are also baked directly into core.css - that copy is what
+  actually renders on any page that only loads core.css. This file
+  exists as a standalone, single-component reference copy only (every
+  component in this project gets one) - it documents which rules
+  belong to this component. Never link it directly: linking core.css
+  already gets you these rules, and linking both would load the same
+  selectors twice.
+
+  Requires: css/reset.css, css/core.css
+
+  HTML STRUCTURE:
+    <header class="section-header">
+      <span class="section-header__eyebrow">Eyebrow</span>
+      <h1 class="section-header__title">Section title</h1>
+      <p class="section-header__intro">One or two sentences of intro copy.</p>
+    </header>
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+  .section-header {
+    --stack-space: var(--space-2);
+    margin-block-end: var(--space-8);
+  }
+
+  .section-header__eyebrow {
+    display: block;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+
+  .section-header__title {
+    font-size: clamp(1.6rem, 1.5rem + 0.35vw, 1.75rem);
+    line-height: 1.1;
+  }
+
+  .section-header__intro {
+    font-size: 1rem;
+    max-width: clamp(32ch, 95vw, var(--container-max));
+    color: var(--color-muted);
+    text-wrap: balance;
+  }
+}

@@ -335,7 +335,9 @@
    h3,
    h4,
    p,
-   span {
+   span, 
+   button,
+   a {
       font-family: Arial, Helvetica, sans-serif;
    }
 
@@ -345,12 +347,34 @@
    h4 {
       font-weight: 600;
    }
+
+   /* SECTION HEADER GLOBAL STYLING - Keeping sizes uniform across pages */
+   .section-header__title {
+      font-size: clamp(3rem, 2rem + 4vw, 5rem);
+   }
+
+   .section-header__intro {
+      font-size: 1.4rem;
+   }
+
+   .badge {
+      transform: rotate(-3deg);
+      font-size: clamp(0.75rem, 0.75rem + 1vw, 1.125rem);
+   }
+
+   .italic {
+      color: var(--color-accent);
+      font-style: italic;
+   }
   
   /* .btn-general for all buttons, then include an additional class for colors from below */
   .btn-general {
-      --px: 0.8rem;
+      --px: 1.5rem;
       --py: 0.65rem;
-      padding: var(--py) var(--px);
+      --squish: 2px;
+      /* padding: var(--py) var(--px); */
+      padding-block: var(--py);
+      padding-inline: var(--px);
       --btn-shadow: transparent;
       display: inline-flex;
       align-items: center;
@@ -380,10 +404,15 @@
    }
 
    .btn-general:active {
-      transform: translate(3px 3px);
+      transform: translate(3px, 3px);
       filter: drop-shadow(1px 1px 0 var(--btn-shadow));
-      padding: calc(var(--py) - 2px) calc(var(--px) + 2px);
-      margin-inline: -2px;
+      /* padding: calc(var(--py) - 2px) calc(var(--px) + 2px); */
+      /* margin-inline: -2px; */
+      padding-block: calc(var(--py) - var(--squish));
+      padding-inline: calc(var(--px) - var(--squish));
+
+      margin-block: var(--squish);
+      margin-inline: var(--squish);
    }
 
    .btn-general:focus-visible { 
@@ -511,6 +540,247 @@
 
    .contact p {
       margin-block-end: var(--space-2);
+   }
+
+   /*------------------- Andrew - Home Page -----------------------*/
+   /* ------------------- HERO ------------------------------------*/
+   .carousel {
+      position: relative;
+      border-radius: 0;
+      background: var(--color-bg);
+      border: none;
+   }
+
+   .carousel__slide {
+      padding: 0;
+   }
+
+   .carousel__media {
+      aspect-ratio: 21 / 9;
+      border: 0;
+      border-radius: 0;
+   }
+
+   .carousel__copy {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-6);
+      background: linear-gradiant(90deg, rgb(0 0 0 / 0.6), transparent 70%);
+      align-items: center;
+      pointer-events: none;
+   }
+
+   .hero {
+      color: var(--color-bg);
+      margin-block: 0;
+      position: relative;
+      overflow: visible;
+   }
+
+   .carousel-autoplay-toggle {
+      display: none;
+   }
+
+   .carousel-control {
+      background: var(--color-bg);
+   }
+
+   .carousel__copy > * {
+      max-width: 40ch;
+      text-shadow:
+         0 1px 2px color-mix(in oklab, var(--color-text) 60%, transparent),
+         0 4px 16px color-mix(in oklab, var(--color-text) 40%, transparent);
+      padding-inline-end: var(--space-12);
+      color: var(--color-text);
+   }
+
+   .carousel__copy a,
+   .carousel__copy button {
+      pointer-events: auto;
+   }
+
+   .hero__content h1 {
+      font-size: 5rem;
+      font-weight: 700;
+   }
+
+   @media (max-width: 40rem) {
+      .carousel__media {
+         aspect-ratio: 4 / 5;
+      }
+
+      .carousel__copy {
+         justify-content: flex-end;
+         background: linear-gradient(0deg, rgba(0 0 0 / 0.7), transparent 70%);
+      }
+
+      .hero__content h1 {
+         font-size: 3rem;
+      }
+   }
+
+   .eq { 
+      display: flex; 
+      gap: 6px; 
+      align-items: flex-end; 
+      height: 44px;
+      justify-content: center;
+   }
+
+   .eq i {
+      width: 9px;
+      height: 100%;
+      border-radius: 5px;
+      background: var(--color-bg);
+      transform-origin: bottom;
+      animation: eq 1s ease-in-out infinite;
+   }
+   .eq i:nth-child(2) { animation-delay: .15s; }
+   .eq i:nth-child(3) { animation-delay: .30s; }
+   .eq i:nth-child(4) { animation-delay: .45s; }
+   .eq i:nth-child(5) { animation-delay: .60s; }
+
+   @keyframes eq {
+      0%, 100% { transform: scaleY(.3); }
+      50%      { transform: scaleY(1); }
+   }
+
+   .wave {
+      width: 100%;
+   }
+
+   /*------------------ PODCAST SECTION - (ANDREW) --------------------*/
+
+   .podcast {
+      background: var(--color-text);
+      margin-block-start: 0;
+      position: relative;
+      margin-block: 1.4rem;
+      z-index: 2;
+   }
+
+
+   .podcast-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: var(--color-bg);
+      gap: var(--space-8);
+   }
+
+   .section-header__podcast {
+      color: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+   }
+
+   .section-header__intro--podcast {
+      color: var(--color-bg);
+      padding-block-start: 2rem;
+   }
+
+   .badge-podcast {
+      border: transparent;
+      color: var(--color-text);
+      background: var(--color-accent__three);
+      /* font-size: clamp(1rem, 1rem + 1vh, 1.5rem); */
+      align-self: flex-start;
+      justify-self: start;
+      width: fit-content;
+   }
+
+   .podcast-img {
+      max-height: auto;
+      width: 40%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      transform: rotate(-3deg);
+      filter: drop-shadow(12px 12px 0 var(--color-accent));
+      border-radius: 50%;
+      overflow: hidden;
+   }
+
+   .podcast-navigation {
+      display: flex;
+      gap: 2rem;
+      margin-top: auto;
+      align-self: flex-start;
+      font-size: 1.25rem;
+   }
+
+   .wave-marquee {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--color-bg);
+      position: absolute;
+      /* bottom: -0.5rem; */
+      bottom: -1.5rem;
+      left: 0;
+      z-index: 1;
+      background: transparent;
+   }
+
+   @media (max-width: 767px) {
+      .wave-marquee {
+         bottom: 0rem;
+      }
+
+      .podcast {
+         margin-block: -0.125rem;
+      }
+   }
+
+   /* ------------------- ABOUT TEASER (Andrew) -----------------------------*/
+   .badge-about__teaser {
+      background: var(--color-accent__two);
+      color: var(--color-text);
+      border: 2px solid var(--color-text);
+
+      align-self: flex-start;
+      justify-self: start;
+      width: fit-content;
+   }
+
+   .section-about__teaser {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-24);
+      flex-direction: row-reverse;
+      padding-block-start: var(--space-16);
+   }
+
+   .header-about__teaser {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .header-about__teaser p {
+      padding-block-end: var(--space-8);
+   }
+
+   .section-about__intro {
+      color: var(--color-text);
+   }
+
+   .site-about__teaser--nav {
+      display: flex;
+      gap: 2rem;
+      margin-top: auto;
+      align-self: flex-end;
+      font-size: 1.25rem;
+   }
+
+   .about-teaser__img {
+      display: block;
+      height: 348px;
+      width: auto;
+      transform: rotate(-3deg);
+      filter: drop-shadow(8px 8px 0 var(--color-accent));
+      border-radius: var(--radius);
    }
 }
 

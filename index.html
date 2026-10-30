@@ -8,9 +8,17 @@
 
     <link rel="stylesheet" href="css/components/header-nav.css">
     <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/components/carousel.css">
+    <link rel="stylesheet" href="css/components/carousel-arrow-addon.css">
+    <link rel="stylesheet" href="css/components/section-header.css">
+    <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
 
     <link rel="stylesheet" href="css/custom.css">
     <title>BOOM Radio</title>
+    <script src="js/carousel-arrow-addon.js" defer></script>
+    <script src="js/carousel-autoplay-addon.js" defer></script>
 </head>
 <body>
     <header class="site-header drawer-right">
@@ -32,6 +40,87 @@
         </div>
     </header>
     <main>
+        <section id="hero" class="hero hero--cycle" aria-labelledby="hero-title">
+        <div class="hero__cycle-layers" aria-hidden="true">
+            <div class="hero__cycle-layer" style="--i: 0; background-image: url('img/mug_boom.png');"></div>
+            <div class="hero__cycle-layer" style="--i: 1; background-image: url('img/boom-black.png');"></div>
+            <div class="hero__cycle-layer" style="--i: 2; background-image: url('img/mug_boom.png');"></div>
+        </div>
+        <header class="hero__content stack">
+            <h1 id="hero-title__home" class="hero__title">NOT JUST NOISE</h1>
+            <!-- wrap nav -->
+            <!-- <a href="#" class="btn btn--primary">Start learning</a> -->
+             <div class="eq" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i>
+            </div>
+        </header>
+        <!-- <label class="hero-cycle-toggle">
+            <input class="hero-cycle-pause" type="checkbox">
+            Pause background motion
+        </label> -->
+        <svg class="wave-marquee" viewBox="0 -50 1440 150" aria-hidden="true">
+            <defs>
+                <path id="wave" d="M-360 50 C -240 90, -120 90, 0 50
+                                C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50
+                                S 1680 10, 1800 50"/>
+            </defs>
+    
+            <!-- dark fill, closed off just below the lowest point of the wave -->
+            <path fill="#180702"
+                    d="M-10 50 L0 50 C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50 L1450 50 L1450 100 L-10 100 Z"/>
+    
+            <!-- ribbon, lifted 22 so it overlaps the dark fill slightly -->
+            <g transform="translate(0 -16)">
+                <use href="#wave" fill="none" stroke="#180702" stroke-width="40"/>
+                <use href="#wave" fill="none" stroke="#F15922" stroke-width="32"/>
+    
+                <text font-size="16" font-weight="700" fill="#180702" dominant-baseline="central"
+                    textLength="2880" lengthAdjust="spacing">
+                <textPath href="#wave" startOffset="0">
+                    <animate attributeName="startOffset" from="0" to="-720" dur="15s" repeatCount="indefinite"/>
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                </textPath>
+                </text>
+            </g>
+        </svg>
+    </section>
+
+
+        <section class="section podcast">
+            <div class="container podcast-content">
+                <header class="section-header section-header__podcast stack">
+                    <span class="badge badge--accent badge--pill badge-podcast">PODCAST</span>
+                    <h1 class="section-header__title section-header__title--podcast">Weekly Podcasts</h1>
+                    <p class="section-header__intro section-header__intro--podcast">One or two sentences of intro copy.
+                        One or two sentences of intro copy.
+                        One or two sentences of intro copy.
+                    </p>
+                    <nav class="podcast-navigation" aria-labelledby="podcast navigation">
+                        <a href="#" class="site-nav__link btn-general btn-accent-light">Listen now <span class="arrow">➜</span></a>
+                        <a href="#" class="site-nav__link btn-general btn-bg">Podcast news <span class="arrow">➜</span></a>
+                    </nav>
+                </header>
+                <img class="podcast-img" src="img/mug_boom.png" alt="podcast feature image">
+            </div>
+        </section>
+
+        <section class="section container section-about__teaser">
+            <header class="section-header stack header-about__teaser">
+                <span class="badge badge--accent badge--pill badge-about__teaser">ABOUT US</span>
+                <h1 class="section-header__title">All Things <span class="italic">BOOM!</span></h1>
+                <p class="section-header__intro section-about__intro">
+                    About us teaser...About us teaser...About us teaser...About us teaser...About us teaser...About us teaser...
+                    About us teaser...About us teaser...About us teaser...About us teaser...
+                </p>
+                <nav class="site-about__teaser--nav" aria-label="home about teaser navigation">
+                    <a class="site-nav__link btn-general btn-accent-dark arrow" href="#">About Us <span class="arrow">➜</span></a>
+                </nav>
+            </header>
+            <img class="about-teaser__img" src="img/boom-logo-black.png" alt="boom logo">
+        </section>
 
     </main>
     <footer class="site-footer">
@@ -67,6 +156,5 @@
             </article>
         </div>
     </footer>
-    <script src="js/carousel-arrow-addon.js"></script>
 </body>
 </html>
