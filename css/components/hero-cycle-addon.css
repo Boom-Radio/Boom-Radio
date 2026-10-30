@@ -133,7 +133,7 @@
 
 @layer components {
   .hero--cycle {
-    --hero-cycle-count: 4;
+    --hero-cycle-count: 3;
     --hero-cycle-duration: 6s;
     position: relative;
     overflow: hidden;
