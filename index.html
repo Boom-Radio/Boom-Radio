@@ -40,30 +40,6 @@
         </div>
     </header>
     <main>
-        <!-- <section class="carousel container" data-carousel-autoplay aria-label="Example content carousel" aria-roledescription="carousel">
-            <button type="button" class="carousel-autoplay-toggle" hidden>Stop auto-advancing</button>
-            <div class="carousel__track" tabindex="0">
-            <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="1 of 3">
-                <figure class="carousel__media"><img src="img/boom-black.png" alt="Logo" loading="lazy"></figure>
-            </article>
-            <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="2 of 3">
-                <figure class="carousel__media"><img src="img/boom-white.png" alt="Logo" loading="lazy"></figure>
-            </article>
-            <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="3 of 3">
-                <figure class="carousel__media"><img src="img/boom-white.png" alt="Logo" loading="lazy"></figure>
-            </article>
-            </div>
-            <div class="carousel__copy stack">
-                <h1>NOT JUST NOISE</h1>
-                <div class="eq" aria-hidden="true">
-                    <i></i><i></i><i></i><i></i><i></i>
-                </div>
-            </div>
-            <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden></div>
-            <button type="button" class="carousel__control carousel__control--prev" aria-label="Previous slide"></button>
-            <button type="button" class="carousel__control carousel__control--next" aria-label="Next slide"></button>
-        </section> -->
-
         <section id="hero" class="hero hero--cycle" aria-labelledby="hero-title">
         <div class="hero__cycle-layers" aria-hidden="true">
             <div class="hero__cycle-layer" style="--i: 0; background-image: url('img/mug_boom.png');"></div>
@@ -78,10 +54,10 @@
                     <i></i><i></i><i></i><i></i><i></i>
             </div>
         </header>
-        <label class="hero-cycle-toggle">
+        <!-- <label class="hero-cycle-toggle">
             <input class="hero-cycle-pause" type="checkbox">
             Pause background motion
-        </label>
+        </label> -->
         <svg class="wave-marquee" viewBox="0 -50 1440 150" aria-hidden="true">
             <defs>
                 <path id="wave" d="M-360 50 C -240 90, -120 90, 0 50
@@ -118,7 +94,10 @@
                 <header class="section-header section-header__podcast stack">
                     <span class="badge badge--accent badge--pill badge-podcast">PODCAST</span>
                     <h1 class="section-header__title section-header__title--podcast">Weekly Podcasts</h1>
-                    <p class="section-header__intro section-header__intro--podcast">One or two sentences of intro copy.</p>
+                    <p class="section-header__intro section-header__intro--podcast">One or two sentences of intro copy.
+                        One or two sentences of intro copy.
+                        One or two sentences of intro copy.
+                    </p>
                     <nav class="podcast-navigation" aria-labelledby="podcast navigation">
                         <a href="#" class="site-nav__link btn-general btn-accent-light">Listen now <span class="arrow">➜</span></a>
                         <a href="#" class="site-nav__link btn-general btn-bg">Podcast news <span class="arrow">➜</span></a>
@@ -129,14 +108,18 @@
         </section>
 
         <section class="section container section-about__teaser">
-            <header class="section-header stack">
+            <header class="section-header stack header-about__teaser">
                 <span class="badge badge--accent badge--pill badge-about__teaser">ABOUT US</span>
-                <h1 class="section-header__title">All Things BOOM!</h1>
-                <p class="section-header__intro section-about__intro">about teaser...</p>
+                <h1 class="section-header__title">All Things <span class="italic">BOOM!</span></h1>
+                <p class="section-header__intro section-about__intro">
+                    About us teaser...About us teaser...About us teaser...About us teaser...About us teaser...About us teaser...
+                    About us teaser...About us teaser...About us teaser...About us teaser...
+                </p>
                 <nav class="site-about__teaser--nav" aria-label="home about teaser navigation">
                     <a class="site-nav__link btn-general btn-accent-dark arrow" href="#">About Us <span class="arrow">➜</span></a>
                 </nav>
             </header>
+            <img class="about-teaser__img" src="img/boom-logo-black.png" alt="boom logo">
         </section>
 
     </main>

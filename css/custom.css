@@ -361,6 +361,11 @@
       transform: rotate(-3deg);
       font-size: clamp(0.75rem, 0.75rem + 1vw, 1.125rem);
    }
+
+   .italic {
+      color: var(--color-accent);
+      font-style: italic;
+   }
   
   /* .btn-general for all buttons, then include an additional class for colors from below */
   .btn-general {
@@ -370,6 +375,7 @@
       --btn-shadow: transparent;
       display: inline-flex;
       align-items: center;
+      padding-inline: var(--space-8);
       gap: 10px;
       text-decoration: none;
       border-radius: 999px;
@@ -564,6 +570,7 @@
       color: var(--color-bg);
       margin-block: 0;
       position: relative;
+      overflow: visible;
    }
 
    .carousel-autoplay-toggle {
@@ -588,8 +595,8 @@
       pointer-events: auto;
    }
 
-   .carousel__copy h1 {
-      font-size: 6rem;
+   .hero__content h1 {
+      font-size: 5rem;
       font-weight: 700;
    }
 
@@ -601,6 +608,10 @@
       .carousel__copy {
          justify-content: flex-end;
          background: linear-gradient(0deg, rgba(0 0 0 / 0.7), transparent 70%);
+      }
+
+      .hero__content h1 {
+         font-size: 3rem;
       }
    }
 
@@ -639,6 +650,9 @@
    .podcast {
       background: var(--color-text);
       margin-block-start: 0;
+      position: relative;
+      margin-block: 1.4rem;
+      z-index: 2;
    }
 
 
@@ -696,10 +710,21 @@
       height: auto;
       background: var(--color-bg);
       position: absolute;
-      bottom: -0.5rem;
+      /* bottom: -0.5rem; */
+      bottom: -1.5rem;
       left: 0;
-      z-index: 2;
+      z-index: 1;
       background: transparent;
+   }
+
+   @media (max-width: 767px) {
+      .wave-marquee {
+         bottom: 0rem;
+      }
+
+      .podcast {
+         margin-block: -0.125rem;
+      }
    }
 
    /* ------------------- ABOUT TEASER (Andrew) -----------------------------*/
@@ -714,7 +739,20 @@
    }
 
    .section-about__teaser {
-      padding-block: var(--space-12) var(--space-4);
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-24);
+      flex-direction: row-reverse;
+      padding-block-start: var(--space-16);
+   }
+
+   .header-about__teaser {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .header-about__teaser p {
+      padding-block-end: var(--space-8);
    }
 
    .section-about__intro {
@@ -723,12 +761,23 @@
 
    .site-about__teaser--nav {
       display: flex;
-      justify-content: flex-end;
-      padding-block-start: var(--space-8);
+      gap: 2rem;
+      margin-top: auto;
+      align-self: flex-end;
+      font-size: 1.25rem;
    }
 
    .site-about__teaser--nav a {
       padding-inline: var(--space-12);
+   }
+
+   .about-teaser__img {
+      display: block;
+      height: 348px;
+      width: auto;
+      transform: rotate(-3deg);
+      filter: drop-shadow(8px 8px 0 var(--color-accent));
+      border-radius: var(--radius);
    }
 }
 
