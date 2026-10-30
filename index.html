@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/components/carousel-arrow-addon.css">
     <link rel="stylesheet" href="css/components/section-header.css">
     <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
 
     <link rel="stylesheet" href="css/custom.css">
     <title>BOOM Radio</title>
@@ -38,7 +40,7 @@
         </div>
     </header>
     <main>
-        <section class="carousel section container" data-carousel-autoplay aria-label="Example content carousel" aria-roledescription="carousel">
+        <!-- <section class="carousel container" data-carousel-autoplay aria-label="Example content carousel" aria-roledescription="carousel">
             <button type="button" class="carousel-autoplay-toggle" hidden>Stop auto-advancing</button>
             <div class="carousel__track" tabindex="0">
             <article class="carousel__slide grid items-center" aria-roledescription="slide" aria-label="1 of 3">
@@ -60,25 +62,43 @@
             <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden></div>
             <button type="button" class="carousel__control carousel__control--prev" aria-label="Previous slide"></button>
             <button type="button" class="carousel__control carousel__control--next" aria-label="Next slide"></button>
-        </section>
+        </section> -->
 
+        <section id="hero" class="hero hero--cycle" aria-labelledby="hero-title">
+        <div class="hero__cycle-layers" aria-hidden="true">
+            <div class="hero__cycle-layer" style="--i: 0; background-image: url('img/mug_boom.png');"></div>
+            <div class="hero__cycle-layer" style="--i: 1; background-image: url('img/boom-white.png');"></div>
+            <div class="hero__cycle-layer" style="--i: 2; background-image: url('img/mug_boom.png');"></div>
+        </div>
+        <header class="hero__content stack">
+            <h1 id="hero-title__home" class="hero__title">NOT JUST NOISE</h1>
+            <!-- wrap nav -->
+            <!-- <a href="#" class="btn btn--primary">Start learning</a> -->
+             <div class="eq" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i>
+            </div>
+        </header>
+        <label class="hero-cycle-toggle">
+            <input class="hero-cycle-pause" type="checkbox">
+            Pause background motion
+        </label>
         <svg class="wave-marquee" viewBox="0 -50 1440 150" aria-hidden="true">
             <defs>
                 <path id="wave" d="M-360 50 C -240 90, -120 90, 0 50
                                 C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50
                                 S 1680 10, 1800 50"/>
             </defs>
-
+    
             <!-- dark fill, closed off just below the lowest point of the wave -->
             <path fill="#180702"
                     d="M-10 50 L0 50 C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50 L1450 50 L1450 100 L-10 100 Z"/>
-
+    
             <!-- ribbon, lifted 22 so it overlaps the dark fill slightly -->
-            <g transform="translate(0 -22)">
-                <use href="#wave" fill="none" stroke="#180702" stroke-width="50"/>
-                <use href="#wave" fill="none" stroke="#F2551F" stroke-width="44"/>
-
-                <text font-size="22" font-weight="700" fill="#180702" dominant-baseline="central"
+            <g transform="translate(0 -16)">
+                <use href="#wave" fill="none" stroke="#180702" stroke-width="40"/>
+                <use href="#wave" fill="none" stroke="#F15922" stroke-width="32"/>
+    
+                <text font-size="16" font-weight="700" fill="#180702" dominant-baseline="central"
                     textLength="2880" lengthAdjust="spacing">
                 <textPath href="#wave" startOffset="0">
                     <animate attributeName="startOffset" from="0" to="-720" dur="15s" repeatCount="indefinite"/>
@@ -90,6 +110,8 @@
                 </text>
             </g>
         </svg>
+    </section>
+
 
         <section class="section podcast">
             <div class="container podcast-content">
@@ -104,6 +126,17 @@
                 </header>
                 <img class="podcast-img" src="img/mug_boom.png" alt="podcast feature image">
             </div>
+        </section>
+
+        <section class="section container section-about__teaser">
+            <header class="section-header stack">
+                <span class="badge badge--accent badge--pill badge-about__teaser">ABOUT US</span>
+                <h1 class="section-header__title">All Things BOOM!</h1>
+                <p class="section-header__intro section-about__intro">about teaser...</p>
+                <nav class="site-about__teaser--nav" aria-label="home about teaser navigation">
+                    <a class="site-nav__link btn-general btn-accent-dark arrow" href="#">About Us <span class="arrow">➜</span></a>
+                </nav>
+            </header>
         </section>
 
     </main>

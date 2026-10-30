@@ -359,6 +359,7 @@
 
    .badge {
       transform: rotate(-3deg);
+      font-size: clamp(0.75rem, 0.75rem + 1vw, 1.125rem);
    }
   
   /* .btn-general for all buttons, then include an additional class for colors from below */
@@ -529,6 +530,7 @@
    }
 
    /*------------------- Andrew - Home Page -----------------------*/
+   /* ------------------- HERO ------------------------------------*/
    .carousel {
       position: relative;
       border-radius: 0;
@@ -556,6 +558,12 @@
       background: linear-gradiant(90deg, rgb(0 0 0 / 0.6), transparent 70%);
       align-items: center;
       pointer-events: none;
+   }
+
+   .hero {
+      color: var(--color-bg);
+      margin-block: 0;
+      position: relative;
    }
 
    .carousel-autoplay-toggle {
@@ -597,14 +605,18 @@
    }
 
    .eq { 
-      display: flex; gap: 6px; align-items: flex-end; height: 44px; 
+      display: flex; 
+      gap: 6px; 
+      align-items: flex-end; 
+      height: 44px;
+      justify-content: center;
    }
 
    .eq i {
       width: 9px;
       height: 100%;
       border-radius: 5px;
-      background: #1C0B07;
+      background: var(--color-bg);
       transform-origin: bottom;
       animation: eq 1s ease-in-out infinite;
    }
@@ -622,10 +634,13 @@
       width: 100%;
    }
 
+   /*------------------ PODCAST SECTION - (ANDREW) --------------------*/
+
    .podcast {
       background: var(--color-text);
-      margin-block-start: -2px;
+      margin-block-start: 0;
    }
+
 
    .podcast-content {
       display: flex;
@@ -650,7 +665,7 @@
       border: transparent;
       color: var(--color-text);
       background: var(--color-accent__three);
-      font-size: clamp(1rem, 1rem + 1vh, 1.5rem);
+      /* font-size: clamp(1rem, 1rem + 1vh, 1.5rem); */
       align-self: flex-start;
       justify-self: start;
       width: fit-content;
@@ -680,6 +695,40 @@
       width: 100%;
       height: auto;
       background: var(--color-bg);
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      z-index: 2;
+      background: transparent;
+   }
+
+   /* ------------------- ABOUT TEASER (Andrew) -----------------------------*/
+   .badge-about__teaser {
+      background: var(--color-accent__two);
+      color: var(--color-text);
+      border: 2px solid var(--color-text);
+
+      align-self: flex-start;
+      justify-self: start;
+      width: fit-content;
+   }
+
+   .section-about__teaser {
+      padding-block: var(--space-12) var(--space-4);
+   }
+
+   .section-about__intro {
+      color: var(--color-text);
+   }
+
+   .site-about__teaser--nav {
+      display: flex;
+      justify-content: flex-end;
+      padding-block-start: var(--space-8);
+   }
+
+   .site-about__teaser--nav a {
+      padding-inline: var(--space-12);
    }
 }
 
