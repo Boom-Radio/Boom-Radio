@@ -66,6 +66,10 @@
     --color-accent__two: #FF8FC4;
     --color-accent__three: #FFC72C;
 
+    --radio-size: 80px;
+    --radio-gap: 16px;
+    --radio-edge: 20px;
+
 
     /* Light (forces light for every visitor, regardless of their own
        OS setting - use the automatic version below instead if you'd
@@ -329,6 +333,116 @@
 
 @layer components {
 
+   /* ----------- RADIO PLAYER ----------- */
+   /* Floating button */
+   #radio-toggle {
+      position: fixed;
+      right: var(--radio-edge);
+      bottom: var(--radio-edge);
+      z-index: 9999;
+      width: var(--radio-size);
+      height: var(--radio-size);
+      padding: 0;
+      display: grid;
+      place-items: center;
+      border: 4px solid var(--color-bg);
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: var(--color-bg);
+      cursor: pointer;
+      box-shadow: 0 6px 0 var(--color-text);
+      transition: transform .15s, box-shadow .15s;
+   }
+
+   #radio-toggle svg { width: 26px; height: 26px; grid-area: 1 / 1; }
+   #radio-toggle .icon-close { display: none; }
+   #radio-toggle.is-open .icon-headphones { display: none; }
+   #radio-toggle.is-open .icon-close { display: block; }
+
+   #radio-toggle:hover {
+      transform: translateY(-2px) rotate(-6deg) scale(1.06);
+   }
+
+   #radio-toggle:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 var(--color-text);
+   }
+
+   #radio-toggle:focus-visible {
+      outline: 3px solid var(--color-text);
+      outline-offset: 4px;
+   }
+
+   #radio-toggle::before,
+   #radio-toggle::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--color-accent);
+      pointer-events: none;
+      opacity: 0;
+      will-change: transform, opacity;
+      animation: radio-pulse 3s cubic-bezier(.22, .61, .36, 1) infinite;
+   }
+
+   /* second ring, offset, for a continuous ripple */
+   #radio-toggle::after {
+      animation-delay: 1.5s;
+   }
+
+   #radio-toggle.is-open::before,
+   #radio-toggle.is-open::after {
+      animation: none;
+   }
+
+   @keyframes radio-pulse {
+      0%   { transform: scale(1);   opacity: 0;   }
+      15%  {                        opacity: .55; }
+      70%  { transform: scale(1.6); opacity: 0;   }
+      100% { transform: scale(1.6); opacity: 0;   }  /* short rest before the next pulse */
+   }
+
+   /* Popout panel, sits ABOVE the button */
+   #radio-panel {
+      position: fixed;
+      right: var(--radio-edge);
+      bottom: calc(var(--radio-edge) + var(--radio-size) + var(--radio-gap) + 6px);
+      z-index: 9998;
+      width: 320px;
+      max-width: calc(100vw - (var(--radio-edge) * 2));
+      height: 100px;
+      background: var(--color-bg);
+      border: 3px solid var(--color-bg);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 0 var(--color-text);
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+   }
+
+   #radio-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+   }
+
+   #radio-panel iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+   }
+
+   @media (prefers-reduced-motion: reduce) {
+      #radio-toggle,
+      #radio-panel { transition: none; }
+      #radio-toggle::after { animation: none; }
+   }
+
    /*  Arial fonts to be used as per styleguide, weight can be adjusted overall for headings as we see fit, just added placeholder value for now.  */
    h1,
    h2,
@@ -346,6 +460,10 @@
    h3,
    h4 {
       font-weight: 600;
+   }
+
+   main {
+      background: var(--color-bg);
    }
 
    /* SECTION HEADER GLOBAL STYLING - Keeping sizes uniform across pages */
