@@ -336,7 +336,8 @@
    h4,
    p,
    span, 
-   button {
+   button,
+   a {
       font-family: Arial, Helvetica, sans-serif;
    }
 
@@ -345,6 +346,19 @@
    h3,
    h4 {
       font-weight: 600;
+   }
+
+   /* SECTION HEADER GLOBAL STYLING - Keeping sizes uniform across pages */
+   .section-header__title {
+      font-size: clamp(3rem, 2rem + 4vw, 5rem);
+   }
+
+   .section-header__intro {
+      font-size: 1.4rem;
+   }
+
+   .badge {
+      transform: rotate(-3deg);
    }
   
   /* .btn-general for all buttons, then include an additional class for colors from below */
@@ -610,6 +624,55 @@
 
    .podcast {
       background: var(--color-text);
+      margin-block-start: -2px;
+   }
+
+   .podcast-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: var(--color-bg);
+      gap: var(--space-8);
+   }
+
+   .section-header__podcast {
+      color: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+   }
+
+   .section-header__intro--podcast {
+      color: var(--color-bg);
+      padding-block-start: 2rem;
+   }
+
+   .badge-podcast {
+      border: transparent;
+      color: var(--color-text);
+      background: var(--color-accent__three);
+      font-size: clamp(1rem, 1rem + 1vh, 1.5rem);
+      align-self: flex-start;
+      justify-self: start;
+      width: fit-content;
+   }
+
+   .podcast-img {
+      max-height: auto;
+      width: 40%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      transform: rotate(-3deg);
+      filter: drop-shadow(12px 12px 0 var(--color-accent));
+      border-radius: 50%;
+      overflow: hidden;
+   }
+
+   .podcast-navigation {
+      display: flex;
+      gap: 2rem;
+      margin-top: auto;
+      align-self: flex-start;
+      font-size: 1.25rem;
    }
 
    .wave-marquee {
