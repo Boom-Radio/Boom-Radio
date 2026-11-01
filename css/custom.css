@@ -662,7 +662,7 @@
 
    /*------------------- Andrew - Home Page -----------------------*/
    /* ------------------- HERO ------------------------------------*/
-   .carousel {
+   /* .carousel {
       position: relative;
       border-radius: 0;
       background: var(--color-bg);
@@ -689,7 +689,7 @@
       background: linear-gradiant(90deg, rgb(0 0 0 / 0.6), transparent 70%);
       align-items: center;
       pointer-events: none;
-   }
+   } */
 
    .hero {
       color: var(--color-bg);
@@ -698,7 +698,7 @@
       overflow: visible;
    }
 
-   .carousel-autoplay-toggle {
+   /* .carousel-autoplay-toggle {
       display: none;
    }
 
@@ -718,7 +718,7 @@
    .carousel__copy a,
    .carousel__copy button {
       pointer-events: auto;
-   }
+   } */
 
    .hero__content h1 {
       font-size: 5rem;
@@ -726,14 +726,14 @@
    }
 
    @media (max-width: 40rem) {
-      .carousel__media {
+      /* .carousel__media {
          aspect-ratio: 4 / 5;
       }
 
       .carousel__copy {
          justify-content: flex-end;
          background: linear-gradient(0deg, rgba(0 0 0 / 0.7), transparent 70%);
-      }
+      } */
 
       .hero__content h1 {
          font-size: 3rem;
