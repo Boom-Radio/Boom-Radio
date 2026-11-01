@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Boom Radio brings you the greatest hits, live shows, podcasts, news, and entertainment. Listen online anytime and enjoy classic boom.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+
+    <link rel="stylesheet" href="css/components/header-nav.css">
+    <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/components/carousel.css">
+    <link rel="stylesheet" href="css/components/carousel-arrow-addon.css">
+    <link rel="stylesheet" href="css/components/carousel-autoplay-addon.css">
+    <link rel="stylesheet" href="css/components/section-header.css">
+    <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
+    <link rel="stylesheet" href="css/components/gallery.css">
+
+    <link rel="stylesheet" href="css/components/form-extended.css">
+    <link rel="stylesheet" href="css/components/breadcrumb.css">
+    <link rel="stylesheet" href="css/components/tabs.css">
+    <link rel="stylesheet" href="css/components/result-card.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/placeholder-tile.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <title>BOOM Radio</title>
+    <script src="js/carousel-arrow-addon.js" defer></script>
+    <script src="js/carousel-autoplay-addon.js" defer></script>
+    <script src="js/radio.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header drawer-right">
+        <div class="site-header__inner container">
+            <a href="#" class="site-header__brand">
+                <img src="img/boom-black.png" alt="Site Logo">
+            </a>
+            <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Menu">
+                <span aria-hidden="true">☰</span>
+                <span class="visually-hidden">Menu</span>
+            </button>
+            <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+                <a href="#" class="site-nav__link">Home</a>
+                <a href="#" class="site-nav__link">Hosts</a>
+                <a href="#" class="site-nav__link">About</a>
+                <a href="#" class="site-nav__link">News</a>
+                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air:
+                    Listen Live</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main" class="container section stack">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol class="breadcrumb__list">
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html">Home</a></li>
+                <li class="breadcrumb__item" aria-current="page">Schedule</li>
+            </ol>
+        </nav>
+
+        <header class="section-header stack">
+            <span class="badge badge--accent badge--pill badge-podcast">2026 LINEUP</span>
+            <h1 class="section-header__title">Show <span class="italic">Schedule</span></h1>
+            <p class="section-header__intro">Check out our show schedule and never miss your favourite programs.</p>
+        </header>
+
+        <section class="tabs">
+            <div class="tabs__list" role="radiogroup" aria-label="Event categories">
+                <input type="radio" name="event-tabs" id="tab-1" class="tabs__input" checked>
+                <label class="tabs__label" for="tab-1">MON</label>
+
+                <input type="radio" name="event-tabs" id="tab-2" class="tabs__input">
+                <label class="tabs__label" for="tab-2">TUE</label>
+
+                <input type="radio" name="event-tabs" id="tab-3" class="tabs__input">
+                <label class="tabs__label" for="tab-3">WED</label>
+
+                <input type="radio" name="event-tabs" id="tab-4" class="tabs__input">
+                <label class="tabs__label" for="tab-3">THU</label>
+
+                <input type="radio" name="event-tabs" id="tab-5" class="tabs__input">
+                <label class="tabs__label" for="tab-3">FRI</label>
+
+                <input type="radio" name="event-tabs" id="tab-6" class="tabs__input">
+                <label class="tabs__label" for="tab-3">SAT</label>
+            </div>
+
+            <div class="tabs__panels">
+                <section class="tabs__panel stack ">
+                    <section class="carousel schedule--carousel" data-carousel-autoplay
+                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
+                            auto-advancing</button>
+                        <div class="carousel__track" tabindex="0">
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/MONDAY_BREKKIE.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 AM - 10:00
+                                        AM</span>
+                                    <h2 class="section-header__title">
+                                        Monday Brekkie</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Big Brekkie with Harry and Janelle.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn btn--secondary btn--sm schedule--carousel__btn">
+                                                Follow ↗
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="2 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/MONDAY_BREKKIE.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <h2>Pots</h2>
+                                    <blockquote>
+                                        <p>A collection of terracotta and clay, glazed, concrete and stone pots. They
+                                            come in
+                                            sets or individual varying sizes.</p>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="3 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/MONDAY_BREKKIE.png"
+                                        alt="garden gifts" loading="lazy"></figure>
+                                <div class="carousel__copy stack">
+                                    <h2>Gifts</h2>
+                                    <blockquote>
+                                        <div>
+                                            <div class="result-card__title">Author Talk: Local Voices</div>
+                                            <div class="result-card__meta">Wednesday, August 13, 6:00 PM · Main Branch,
+                                                Community Room
+                                            </div>
+                                            <div class="result-card__desc">Three Fernwood County authors read from and
+                                                discuss their
+                                                recent work.</div>
+                                        </div>
+                                    </blockquote>
+                                    <div class="result-card__actions">
+                                        <button type="button" class="btn btn--secondary btn--sm">Register</button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden>
+                        </div>
+                        <button type="button" class="carousel__control carousel__control--prev"
+                            aria-label="Previous slide"></button>
+                        <button type="button" class="carousel__control carousel__control--next"
+                            aria-label="Next slide"></button>
+                    </section>
+                </section>
+
+                <section class="tabs__panel stack">
+                    <article class="result-card">
+                        <div class="result-card__thumb placeholder-tile" aria-hidden="true"
+                            style="--placeholder-size: 1.5rem;">🎤</div>
+                        <div>
+                            <div class="result-card__title">Author Talk: Local Voices</div>
+                            <div class="result-card__meta">Wednesday, August 13, 6:00 PM · Main Branch, Community Room
+                            </div>
+                            <div class="result-card__desc">Three Fernwood County authors read from and discuss their
+                                recent work.</div>
+                        </div>
+                        <div class="result-card__actions">
+                            <button type="button" class="btn btn--secondary btn--sm">Register</button>
+                        </div>
+                    </article>
+                    <article class="result-card">
+                        <div class="result-card__thumb placeholder-tile" aria-hidden="true"
+                            style="--placeholder-size: 1.5rem;">🔎</div>
+                        <div>
+                            <div class="result-card__title">Mystery Book Club</div>
+                            <div class="result-card__meta">Thursday, August 14, 6:30 PM · Riverside Branch</div>
+                            <div class="result-card__desc">This month: "Harbor Lights" by Dev Whitfield. New members
+                                always welcome.</div>
+                        </div>
+                        <div class="result-card__actions">
+                            <button type="button" class="btn btn--secondary btn--sm">Learn More</button>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="tabs__panel stack">
+                    <article class="result-card">
+                        <div class="result-card__thumb placeholder-tile" aria-hidden="true"
+                            style="--placeholder-size: 1.5rem;">💻</div>
+                        <div>
+                            <div class="result-card__title">Intro to Computers</div>
+                            <div class="result-card__meta">Saturday, August 16, 1:00 PM · Eastside Branch</div>
+                            <div class="result-card__desc">A beginner-friendly session covering the basics - email, web
+                                browsing, and file storage.</div>
+                        </div>
+                        <div class="result-card__actions">
+                            <button type="button" class="btn btn--secondary btn--sm">Register</button>
+                        </div>
+                    </article>
+                    <article class="result-card">
+                        <div class="result-card__thumb placeholder-tile" aria-hidden="true"
+                            style="--placeholder-size: 1.5rem;">📝</div>
+                        <div>
+                            <div class="result-card__title">Resume Writing Workshop</div>
+                            <div class="result-card__meta">Monday, August 18, 5:30 PM · Main Branch, Meeting Room A
+                            </div>
+                            <div class="result-card__desc">Bring a current resume or start from scratch - one-on-one
+                                help available.</div>
+                        </div>
+                        <div class="result-card__actions">
+                            <button type="button" class="btn btn--secondary btn--sm">Register</button>
+                        </div>
+                    </article>
+                </section>
+            </div><!-- /.tabs__panels -->
+        </section>
+        <section class="container section stack" aria-labelledby="featured-title">
+            <header class="section-header stack">
+                <span class="badge badge--accent badge--pill badge-podcast">BEHIND THE MIC</span>
+                <h2 class="section-header__title">Our <span class="italic">Presenters</span></h2>
+                <p class="section-header__intro">Meet the voices behind Boom Radio!</p>
+            </header>
+            <ul class="media-gallery media-gallery--card" style="--thumb-min: 13rem;">
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/caitlyn.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Caitlyn</h2>
+                            <p>Presenter</p>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <img src="img/ig.svg" class="presenter-icon" alt="instagram logo">
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/janelle.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Janelle</h2>
+                            <p>Presenter</p>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <img src="img/ig.svg" class="presenter-icon" alt="instagram logo">
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/em.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Em</h2>
+                            <p>Presenter</p>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <img src="img/ig.svg" class="presenter-icon" alt="instagram logo">
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/angus.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Angus</h2>
+                            <p>Presenter</p> <a href="https://www.instagram.com/boomradioau/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="img/ig.svg" class="presenter-icon" alt="instagram logo">
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/em.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Em</h2>
+                            <p>Presenter</p>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <img src="img/ig.svg" class="presenter-icon" alt="instagram logo">
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+
+
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container site-footer__content cluster">
+            <section class="footer-block stack">
+                <img class="site-footer__logo" src="img/boom-white.png" alt="Site logo">
+                <p class="site-footer__copyright">&copy; 2026 Boom Radio. All rights reserved.</p>
+            </section>
+            <section class="footer-block stack">
+                <h3>USEFUL LINKS</h3>
+                <nav class="site-footer__nav" aria-labelledby="Footer navigation">
+                    <a href="#">Home</a>
+                    <a href="#">Hosts and Schedule</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Latest News</a>
+                </nav>
+            </section>
+            <section class="footer-block stack">
+                <h3>FOLLOW US</h3>
+                <nav class="site-footer__nav" aria-label="Footer navigation">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </nav>
+            </section>
+            <article class="footer-block stack">
+                <h3>CONTACT DETAILS</h3>
+                <section class="contact">
+                    <p>boomradioau@gmail.com</p>
+                    <p>9443 2236</p>
+                    <p>Leederville, Perth (WA)</p>
+                </section>
+            </article>
+        </div>
+        <button id="radio-toggle" type="button" aria-label="Open radio player" aria-expanded="false"
+            aria-controls="radio-panel">
+            <svg class="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 15v-3a8 8 0 0 1 16 0v3" />
+                <rect x="3" y="14" width="4" height="7" rx="1.5" fill="currentColor" />
+                <rect x="17" y="14" width="4" height="7" rx="1.5" fill="currentColor" />
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+        </button>
+
+        <div id="radio-panel" aria-hidden="true">
+            <iframe data-src="https://tunein.com/embed/player/s195836/?autoplay=true" title="BOOM Radio live player"
+                allow="autoplay"></iframe>
+        </div>
+    </footer>
+</body>
+
+</html>

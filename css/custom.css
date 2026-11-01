@@ -35,9 +35,9 @@
 
 
 @layer tokens {
-  :root {
+   :root {
 
-    /* ===================================================================
+      /* ===================================================================
        QUICK REFERENCE - the tokens most projects touch
 
        Everything below is commented out - the framework already has
@@ -45,7 +45,7 @@
        the value, save, reload.
        =================================================================== */
 
-    /* --- Base theme: background, text, light vs. dark ------------------
+      /* --- Base theme: background, text, light vs. dark ------------------
        Change --color-bg and --color-text together with color-scheme -
        --color-surface, --color-border, and every other derived tone
        recalculate from them automatically. Two static starting points
@@ -55,45 +55,50 @@
        for everyone - see the very end of this file, right after this
        :root block closes, for that version instead. */
 
-    /* Dark (the current default, shown for reference): */
-    /* --color-bg:   #020617; */
-    /* --color-text: #e5e7eb; */
-    /* color-scheme: dark;    */
+      /* Dark (the current default, shown for reference): */
+      /* --color-bg:   #020617; */
+      /* --color-text: #e5e7eb; */
+      /* color-scheme: dark;    */
 
-    --color-bg: #FDFBDD;
-    --color-text: #180702;
-    --color-accent: #F15922;
-    --color-accent__two: #FF8FC4;
-    --color-accent__three: #FFC72C;
+      --color-bg: #FDFBDD;
+      --color-text: #180702;
+      --color-accent: #F15922;
+      --color-accent__two: #FF8FC4;
+      --color-accent__three: #FFC72C;
 
-    --radio-size: 80px;
-    --radio-gap: 16px;
-    --radio-edge: 20px;
+      --radio-size: 80px;
+      --radio-gap: 16px;
+      --radio-edge: 20px;
+
+      --text-spacing__sml: -0.02em;
+      /* For small text such as eyebrow and block texts */
+      --text-spacing__big: -0.06em;
+      /* For headers and titles */
 
 
-    /* Light (forces light for every visitor, regardless of their own
+      /* Light (forces light for every visitor, regardless of their own
        OS setting - use the automatic version below instead if you'd
        rather follow the visitor's own preference): */
-    /* --color-bg:   #f8fafc; */
-    /* --color-text: #0f172a; */
-    /* color-scheme: light;   */
+      /* --color-bg:   #f8fafc; */
+      /* --color-text: #0f172a; */
+      /* color-scheme: light;   */
 
-    /* --- Brand accent -----------------------------------------------
+      /* --- Brand accent -----------------------------------------------
        Override --color-accent-seed to rebrand - --color-accent-default
        recalculates automatically and everything using --color-accent
        updates with it. Override --color-accent directly instead to
        bypass the seed system entirely. */
-    /* --color-accent-seed: #8b5cf6; */
-    /* --color-accent:      #8b5cf6; */
-    /* --color-on-accent:   #ffffff; */
+      /* --color-accent-seed: #8b5cf6; */
+      /* --color-accent:      #8b5cf6; */
+      /* --color-on-accent:   #ffffff; */
 
-    /* --- Status colours - override in custom.css if needed ---------- */
-    /* --color-error:   #fca5a5; */
-    /* --color-success: #86efac; */
-    /* --color-warning: #fde68a; */
-    /* --color-info:    #93c5fd; */
+      /* --- Status colours - override in custom.css if needed ---------- */
+      /* --color-error:   #fca5a5; */
+      /* --color-success: #86efac; */
+      /* --color-warning: #fde68a; */
+      /* --color-info:    #93c5fd; */
 
-    /* --- Hero  (requires css/components/hero.css) -------------------
+      /* --- Hero  (requires css/components/hero.css) -------------------
        --hero-text is the ONE colour to change per photo - the muted
        subtitle tone, overlay tint, and text shadow all derive from it
        via color-mix(). A commented-out upgrade in hero.css can make
@@ -109,29 +114,29 @@
        OTHER than that default: push it further toward pure black for
        a moodier look, or toward white if you're deliberately pairing
        a bright hero with dark --hero-text instead. */
-    /* --hero-image:          url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"); */
-    /* --hero-image-position: center;  */
-    /* --hero-text:           #ffffff; */
-    /* --hero-shade:          black; */
+      /* --hero-image:          url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"); */
+      /* --hero-image-position: center;  */
+      /* --hero-text:           #ffffff; */
+      /* --hero-shade:          black; */
 
-    /* --- Shape & spacing ---------------------------------------------
+      /* --- Shape & spacing ---------------------------------------------
        --space-unit scales the ENTIRE spacing system at once - every
        --space-* token is calc(--space-unit * N). */
-    /* --radius:     14px;  */
-    /* --radius-lg:  22px;  */
-    /* --space-unit: 0.25rem; */
+      /* --radius:     14px;  */
+      /* --radius-lg:  22px;  */
+      /* --space-unit: 0.25rem; */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        LAYOUT
     ----------------------------------------------------------------- */
-    /* --container-max:    72rem;  */
-    /* --content-max:      68ch;   */
-    /* --hero-content-max: 52rem;  */
-    /* --max-w-narrow:     52rem;  */
+      /* --container-max:    72rem;  */
+      /* --content-max:      68ch;   */
+      /* --hero-content-max: 52rem;  */
+      /* --max-w-narrow:     52rem;  */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        CORE COLOURS - fine-tuning
 
        --color-bg, --color-text, and the accent tokens (the levers that
@@ -141,46 +146,46 @@
        value isn't right for a specific case.
     ----------------------------------------------------------------- */
 
-    /* The background for cards, accordions, and panels sitting on top
+      /* The background for cards, accordions, and panels sitting on top
        of the page background - the standard "raised surface" tone. */
-    /* --color-surface: #111827; */
+      /* --color-surface: #111827; */
 
-    /* One step further "up" than --color-surface - dialogs, badges,
+      /* One step further "up" than --color-surface - dialogs, badges,
        and dropdown panels use this instead, so they read as sitting
        above regular cards, not at the same level. */
-    /* --color-elevated: #1f2937; */
+      /* --color-elevated: #1f2937; */
 
-    /* De-emphasised text - captions, helper text, timestamps,
+      /* De-emphasised text - captions, helper text, timestamps,
        subtitles. Applied via .text-muted or directly by components. */
-    /* --color-muted: rgb(229 231 235 / 0.72); */
+      /* --color-muted: rgb(229 231 235 / 0.72); */
 
-    /* The standard 1px hairline used for card outlines and dividers
+      /* The standard 1px hairline used for card outlines and dividers
        between sections. */
-    /* --color-border: rgb(229 231 235 / 0.18); */
+      /* --color-border: rgb(229 231 235 / 0.18); */
 
-    /* A more visible border for emphasis - focus/active states,
+      /* A more visible border for emphasis - focus/active states,
        the current item in a breadcrumb, dashed drop-zone outlines.
        Same role as --color-border, just more visible. */
-    /* --color-border-strong: rgb(229 231 235 / 0.35); */
+      /* --color-border-strong: rgb(229 231 235 / 0.35); */
 
-    /* Background tint for hover states on interactive surface
+      /* Background tint for hover states on interactive surface
        elements (table rows, dialog close buttons) - NOT button
        hover, which core.css's .btn--primary/--secondary handle with
        their own color-mix() against --color-accent/--color-surface. */
-    /* --color-hover: color-mix(in oklab, #020617 85%, #8b5cf6); */
+      /* --color-hover: color-mix(in oklab, #020617 85%, #8b5cf6); */
 
-    /* The dark scrim painted behind dialogs, drawers, and the
+      /* The dark scrim painted behind dialogs, drawers, and the
        lightbox - full-screen, sits between the page and the overlay
        content itself. */
-    /* --color-backdrop: rgb(0 0 0 / 0.85); */
+      /* --color-backdrop: rgb(0 0 0 / 0.85); */
 
-    /* The drop shadow under floating elements - currently just the
+      /* The drop shadow under floating elements - currently just the
        dialog box. Independent of --hero-shadow-strong/soft below,
        which shadow HERO TEXT specifically, not a whole element. */
-    /* --shadow-elevated: 0 12px 36px rgb(2 6 23 / 0.5); */
+      /* --shadow-elevated: 0 12px 36px rgb(2 6 23 / 0.5); */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        HERO - fine-tuning  (requires css/components/hero.css)
 
        --hero-text and --hero-shade (the two levers that matter most)
@@ -219,16 +224,16 @@
                         equal to it - see QUICK REFERENCE above for
                         overriding --hero-shade directly instead.
     ----------------------------------------------------------------- */
-    /* --hero-background:    #0b1020;                 */
-    /* --hero-muted:         rgb(255 255 255 / 0.92); */
-    /* --hero-overlay:       rgb(8 15 35 / 0.6);       */
-    /* --hero-shadow-strong: rgb(8 15 35 / 0.5);       */
-    /* --hero-shadow-soft:   rgb(8 15 35 / 0.35);      */
-    /* --hero-text-shadow: 0 2px 6px var(--hero-shadow-strong),
+      /* --hero-background:    #0b1020;                 */
+      /* --hero-muted:         rgb(255 255 255 / 0.92); */
+      /* --hero-overlay:       rgb(8 15 35 / 0.6);       */
+      /* --hero-shadow-strong: rgb(8 15 35 / 0.5);       */
+      /* --hero-shadow-soft:   rgb(8 15 35 / 0.35);      */
+      /* --hero-text-shadow: 0 2px 6px var(--hero-shadow-strong),
                            0 10px 30px var(--hero-shadow-soft);
 						   */
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        NAVIGATION  (requires css/components/header-nav.css)
 
        --nav-height also affects scroll-margin on <section> elements
@@ -262,54 +267,54 @@
          The :has() selectors in header-nav.css detect brand/nav order
          and position the desktop nav correctly for either arrangement.
     ----------------------------------------------------------------- */
-    /* --nav-height:   64px;             */
-    /* --drawer-width: min(86vw, 320px); */
+      /* --nav-height:   64px;             */
+      /* --drawer-width: min(86vw, 320px); */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        MOTION
     ----------------------------------------------------------------- */
-    /* --transition-fast: 0.2s ease; */
-    /* --transition-base: 0.3s ease; */
+      /* --transition-fast: 0.2s ease; */
+      /* --transition-base: 0.3s ease; */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        CAROUSEL  (requires css/components/carousel-arrow-addon.css -
        the base carousel.css alone doesn't consume this token)
     ----------------------------------------------------------------- */
-    /* --carousel-control-size: 44px; */
+      /* --carousel-control-size: 44px; */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        GALLERY  (requires css/components/gallery.css)
 
        --thumb-min sets the minimum width a thumbnail can shrink to
        before the grid wraps to fewer columns - same auto-fit pattern
        as .auto-grid, just scoped to this component.
     ----------------------------------------------------------------- */
-    /* --thumb-min: 12rem; */
+      /* --thumb-min: 12rem; */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        FEEDBACK  (requires css/components/feedback.css)
     ----------------------------------------------------------------- */
-    /* --spinner-size:   2rem;              */
-    /* --spinner-stroke: 3px;               */
-    /* --spinner-color:  var(--color-accent); */
+      /* --spinner-size:   2rem;              */
+      /* --spinner-stroke: 3px;               */
+      /* --spinner-color:  var(--color-accent); */
 
 
-    /* -----------------------------------------------------------------
+      /* -----------------------------------------------------------------
        SHELL / DASHBOARD LAYOUT  (requires css/components/shell.css -
        only relevant if a page uses the admin/dashboard shell rather
        than the marketing-site layout)
     ----------------------------------------------------------------- */
-    /* --sidebar-width: 16rem;  */
-    /* --master-width:  320px;  */
-    /* --filter-width:  260px;  */
+      /* --sidebar-width: 16rem;  */
+      /* --master-width:  320px;  */
+      /* --filter-width:  260px;  */
 
-  }
+   }
 
-  /* ===================================================================
+   /* ===================================================================
      BASE THEME - light, automatically
 
      The automatic alternative to the static "Light" block in QUICK
@@ -321,7 +326,7 @@
      alongside it - both would set the same tokens, and whichever one
      ends up later in the file wins, which defeats "automatic."
      ------------------------------------------------------------------- */
-  /* @media (prefers-color-scheme: light) {
+   /* @media (prefers-color-scheme: light) {
     :root {
       --color-bg:   #f8fafc;
       --color-text: #0f172a;
@@ -354,10 +359,23 @@
       transition: transform .15s, box-shadow .15s;
    }
 
-   #radio-toggle svg { width: 26px; height: 26px; grid-area: 1 / 1; }
-   #radio-toggle .icon-close { display: none; }
-   #radio-toggle.is-open .icon-headphones { display: none; }
-   #radio-toggle.is-open .icon-close { display: block; }
+   #radio-toggle svg {
+      width: 26px;
+      height: 26px;
+      grid-area: 1 / 1;
+   }
+
+   #radio-toggle .icon-close {
+      display: none;
+   }
+
+   #radio-toggle.is-open .icon-headphones {
+      display: none;
+   }
+
+   #radio-toggle.is-open .icon-close {
+      display: block;
+   }
 
    #radio-toggle:hover {
       transform: translateY(-2px) rotate(-6deg) scale(1.06);
@@ -397,10 +415,26 @@
    }
 
    @keyframes radio-pulse {
-      0%   { transform: scale(1);   opacity: 0;   }
-      15%  {                        opacity: .55; }
-      70%  { transform: scale(1.6); opacity: 0;   }
-      100% { transform: scale(1.6); opacity: 0;   }  /* short rest before the next pulse */
+      0% {
+         transform: scale(1);
+         opacity: 0;
+      }
+
+      15% {
+         opacity: .55;
+      }
+
+      70% {
+         transform: scale(1.6);
+         opacity: 0;
+      }
+
+      100% {
+         transform: scale(1.6);
+         opacity: 0;
+      }
+
+      /* short rest before the next pulse */
    }
 
    /* Popout panel, sits ABOVE the button */
@@ -438,9 +472,15 @@
    }
 
    @media (prefers-reduced-motion: reduce) {
+
       #radio-toggle,
-      #radio-panel { transition: none; }
-      #radio-toggle::after { animation: none; }
+      #radio-panel {
+         transition: none;
+      }
+
+      #radio-toggle::after {
+         animation: none;
+      }
    }
 
    /*  Arial fonts to be used as per styleguide, weight can be adjusted overall for headings as we see fit, just added placeholder value for now.  */
@@ -449,7 +489,7 @@
    h3,
    h4,
    p,
-   span, 
+   span,
    button,
    a {
       font-family: Arial, Helvetica, sans-serif;
@@ -469,10 +509,13 @@
    /* SECTION HEADER GLOBAL STYLING - Keeping sizes uniform across pages */
    .section-header__title {
       font-size: clamp(3rem, 2rem + 4vw, 5rem);
+      letter-spacing: var(--text-spacing__big);
    }
 
    .section-header__intro {
       font-size: 1.4rem;
+      letter-spacing: -0.03em;
+      /* sp change*/
    }
 
    .badge {
@@ -484,9 +527,9 @@
       color: var(--color-accent);
       font-style: italic;
    }
-  
-  /* .btn-general for all buttons, then include an additional class for colors from below */
-  .btn-general {
+
+   /* .btn-general for all buttons, then include an additional class for colors from below */
+   .btn-general {
       --px: 1.5rem;
       --py: 0.65rem;
       --squish: 2px;
@@ -503,10 +546,10 @@
       transition: transform .15s ease, filter .15s ease, padding .15s ease, margin .15s ease;
 
       background-clip: padding-box;
-  }
+   }
 
-  .arrow {
-      display: inline-block;         
+   .arrow {
+      display: inline-block;
       transition: transform .15s ease;
    }
 
@@ -533,59 +576,66 @@
       margin-inline: var(--squish);
    }
 
-   .btn-general:focus-visible { 
-      outline: 3px solid var(--color-accent); 
-      outline-offset: 4px; 
+   .btn-general:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 4px;
    }
 
    /* Respect reduced-motion settings */
    @media (prefers-reduced-motion: reduce) {
-      .btn-general, .arrow { transition: none; }
+
+      .btn-general,
+      .arrow {
+         transition: none;
+      }
+
       .btn-general:hover,
       .btn-general:active,
       .btn-general:hover .arrow,
-      .btn-general:focus-visible .arrow { transform: none; }
+      .btn-general:focus-visible .arrow {
+         transform: none;
+      }
    }
 
-  /* Button colors */
-  .btn-cta {
+   /* Button colors */
+   .btn-cta {
       --btn-shadow: var(--color-accent);
       background: var(--color-text);
       color: var(--color-bg);
       border: 2px solid var(--color-accent);
-  }
+   }
 
-  .btn-bg {
+   .btn-bg {
       --btn-shadow: var(--color-text);
       background: var(--color-bg);
       color: var(--color-text);
       border: 2px solid var(--color-text);
-  }
+   }
 
-  .btn-accent-light {
+   .btn-accent-light {
       --btn-shadow: var(--color-bg);
       background: var(--color-accent);
       color: var(--color-text);
       border: 2px solid var(--color-bg);
-  }
+   }
 
-  .btn-accent-dark {
+   .btn-accent-dark {
       --btn-shadow: var(--color-text);
       background: var(--color-accent);
       color: var(--color-text);
       border: 2px solid var(--color-text);
-  }
+   }
 
-  /* ------- NAVIGATION ------- */
-  .site-header {
+   /* ------- NAVIGATION ------- */
+   .site-header {
       background: var(--color-bg);
       border-block-end: 1px solid var(--color-border);
-  }
+   }
 
-  .site-nav__link {
+   .site-nav__link {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: 600;
-  }
+   }
 
    .site-header__brand img {
       height: var(--nav-height);
@@ -603,14 +653,24 @@
 
    /* Makes the cta button dot a pulsing glow */
    @keyframes pulse {
-      0%   { opacity: 1; }
-      50%  { opacity: .35; }
-      100% { opacity: 1; }
+      0% {
+         opacity: 1;
+      }
+
+      50% {
+         opacity: .35;
+      }
+
+      100% {
+         opacity: 1;
+      }
    }
 
    /* Accessibility */
    @media (prefers-reduced-motion: reduce) {
-      .dot { animation: none; }
+      .dot {
+         animation: none;
+      }
    }
 
    /* ------- FOOTER ------- */
@@ -649,7 +709,7 @@
       display: flex;
       flex-direction: column;
    }
-   
+
    .footer-block {
       display: flex;
       flex-direction: column;
@@ -661,7 +721,7 @@
    }
 
    /*------------------- Andrew - Home Page -----------------------*/
-   /* ------------------- HERO ------------------------------------*/
+   /* ------------------- HERO ------------------------------------
    .carousel {
       position: relative;
       border-radius: 0;
@@ -718,7 +778,7 @@
    .carousel__copy a,
    .carousel__copy button {
       pointer-events: auto;
-   }
+   }*/
 
    .hero__content h1 {
       font-size: 5rem;
@@ -726,7 +786,7 @@
    }
 
    @media (max-width: 40rem) {
-      .carousel__media {
+      /*.carousel__media {
          aspect-ratio: 4 / 5;
       }
 
@@ -737,13 +797,13 @@
 
       .hero__content h1 {
          font-size: 3rem;
-      }
+      }*/
    }
 
-   .eq { 
-      display: flex; 
-      gap: 6px; 
-      align-items: flex-end; 
+   .eq {
+      display: flex;
+      gap: 6px;
+      align-items: flex-end;
       height: 44px;
       justify-content: center;
    }
@@ -756,14 +816,33 @@
       transform-origin: bottom;
       animation: eq 1s ease-in-out infinite;
    }
-   .eq i:nth-child(2) { animation-delay: .15s; }
-   .eq i:nth-child(3) { animation-delay: .30s; }
-   .eq i:nth-child(4) { animation-delay: .45s; }
-   .eq i:nth-child(5) { animation-delay: .60s; }
+
+   .eq i:nth-child(2) {
+      animation-delay: .15s;
+   }
+
+   .eq i:nth-child(3) {
+      animation-delay: .30s;
+   }
+
+   .eq i:nth-child(4) {
+      animation-delay: .45s;
+   }
+
+   .eq i:nth-child(5) {
+      animation-delay: .60s;
+   }
 
    @keyframes eq {
-      0%, 100% { transform: scaleY(.3); }
-      50%      { transform: scaleY(1); }
+
+      0%,
+      100% {
+         transform: scaleY(.3);
+      }
+
+      50% {
+         transform: scaleY(1);
+      }
    }
 
    .wave {
@@ -808,6 +887,9 @@
       align-self: flex-start;
       justify-self: start;
       width: fit-content;
+      letter-spacing: var(--text-spacing__sml);
+      /* sp change*/
+      box-shadow: 5px 5px 0px var(--color-text);
    }
 
    .podcast-img {
@@ -841,6 +923,48 @@
       z-index: 1;
       background: transparent;
    }
+
+   /* ---- nita's wave --*/
+
+   .section-wave {
+      position: relative;
+      isolation: isolate;
+
+   }
+
+   .section-wave::before,
+   .section-wave::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-image: url("../img/wave.svg");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+   }
+
+   /* Top wave */
+   .section-wave::before {
+      top: 0;
+      background-position: top center;
+      transform: translateY(-99%);
+   }
+
+   /* Bottom wave */
+   .section-wave::after {
+      bottom: 0;
+      background-position: bottom center;
+      transform: translateY(99%) scaleY(-1);
+   }
+
+   /* Hide bottom wave when not required */
+   .section-wave--top-only::after {
+      display: none;
+   }
+
+   /** --- End **/
 
    @media (max-width: 767px) {
       .wave-marquee {
@@ -900,11 +1024,153 @@
       filter: drop-shadow(8px 8px 0 var(--color-accent));
       border-radius: var(--radius);
    }
+
+   /*---- Schedule - Steph ----*/
+
+   .schedule--pill__badge {
+      border: transparent;
+      color: var(--color-text);
+      background: var(--color-accent);
+      /* font-size: clamp(1rem, 1rem + 1vh, 1.5rem); */
+      align-self: flex-start;
+      justify-self: start;
+      width: fit-content;
+      letter-spacing: var(--text-spacing__sml);
+      /* sp change*/
+      box-shadow: 5px 5px 0px var(--color-text);
+
+   }
+   
+
+   .tabs__list {
+    gap: 1rem;
+    border-bottom: none;
+   }
+
+
+
+   .tabs__label {
+
+          flex: 1;
+    min-width: 0;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem 1rem;
+    border: 2px solid #1a0b05;
+    border-radius: 999px;
+
+    text-decoration: none;
+    color: #1a0b05;
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease-in-out,
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+   }
+
+   .tabs__input:checked + .tabs__label {
+    background-color: var(--color-accent);
+    border-color: var(--color-text);
+    box-shadow: 3px 3px 0 var(--color-text);
+
+}
+
+.tabs__label:hover {
+    transform: scale(1.05);
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+.schedule--carousel {
+    
+    border-radius: 10px;
+    box-shadow: 6px 6px 0px var(--color-accent);
+}
+.schedule-section {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background-color: #1a0904;
+    padding-block: 4rem;
+}
+
+   .schedule-carousel__media {
+      aspect-ratio: 3 / 4;
+      /* Portrait */
+      max-width: 300px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transform: rotate(3deg);
+   }
+
+   .schedule-carousel__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+
+   }
+
+   .carousel__slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      /* Controls space between image and text */
+   }
+
+   .carousel__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      /* keeps everything aligned left */
+   }
+
+   .schedule--carousel__btn {
+      margin-top: 1.5rem;
+      align-self: flex-start;
+
+   }
+
+
+   /* --- Schedule - Presenter - Steph --- */
+
+   .media-gallery--card .media-gallery__item {
+      max-width: 220px;
+      width: 100%;
+   }
+
+   /*--- icon - presenter - Steph --- */
+
+.presenter-icon{
+    width: 16px;
+    height: 16px;
+    
+}
+
+.media-gallery__caption a {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+}
+
+.media-gallery__caption .icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+
 }
 
 
 @layer utilities {
-  /*
+   /*
     Custom utility classes - sit in the highest-priority layer.
   */
 }
