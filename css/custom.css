@@ -482,6 +482,44 @@
    /* ABOUT PAGE STYLING */
 /* About BOOM — Hero section */
 
+/* Base wave setup */
+.section-wave {
+   position: relative;
+   isolation: isolate;
+}
+
+.section-wave::before,
+.section-wave::after {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   left: 0;
+   width: 100%;
+   height: 80px;
+   background-image: url("../img/wave.svg");
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+/* Top wave */
+.section-wave::before {
+   top: 0;
+   background-position: top center;
+   transform: translateY(-99%);
+}
+
+/* Bottom wave */
+.section-wave::after {
+   bottom: 0;
+   background-position: bottom center;
+   transform: translateY(99%) scaleY(-1);
+}
+
+/* Hide bottom wave when not required */
+.section-wave--top-only::after {
+   display: none;
+}
+
   .site-header__brand span,
   .hero-split__title span,
   .site-footer__title span {
@@ -545,7 +583,7 @@
 }
 
 /* Top wave divider */
-.mission-section::before {
+/* .mission-section::before {
    content: "";
    position: absolute;
    z-index: -1;
@@ -558,9 +596,9 @@
    background-position: top center;
    background-size: 100% 100%;
    transform: translateY(-99%);
-}
+} */
 /* Bottom wave divider - flipped */
-.mission-section::after {
+/* .mission-section::after {
    content: "";
    position: absolute;
    z-index: -1;
@@ -573,7 +611,7 @@
    background-position: bottom center;
    background-size: 100% 100%;
    transform: translateY(99%) scaleY(-1);
-}
+} */
 
 /* Section heading */
 .mission-section .section-header {
