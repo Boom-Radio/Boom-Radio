@@ -808,7 +808,8 @@
       border: transparent;
       color: var(--color-text);
       background: var(--color-accent__three);
-      /* font-size: clamp(1rem, 1rem + 1vh, 1.5rem); */
+      box-shadow: 6px 6px 0 var(--color-accent);
+      border: 2px solid var(--color-accent);
       align-self: flex-start;
       justify-self: start;
       width: fit-content;
@@ -871,7 +872,7 @@
       background: var(--color-accent__two);
       color: var(--color-text);
       border: 2px solid var(--color-text);
-
+      box-shadow: 6px 6px 0 var(--color-text);
       align-self: flex-start;
       justify-self: start;
       width: fit-content;
