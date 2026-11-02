@@ -41,7 +41,7 @@
     list-style: none;
     padding: 0;
     --thumb-min: 12rem;
-    --col-layout: var(--col-widths, repeat(var(--col-count, auto-fit), minmax(min(100%, var(--thumb-min)), 1fr)));
+    --col-layout: var(--col-widths, repeat(var(--col-count, auto-fill), minmax(min(100%, var(--thumb-min)), 1fr)));
     --col-layout-md: var(--col-widths-md, repeat(var(--col-count-md), minmax(min(100%, var(--thumb-min)), 1fr)));
     --col-layout-lg: var(--col-widths-lg, repeat(var(--col-count-lg), minmax(min(100%, var(--thumb-min)), 1fr)));
     display: grid;

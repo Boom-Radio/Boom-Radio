@@ -495,11 +495,17 @@
       font-family: Arial, Helvetica, sans-serif;
    }
 
-   h1, h2, h3, h4 {
+   h1,
+   h2,
+   h3,
+   h4 {
       letter-spacing: var(--text-spacing__big);
    }
 
-   p, span, a, button {
+   p,
+   span,
+   a,
+   button {
       letter-spacing: var(--text-spacing__sml);
    }
 
@@ -982,6 +988,30 @@
       .podcast {
          margin-block: -0.125rem;
       }
+
+      .schedule--carousel h2 {
+         font-size: clamp(1.75rem, 5vw, 5rem);
+         line-height: 1.1;
+      }
+
+      .schedule--carousel p {
+         font-size: clamp(1rem, 2.5vw, 1.5rem);
+         line-height: 1.5;
+      }
+
+      .schedule--carousel .schedule__time {
+         font-size: clamp(0.75rem, 1.5vw, 1.125rem);
+      }
+
+      .schedule--carousel__btn {
+         font-size: clamp(0.75rem, 1.5vw, 1rem);
+         padding: clamp(0.5rem, 1.5vw, 0.875rem) clamp(0.875rem, 2.5vw, 1.75rem);
+
+         width: fit-content;
+         transition: transform 0.3s ease;
+      }
+
+
    }
 
    /* ------------------- ABOUT TEASER (Andrew) -----------------------------*/
@@ -1035,14 +1065,15 @@
 
    /*---- Schedule - Steph ----*/
 
-   a.breadcrumb__link:hover{
+   a.breadcrumb__link:hover {
       color: var(--color-accent);
    }
+
    .schedule--pill__badge {
       border: transparent;
       color: var(--color-text);
       background: var(--color-accent);
-      /* font-size: clamp(1rem, 1rem + 1vh, 1.5rem); */
+
       align-self: flex-start;
       justify-self: start;
       width: fit-content;
@@ -1051,63 +1082,63 @@
       box-shadow: 5px 5px 0px var(--color-text);
 
    }
-   
+
 
    .tabs__list {
-    gap: 1rem;
-    border-bottom: none;
+      gap: 1rem;
+      border-bottom: none;
    }
 
 
 
    .tabs__label {
 
-          flex: 1;
-    min-width: 0;
-    text-align: center;
+      flex: 1;
+      min-width: 0;
+      text-align: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    padding: 0.5rem 1rem;
-    border: 2px solid #1a0b05;
-    border-radius: 999px;
+      padding: 0.5rem 1rem;
+      border: 2px solid #1a0b05;
+      border-radius: 999px;
 
-    text-decoration: none;
-    color: #1a0b05;
-    font-weight: 600;
-
-    transition:
-        transform 0.3s ease-in-out,
-        background-color 0.3s ease-in-out,
-        box-shadow 0.3s ease-in-out;
+      text-decoration: none;
+      color: #1a0b05;
+      font-weight: 600;
+      box-shadow: 3px 3px 0 var(--color-text);
+      transition:
+         transform 0.3s ease-in-out,
+         background-color 0.3s ease-in-out,
+         box-shadow 0.3s ease-in-out;
    }
 
-   .tabs__input:checked + .tabs__label {
-    background-color: var(--color-accent);
-    border-color: var(--color-text);
-    box-shadow: 3px 3px 0 var(--color-text);
+   .tabs__input:checked+.tabs__label {
+      background-color: var(--color-accent);
+      border-color: var(--color-text);
+   }
 
-}
+   .tabs__label:hover {
+      transform: translate(3px, 3px);
+      filter: drop-shadow(1px 1px 0 var(--btn-shadow));
+      background-color: var(--color-text);
+      color: var(--color-bg);
+   }
 
-.tabs__label:hover {
-    transform: scale(1.05);
-    background-color: var(--color-text);
-    color: var(--color-bg);
-}
+   .schedule--carousel {
 
-.schedule--carousel {
-    
-    border-radius: 10px;
-    box-shadow: 6px 6px 0px var(--color-accent);
-}
-.schedule-section {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    background-color: #1a0904;
-    padding-block: 4rem;
-}
+      border-radius: 10px;
+      box-shadow: 6px 6px 0px var(--color-accent);
+   }
+
+   .schedule-section {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      background-color: #1a0904;
+      padding-block: 4rem;
+   }
 
    .schedule-carousel__media img {
       aspect-ratio: 3 / 4;
@@ -1124,14 +1155,6 @@
       object-fit: cover;
       display: block;
    }
-
-   /* .schedule-carousel__media {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-
-   } */
 
    .carousel__slide {
       display: flex;
@@ -1160,37 +1183,37 @@
    .media-gallery--card .media-gallery__item {
       max-width: 220px;
       width: 100%;
+      height: 100%;
+      border: none;
    }
 
    /*--- icon - presenter - Steph --- */
 
-.presenter-icon{
-    width: 20px;
-    height: 20px;
-}
 
-.presenter-icon {
-   fill: var(--color-text);
-   stroke: none;
-   width: 20px;
-   height: 20px;
-}
+   .presenter-icon {
+      fill: var(--color-muted);
+      stroke: none;
+      width: 20px;
+      height: 20px;
+   }
 
-.media-gallery__caption a {
-    display: inline-flex;
-    width: fit-content;
-    align-items: center;
-}
+      .presenter-icon:hover {
+      fill: var(--color-accent);
 
-.media-gallery__caption .icon {
-    width: 16px;
-    height: 16px;
-    display: block;
-    fill: var(--color-muted);
-   stroke: none;
-}
+   }
 
-.schedule-wave__top {
+   .media-gallery__caption a {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+   }
+
+   .media-gallery {
+      grid-auto-rows: 1fr;
+   }
+
+
+   .schedule-wave__top {
       width: 100%;
       height: calc(var(--nav-height) * 1.5);
    }
@@ -1217,13 +1240,32 @@
 
    .section-header__schedule {
       padding-block-end: var(--space-4);
+
    }
+
+
 
    .carousel {
       background: var(--color-bg);
    }
 
+   .schedule--carousel .carousel-autoplay-toggle {
 
+      position: absolute;
+      inset: auto 1rem 1rem auto;
+      z-index: 10;
+      cursor: pointer;
+      font-size: 0.75rem;
+   }
+
+
+   @media (max-width: 767px) {
+      .schedule--pill__badge {
+         font-size: clamp(0.75rem, 1.5vw, 1.125rem);
+         padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+         width: fit-content;
+      }
+   }
 }
 
 
