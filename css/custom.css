@@ -1035,6 +1035,9 @@
 
    /*---- Schedule - Steph ----*/
 
+   a.breadcrumb__link:hover{
+      color: var(--color-accent);
+   }
    .schedule--pill__badge {
       border: transparent;
       color: var(--color-text);
@@ -1162,9 +1165,15 @@
    /*--- icon - presenter - Steph --- */
 
 .presenter-icon{
-    width: 16px;
-    height: 16px;
-    
+    width: 20px;
+    height: 20px;
+}
+
+.presenter-icon {
+   fill: var(--color-text);
+   stroke: none;
+   width: 20px;
+   height: 20px;
 }
 
 .media-gallery__caption a {
@@ -1177,6 +1186,8 @@
     width: 16px;
     height: 16px;
     display: block;
+    fill: var(--color-muted);
+   stroke: none;
 }
 
 .schedule-wave__top {
