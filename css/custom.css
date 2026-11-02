@@ -495,6 +495,14 @@
       font-family: Arial, Helvetica, sans-serif;
    }
 
+   h1, h2, h3, h4 {
+      letter-spacing: var(--text-spacing__big);
+   }
+
+   p, span, a, button {
+      letter-spacing: var(--text-spacing__sml);
+   }
+
    h1,
    h2,
    h3,
@@ -1098,29 +1106,35 @@
     padding-block: 4rem;
 }
 
-   .schedule-carousel__media {
+   .schedule-carousel__media img {
       aspect-ratio: 3 / 4;
       /* Portrait */
       max-width: 300px;
-      border: 1px solid var(--color-border);
+      /* border: 2px solid var(--color-text); */
+      border: none;
       border-radius: var(--radius);
+      filter: drop-shadow(8px 8px 0 var(--color-text));
       overflow: hidden;
       transform: rotate(3deg);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
    }
 
-   .schedule-carousel__media img {
+   /* .schedule-carousel__media {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
 
-   }
+   } */
 
    .carousel__slide {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: var(--space-12);
       /* Controls space between image and text */
    }
 
@@ -1174,12 +1188,28 @@
       padding-block: 0 var(--space-12);
    }
 
+   .carousel__slide {
+      padding-block: var(--space-12);
+   }
+
    .schedule--carousel {
       margin-block: 0 var(--space-12);
    }
 
    .section-scheule__carousel {
       background: var(--color-text);
+   }
+
+   .breadcrumb {
+      padding-block-start: var(--space-8);
+   }
+
+   .section-header__schedule {
+      padding-block-end: var(--space-4);
+   }
+
+   .carousel {
+      background: var(--color-bg);
    }
 
 
