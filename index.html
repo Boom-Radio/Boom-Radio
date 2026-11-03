@@ -73,10 +73,10 @@
     
             <!-- ribbon, lifted 22 so it overlaps the dark fill slightly -->
             <g transform="translate(0 -16)">
-                <use href="#wave" fill="none" stroke="#180702" stroke-width="40"/>
-                <use href="#wave" fill="none" stroke="#F15922" stroke-width="32"/>
+                <use class="wave-outline" href="#wave" fill="none" stroke="#180702" stroke-width="40"/>
+                <use class="wave-ribbon" href="#wave" fill="none" stroke="#F15922" stroke-width="32"/>
     
-                <text font-size="16" font-weight="700" fill="#180702" dominant-baseline="central"
+                <text class="wave-text" font-size="16" font-weight="700" fill="#180702" dominant-baseline="central"
                     textLength="2880" lengthAdjust="spacing">
                 <textPath href="#wave" startOffset="0">
                     <animate attributeName="startOffset" from="0" to="-720" dur="15s" repeatCount="indefinite"/>
@@ -118,7 +118,7 @@
                     About us teaser...About us teaser...About us teaser...About us teaser...
                 </p>
                 <nav class="site-about__teaser--nav" aria-label="home about teaser navigation">
-                    <a class="site-nav__link btn-general btn-accent-dark arrow" href="#">About Us <span class="arrow">➜</span></a>
+                    <a class="site-nav__link btn-general btn-accent-dark" href="#">About Us <span class="arrow">➜</span></a>
                 </nav>
             </header>
             <img class="about-teaser__img" src="img/boom-logo-black.png" alt="boom logo">

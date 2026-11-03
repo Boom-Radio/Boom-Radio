@@ -662,34 +662,6 @@
 
    /*------------------- Andrew - Home Page -----------------------*/
    /* ------------------- HERO ------------------------------------*/
-   /* .carousel {
-      position: relative;
-      border-radius: 0;
-      background: var(--color-bg);
-      border: none;
-   }
-
-   .carousel__slide {
-      padding: 0;
-   }
-
-   .carousel__media {
-      aspect-ratio: 21 / 9;
-      border: 0;
-      border-radius: 0;
-   }
-
-   .carousel__copy {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: var(--space-6);
-      background: linear-gradiant(90deg, rgb(0 0 0 / 0.6), transparent 70%);
-      align-items: center;
-      pointer-events: none;
-   } */
 
    .hero {
       color: var(--color-bg);
@@ -698,43 +670,12 @@
       overflow: visible;
    }
 
-   /* .carousel-autoplay-toggle {
-      display: none;
-   }
-
-   .carousel-control {
-      background: var(--color-bg);
-   }
-
-   .carousel__copy > * {
-      max-width: 40ch;
-      text-shadow:
-         0 1px 2px color-mix(in oklab, var(--color-text) 60%, transparent),
-         0 4px 16px color-mix(in oklab, var(--color-text) 40%, transparent);
-      padding-inline-end: var(--space-12);
-      color: var(--color-text);
-   }
-
-   .carousel__copy a,
-   .carousel__copy button {
-      pointer-events: auto;
-   } */
-
    .hero__content h1 {
       font-size: 5rem;
       font-weight: 700;
    }
 
    @media (max-width: 40rem) {
-      /* .carousel__media {
-         aspect-ratio: 4 / 5;
-      }
-
-      .carousel__copy {
-         justify-content: flex-end;
-         background: linear-gradient(0deg, rgba(0 0 0 / 0.7), transparent 70%);
-      } */
-
       .hero__content h1 {
          font-size: 3rem;
       }
@@ -766,10 +707,6 @@
       50%      { transform: scaleY(1); }
    }
 
-   .wave {
-      width: 100%;
-   }
-
    /*------------------ PODCAST SECTION - (ANDREW) --------------------*/
 
    .podcast {
@@ -797,7 +734,6 @@
 
    .section-header__intro--podcast {
       color: var(--color-bg);
-      /* padding-block-start: 2rem; */
    }
 
    .podcast-navigation {
@@ -855,12 +791,34 @@
       left: 0;
       z-index: 1;
       background: transparent;
+
+      --outline: 40px;
+      --ribbon: 32px;
+      --text: 16px;
+   }
+
+   .wave-outline {
+      stroke-width: var(--outline);
+   }
+
+   .wave-ribbon {
+      stroke-width: var(--ribbon);
+   }
+
+   .wave-text {
+      font-size: var(--text);
    }
 
    @media (max-width: 767px) {
       .wave-marquee {
          bottom: 0rem;
+
+         --outline: 80px;
+         --ribbon: 68px;
+         --text: 30px;
       }
+
+
 
       .podcast {
          margin-block: -0.125rem;
