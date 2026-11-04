@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="css/components/header-nav.css">
     <link rel="stylesheet" href="css/components/site-footer.css">
-    <link rel="stylesheet" href="css/components/news.css">
     <link rel="stylesheet" href="css/components/hero.css">
     <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
     <link rel="stylesheet" href="css/components/badge.css">
@@ -43,34 +42,35 @@
         </div>
     </header>
     <main class="news-page">
-        <section class="news-intro" aria-labelledby="news-title">
-            <div class="news-container">
+        <section class="intro" aria-labelledby="news-title">
+            <div class="container">
                <nav class="breadcrumb" aria-label="Breadcrumb, three-level trail">
                     <ol class="breadcrumb__list">
                         <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Home</a></li>
                         <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">About</a></li>
                     </ol>
                 </nav>
-                <p class="news-categories">Tags, categories</p>
-                <h1 class="news-title" id="news-title">Random blog</h1>
-                <img class="news-feature-image" src="img/mug_boom.png" alt="Microphone and headphones in the BOOM Radio studio">
+                <p class="categories">Tags, categories</p>
+                <h1 class="title" id="news-title">Random blog</h1>
+                <img class="feature-image" src="img/mug_boom.png" alt="Microphone and headphones in the BOOM Radio studio">
             </div>
-            <img class="news-wave" src="img/wave.svg" alt="" aria-hidden="true">
+            <img class="wave" src="img/wave.svg" alt="" aria-hidden="true">
         </section>
 
-        <section class="news-content" aria-labelledby="article-author">
-            <div class="news-container">
-                <h2 class="news-author" id="article-author">
+        <section class="content" aria-labelledby="article-author">
+            <div class="container">
+                <h2 class="author" id="article-author">
                     <span>Written by... Author</span>
-                    <span class="news-author__rule" aria-hidden="true"></span>
+                    <span class="author__rule" aria-hidden="true"></span>
                 </h2>
-                <div class="news-layout">
-                    <article class="news-article">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
-                    </article>
-                    <aside id="cards-demo" class="container section stack" aria-labelledby="cards-title">
-                        <h2 class="related-news__title" id="related-news-title">Related news articles</h2>
+                <div class="layout">
+                    <li class="card stack">
+                        <h2>Main Feature</h2>
+                        <p class="text-muted">Blah Blah Blah</p>
+                        <p class="text-muted">More information here.</p>
+                    </li>
+                    <aside id="cards" class="container section stack" aria-labelledby="cards-title">
+                        <h2 class="title" id="related-news-title">Related news articles</h2>
                             <div class="card">
                                 <h2 class="card__title">Card title</h2>
                                 <p>Card content.</p>
