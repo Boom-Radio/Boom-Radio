@@ -1,0 +1,295 @@
+/*
+  hero.css
+  ---------------------------------------------------------------------
+  Background-image hero with centred text and an automatic
+  contrasting overlay for legibility.
+
+  Requires: css/reset.css, css/core.css
+  This file is optional - only link it on pages that use a hero.
+  Every hero-only token lives in THIS file, not core.css, so deleting
+  hero.css removes everything it added, cleanly.  Project-specific
+  values (a different photo, a different accent) belong in
+  css/custom.css - that's the one place to look to re-skin this
+  component without touching this file at all.
+
+  HTML STRUCTURE:
+    <section id="hero" class="hero container" aria-labelledby="hero-title">
+      <header class="hero__content stack">
+        <h1 id="hero-title" class="hero__title">...</h1>
+        <p class="hero__subtitle">...</p>
+        <nav class="hero__actions cluster justify-center" aria-label="Hero actions">...</nav>
+      </header>
+    </section>
+
+  Why <section> on the outside, not <header>: <header> only becomes
+  the "banner" landmark when it is NOT nested inside <main>,
+  <article>, <aside>, <nav>, or <section>.  Nested in <main> - as it
+  always is here - it gets no landmark role at all, same as a <div>.
+  <section> + aria-labelledby correctly becomes a named "region"
+  landmark instead.  The inner <header> marks "this is the intro
+  block," matching how .section-header works elsewhere on the page - 
+  it doesn't need its own landmark, since the outer <section> already
+  carries the real one.
+
+  FULL-BLEED:
+    Remove .container from the outer <section>.  The rounded corners
+    remove themselves automatically - see .hero:not(.container) near
+    the bottom of this file.  There's no separate modifier class to
+    remember to pair with it.
+  ---------------------------------------------------------------------
+*/
+
+
+@layer tokens {
+  :root {
+
+    /* -----------------------------------------------------------------
+       IMAGE
+       The two things you'll actually swap per-project: the photo
+       itself, and how it's positioned within the box (e.g. "top" if
+       the subject of the photo sits near the top of the frame).
+    ----------------------------------------------------------------- */
+    --hero-image:
+      url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop");
+    --hero-image-position: center;
+
+
+    /* -----------------------------------------------------------------
+       COLOUR
+
+       --hero-background is the fallback colour shown while the image
+       loads (and the starting point --hero-shade uses before the
+       @supports upgrade below runs).
+
+       --hero-text is the ONE colour you're expected to change per
+       photo - everything else in this section (the muted subtitle
+       colour, the overlay tint, the two shadow strengths) is
+       derived FROM it, not set independently.  That's deliberate:
+       change one token, the whole hero re-balances itself instead of
+       you having to retune four colours by hand every time you swap
+       a photo.
+    ----------------------------------------------------------------- */
+    --hero-background: var(--color-bg);
+    --hero-text:       var(--color-text);
+
+    /* --hero-shade is the SINGLE shared darkening decision.
+       Everything below (overlay + both shadow strengths) just picks
+       a different opacity of this one value, instead of each
+       recalculating it separately.
+
+       It is NOT --hero-background itself - it's --hero-background
+       mixed mostly toward black.  A straight pass-through of
+       --hero-background would mean the overlay below is just that
+       background colour diluted by transparency: fine for THIS
+       framework's own dark default (a near-black background mixed
+       with more black is still near-black), but for any project with
+       a light --hero-background, --hero-overlay would tint the photo
+       with a translucent wash of that light colour instead of
+       actually darkening it - the opposite of what an overlay is for.
+       Mixing toward black keeps the overlay doing its job (darkening
+       the photo for text contrast) regardless of the theme.
+       The @supports block below can upgrade this further, snapping
+       toward white instead when --hero-text itself is dark. */
+    --hero-shade: color-mix(in oklab, var(--hero-background) 25%, black);
+
+    /* A translucent version of the text colour, softened toward
+       --hero-shade rather than toward transparent - so the subtitle
+       reads as "the same colour, slightly muted by the same darkening
+       decision the overlay uses" rather than an unrelated grey. */
+    --hero-muted: color-mix(in oklab, var(--hero-text) 88%, var(--hero-shade));
+
+    /* The tint painted over the photo for text contrast. */
+    --hero-overlay: color-mix(in oklab, var(--hero-shade) 70%, transparent);
+
+    /* Two strengths of the same shade, for a two-layer drop shadow
+       (a tight dark shadow plus a softer, wider glow) behind the
+       title and subtitle text - see --hero-text-shadow below. */
+    --hero-shadow-strong: color-mix(in oklab, var(--hero-shade) 60%, transparent);
+    --hero-shadow-soft:   color-mix(in oklab, var(--hero-shade) 45%, transparent);
+
+    --hero-text-shadow:
+      0 2px 6px var(--hero-shadow-strong),
+      0 10px 30px var(--hero-shadow-soft);
+
+
+    /* -----------------------------------------------------------------
+       CONTENT WIDTH
+       How wide the readable content column is allowed to get, so
+       long headlines/subtitles don't stretch edge-to-edge inside a
+       very wide hero.  Falls back to 800px if --max-w-narrow isn't
+       defined for some reason.
+    ----------------------------------------------------------------- */
+    --hero-content-max: var(--max-w-narrow, 800px);
+  }
+
+
+  /* -------------------------------------------------------------
+     SNAP-TO-CONTRAST (progressive enhancement)
+
+     Upgrades --hero-shade using Relative Color Syntax, in browsers
+     that support it.  Without this block, --hero-shade just stays
+     at the color-mix() default above (still workable, just not
+     self-adjusting to whatever --hero-text ends up being).
+
+     "from var(--hero-text) h s l" reads --hero-text's own hue,
+     saturation, and lightness back out as usable numbers.  We keep
+     hue/saturation at 0 (grey) and only touch lightness:
+
+         clamp(0, calc((50 - l) * 1000), 100)
+
+     l is --hero-text's lightness, 0-100.  Multiplying by 1000 is
+     deliberately extreme - it's not meant to produce a gradual
+     grey ramp, it's meant to SNAP to one of the two ends:
+
+       If --hero-text is light  (l > 50):  (50 - l) is negative,
+         times 1000 is very negative  →  clamps to 0    → BLACK shade
+       If --hero-text is dark   (l < 50):  (50 - l) is positive,
+         times 1000 is very positive  →  clamps to 100  → WHITE shade
+
+     Net effect: light text always gets a dark shade behind it, dark
+     text always gets a light one - the opposite of whatever
+     --hero-text is, so contrast holds no matter what colour you
+     hand it.  Change ONLY --hero-text and --hero-shade (and
+     everything computed from it below, in the tokens block above)
+     re-derives automatically.
+
+     WHY THIS BLOCK IS COMMENTED OUT, NOT ACTIVE:
+       hsl(from ...) needs Relative Color Syntax, which not every
+       browser supports yet.  Without it, --hero-muted, --hero-shade,
+       and --hero-text-shadow just stay at the color-mix() fallbacks
+       above - still workable, just not self-adjusting to whatever
+       --hero-text ends up being.  The auto-flip only matters once
+       --hero-text gets overridden to something unusual, which is why
+       it's kept as an optional, feature-detected upgrade rather than
+       the default.  Uncomment the block below to turn it back on.
+  ------------------------------------------------------------- */
+  /*
+  @supports (color: hsl(from white h s l)) {
+    :root {
+      --hero-muted: hsl(from var(--hero-text) h s l / 0.92);
+
+      --hero-shade:
+        hsl(
+          from var(--hero-text)
+          0 0 clamp(0, calc((50 - l) * 1000), 100)
+        );
+
+      --hero-text-shadow:
+        0 2px 6px hsl(
+          from var(--hero-text)
+          0 0 clamp(0, calc((50 - l) * 1000), 100) / 0.5
+        ),
+        0 10px 30px hsl(
+          from var(--hero-text)
+          0 0 clamp(0, calc((50 - l) * 1000), 100) / 0.35
+        );
+    }
+  }
+  */
+}
+
+
+@layer components {
+
+  /* -----------------------------------------------------------------
+     HERO CONTAINER
+
+     background-image accepts a comma-separated LIST of layers, and
+     the FIRST layer in that list paints closest to the viewer - in
+     FRONT of the ones listed after it.  So:
+
+         linear-gradient(overlay, overlay), photo
+
+     paints the tint on top of the photo automatically, as part of
+     one single background - no extra element, no absolute
+     positioning, no z-index, anywhere in this file.  Backgrounds
+     always paint behind an element's own content by default, so the
+     text below just works without anything lifting it "above" the
+     tint or the photo.
+  ----------------------------------------------------------------- */
+  .hero {
+    min-height: 60vh;
+    margin-block: var(--space-8);
+    padding: var(--space-8);
+
+    display: grid;
+    place-items: center;
+
+    border-radius: var(--radius-lg);
+    color: var(--hero-text);
+    text-align: center;
+
+    background-color: var(--hero-background);
+    background-image:
+      linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+      var(--hero-image);
+    background-position: center, var(--hero-image-position);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+
+  /* -----------------------------------------------------------------
+     CONTENT BLOCK
+
+     .stack (applied in the HTML) handles the vertical layout between
+     the heading, subtitle, and actions.  --stack-space here is just
+     this component tuning HOW MUCH space .stack uses - the layout
+     mechanism itself is borrowed, not reinvented.
+  ----------------------------------------------------------------- */
+  .hero__content {
+    width: min(100%, var(--hero-content-max));
+    --stack-space: var(--space-4);
+  }
+
+
+  /* -----------------------------------------------------------------
+     TITLE
+
+     clamp(MIN, PREFERRED, MAX) - the font-size grows smoothly with
+     the viewport between 2rem and 3rem, instead of jumping at a
+     breakpoint.  1.5rem + 2vw is the "preferred" middle value doing
+     the actual interpolating.
+  ----------------------------------------------------------------- */
+  .hero__title {
+    font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-shadow: var(--hero-text-shadow);
+  }
+
+
+  /* -----------------------------------------------------------------
+     SUBTITLE
+
+     max-width in "ch" units caps line length for readability
+     (roughly 52 average characters per line) regardless of how wide
+     the hero itself is.  text-wrap: balance asks the browser to even
+     out the line lengths across the paragraph, so you don't get an
+     awkward single short word dangling on the last line.
+  ----------------------------------------------------------------- */
+  .hero__subtitle {
+    max-width: min(100%, 52ch);
+    margin-inline: auto;
+
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.2rem);
+    color: var(--hero-muted);
+    text-shadow: var(--hero-text-shadow);
+    text-wrap: balance;
+  }
+
+
+  /* ACTIONS: .hero__actions carries no dedicated rule - the markup
+     composes `class="hero__actions cluster justify-center"`, reusing
+     the same layout primitive every other multi-button row in the
+     framework uses instead of a one-off self-contained rule. */
+
+
+  /* Full-bleed is automatic: no .container, no rounded corners - see
+     docs/hero.html for why this keys off .container instead of a
+     separate modifier class. */
+  .hero:not(.container) {
+    border-radius: 0;
+  }
+
+} /* end @layer components */
