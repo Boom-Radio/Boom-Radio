@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Read the latest news and stories from BOOM Radio.">
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/core.css">
+
     <link rel="stylesheet" href="css/components/header-nav.css">
     <link rel="stylesheet" href="css/components/site-footer.css">
-    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/components/news.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
+    <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/section-header.css">
+    <link rel="stylesheet" href="css/components/breadcrumb.css">
+    <link rel="stylesheet" href="css/components/card.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+
     <title>News | BOOM Radio</title>
     <script src="js/radio.js" defer></script>
 </head>
@@ -35,14 +45,15 @@
     <main class="news-page">
         <section class="news-intro" aria-labelledby="news-title">
             <div class="news-container">
-                <nav class="news-breadcrumbs" aria-label="Breadcrumb">
-                    <a href="index.html">Home</a>
-                    <span aria-hidden="true">/</span>
-                    <span aria-current="page">News</span>
+               <nav class="breadcrumb" aria-label="Breadcrumb, three-level trail">
+                    <ol class="breadcrumb__list">
+                        <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Home</a></li>
+                        <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">About</a></li>
+                    </ol>
                 </nav>
                 <p class="news-categories">Tags, categories</p>
                 <h1 class="news-title" id="news-title">Random blog</h1>
-                <img class="news-feature-image" src="" alt="Microphone and headphones in the BOOM Radio studio">
+                <img class="news-feature-image" src="img/mug_boom.png" alt="Microphone and headphones in the BOOM Radio studio">
             </div>
             <img class="news-wave" src="img/wave.svg" alt="" aria-hidden="true">
         </section>
@@ -58,30 +69,20 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
                     </article>
-                    <aside class="related-news" aria-labelledby="related-news-title">
+                    <aside id="cards-demo" class="container section stack" aria-labelledby="cards-title">
                         <h2 class="related-news__title" id="related-news-title">Related news articles</h2>
-                        <div class="related-news__list">
-                            <article class="related-card">
-                                <div class="related-card__image" aria-hidden="true"></div>
-                                <div class="related-card__copy">
-                                    <h3>Related news article</h3>
-                                    <p>A short description for this story.</p>
-                                </div>
-                            </article>
-                            <article class="related-card">
-                                <div class="related-card__image" aria-hidden="true"></div>
-                                <div class="related-card__copy">
-                                    <h3>Related news article</h3>
-                                    <p>A short description for this story.</p>
-                                </div>
-                            </article>
-                            <article class="related-card">
-                                <div class="related-card__image" aria-hidden="true"></div>
-                                <div class="related-card__copy">
-                                    <h3>Related news article</h3>
-                                    <p>A short description for this story.</p>
-                                </div>
-                            </article>
+                            <div class="card">
+                                <h2 class="card__title">Card title</h2>
+                                <p>Card content.</p>
+                            </div>
+                                <div class="card">
+                                <h2 class="card__title">Card title</h2>
+                                <p>Card content.</p>
+                            </div>
+                            <div class="card">
+                                <h2 class="card__title">Card title</h2>
+                                <p>Card content.</p>
+                            </div>
                         </div>
                     </aside>
                 </div>

@@ -825,54 +825,18 @@
       }
    }
 
-   /* ------------------- ABOUT TEASER (Andrew) -----------------------------*/
-   .badge-about__teaser {
-      background: var(--color-accent__two);
+   .badge-about__RelatedArticles {
+      background: var(--color-elevated);
       color: var(--color-text);
       border: 2px solid var(--color-text);
-      box-shadow: 6px 6px 0 var(--color-text);
+      box-shadow: 3px 3px 0 var(--color-accent);
+      padding-block: 0.25rem;
       align-self: flex-start;
       justify-self: start;
+      border-radius: 0.5rem;
       width: fit-content;
    }
 
-   .section-about__teaser {
-      display: flex;
-      justify-content: space-between;
-      gap: var(--space-24);
-      flex-direction: row-reverse;
-      padding-block-start: var(--space-16);
-   }
-
-   .header-about__teaser {
-      display: flex;
-      flex-direction: column;
-   }
-
-   .header-about__teaser p {
-      padding-block-end: var(--space-8);
-   }
-
-   .section-about__intro {
-      color: var(--color-text);
-   }
-
-   .site-about__teaser--nav {
-      display: flex;
-      gap: 2rem;
-      margin-top: auto;
-      align-self: flex-end;
-      font-size: 1.25rem;
-   }
-
-   .about-teaser__img {
-      display: block;
-      height: 348px;
-      width: auto;
-      transform: rotate(-3deg);
-      filter: drop-shadow(8px 8px 0 var(--color-accent));
-      border-radius: var(--radius);
-   }
 }
 
 
