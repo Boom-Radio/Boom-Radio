@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Boom Radio brings you the greatest hits, live shows, podcasts, news, and entertainment. Listen online anytime and enjoy classic boom.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+
+    <link rel="stylesheet" href="css/components/header-nav.css">
+    <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/components/carousel.css">
+    <link rel="stylesheet" href="css/components/carousel-arrow-addon.css">
+    <link rel="stylesheet" href="css/components/carousel-autoplay-addon.css">
+    <link rel="stylesheet" href="css/components/section-header.css">
+    <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
+    <link rel="stylesheet" href="css/components/gallery.css">
+
+    <link rel="stylesheet" href="css/components/form-extended.css">
+    <link rel="stylesheet" href="css/components/breadcrumb.css">
+    <link rel="stylesheet" href="css/components/tabs.css">
+    <link rel="stylesheet" href="css/components/result-card.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/placeholder-tile.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <title>BOOM Radio</title>
+    <script src="js/carousel-arrow-addon.js" defer></script>
+    <script src="js/carousel-autoplay-addon.js" defer></script>
+    <script src="js/radio.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header drawer-right">
+        <div class="site-header__inner container">
+            <a href="#" class="site-header__brand">
+                <img src="img/boom-black.png" alt="Site Logo">
+            </a>
+            <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Menu">
+                <span aria-hidden="true">☰</span>
+                <span class="visually-hidden">Menu</span>
+            </button>
+            <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+                <a href="#" class="site-nav__link">Home</a>
+                <a href="#" class="site-nav__link">Hosts</a>
+                <a href="#" class="site-nav__link">About</a>
+                <a href="#" class="site-nav__link">News</a>
+                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air:
+                    Listen Live</a>
+            </nav>
+        </div>
+    </header>
+    <!-- <main id="main" class="container section stack"> -->
+    <main id="main" class="stack">
+
+        <nav class="breadcrumb container" aria-label="Breadcrumb">
+            <ol class="breadcrumb__list">
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html">Home</a></li>
+                <li class="breadcrumb__item" aria-current="page">Schedule</li>
+            </ol>
+        </nav>
+
+        <header class="section-header section container stack section-header__schedule">
+            <span class="badge badge--accent badge--pill badge-podcast">2026 LINEUP</span>
+            <h1 class="section-header__title">Show <span class="italic">Schedule</span></h1>
+            <p class="section-header__intro">Check out our show schedule and never miss your favourite programs.</p>
+        </header>
+
+        <section class="tabs">
+            <div class="tabs__list container" role="radiogroup" aria-label="Event categories">
+                <input type="radio" name="event-tabs" id="tab-1" class="tabs__input" checked>
+                <label class="tabs__label" for="tab-1">MON</label>
+                
+                <input type="radio" name="event-tabs" id="tab-2" class="tabs__input">
+                <label class="tabs__label" for="tab-2">TUE</label>
+
+                <input type="radio" name="event-tabs" id="tab-3" class="tabs__input">
+                <label class="tabs__label" for="tab-3">WED</label>
+
+                <input type="radio" name="event-tabs" id="tab-4" class="tabs__input">
+                <label class="tabs__label" for="tab-4">THU</label>
+
+                <input type="radio" name="event-tabs" id="tab-5" class="tabs__input">
+                <label class="tabs__label" for="tab-5">FRI</label>
+
+                <input type="radio" name="event-tabs" id="tab-6" class="tabs__input">
+                <label class="tabs__label" for="tab-6">SUN</label>
+            </div>
+
+            <img class="schedule-wave__top" src="img/wave.svg" aria-hidden="true">
+
+            <div class="tabs__panels section-scheule__carousel">
+                <section class="tabs__panel stack container">
+                    <section class="carousel schedule--carousel" data-carousel-autoplay
+                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
+                            auto-advancing</button>
+                        <div class="carousel__track" tabindex="0">
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/MONDAY_BREKKIE.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 AM - 10:00
+                                        AM</span>
+                                    <h2 class="section-header__title">
+                                        Monday Brekkie</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Big Brekkie with Harry and Janelle.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/SPORTS-NATION.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">4:00 PM - 7:00 PM</span>
+                                    <h2 class="section-header__title">
+                                        Sports Nation</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">All about sports with Jm and Tom</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/BOOMS-BACKYARD.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 PM - 10:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        Boom's Backyard</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">A specialty show with Caitlyn.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/boomsbackyard/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden>
+                        </div>
+                        <button type="button" class="carousel__control carousel__control--prev"
+                            aria-label="Previous slide"></button>
+                        <button type="button" class="carousel__control carousel__control--next"
+                            aria-label="Next slide"></button>
+                    </section>
+                </section>
+
+                <section class="tabs__panel stack container">
+                    <section class="carousel schedule--carousel" data-carousel-autoplay
+                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
+                            auto-advancing</button>
+                        <div class="carousel__track" tabindex="0">
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/TUESDAY-BREKKIE-1.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 AM - 10:00
+                                        AM</span>
+                                    <h2 class="section-header__title">
+                                        Tuesday Brekkie</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Conversation with Angus, Em and Jm.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/tuesday-4pm.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">4:00 PM - 7:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        Tuesday Afternoon</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Driving you home with Caitlyn, Leo and Quinn</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/FMJ.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 PM - 10:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        Full Metal Jacket</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Specialty show with Janelle.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden>
+                        </div>
+                        <button type="button" class="carousel__control carousel__control--prev"
+                            aria-label="Previous slide"></button>
+                        <button type="button" class="carousel__control carousel__control--next"
+                            aria-label="Next slide"></button>
+                    </section>
+                </section>
+
+                <section class="tabs__panel stack container">
+                    <section class="carousel schedule--carousel" data-carousel-autoplay
+                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
+                            auto-advancing</button>
+                        <div class="carousel__track" tabindex="0">
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/jannelandquinn.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 AM - 10:00
+                                        AM</span>
+                                    <h2 class="section-header__title">
+                                        Morning Talks</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Big Brekkie with Harry and Janelle.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/wedafternoon.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">4:00 PM - 7:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        Afternoon Talks</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Conversation with Aiden, Harry and Leo.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/URBAN-JUNGLE.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 PM - 10:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        Urban Jungle</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Specialty show with Em and Joel.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden>
+                        </div>
+                        <button type="button" class="carousel__control carousel__control--prev"
+                            aria-label="Previous slide"></button>
+                        <button type="button" class="carousel__control carousel__control--next"
+                            aria-label="Next slide"></button>
+                    </section>
+                </section>
+
+                <section class="tabs__panel stack container">
+                    <section class="carousel schedule--carousel" data-carousel-autoplay
+                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
+                            auto-advancing</button>
+                        <div class="carousel__track" tabindex="0">
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/thurdaymorning.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 AM - 10:00
+                                        AM</span>
+                                    <h2 class="section-header__title">
+                                        Morning Talks</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Waking you up with Joel and Jm.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/thuafternoon.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">4:00 PM - 7:00 PM</span>
+                                    <h2 class="section-header__title">
+                                        Afternoon Talks</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Conversation with Bryzen and Em</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/thunight.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 PM - 10:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        The Warm Up</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Specialty show with Bryzer and Jannelle.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden>
+                        </div>
+                        <button type="button" class="carousel__control carousel__control--prev"
+                            aria-label="Previous slide"></button>
+                        <button type="button" class="carousel__control carousel__control--next"
+                            aria-label="Next slide"></button>
+                    </section>
+                </section>
+
+                <section class="tabs__panel stack container">
+                    <section class="carousel schedule--carousel" data-carousel-autoplay
+                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
+                            auto-advancing</button>
+                        <div class="carousel__track" tabindex="0">
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/frimorning.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 AM - 10:00
+                                        AM</span>
+                                    <h2 class="section-header__title">
+                                        Friday Brekkie</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Big Brekkie with Angus.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/fri-afternoon.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">4:00 PM - 7:00 PM</span>
+                                    <h2 class="section-header__title">
+                                        Friday Drive</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Afternoon talks with Em.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/frinight.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 PM - 10:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        The Hype</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Specialty talk with Bryzer and Janelle.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden>
+                        </div>
+                        <button type="button" class="carousel__control carousel__control--prev"
+                            aria-label="Previous slide"></button>
+                        <button type="button" class="carousel__control carousel__control--next"
+                            aria-label="Next slide"></button>
+                    </section>
+                </section>
+
+                <section class="tabs__panel stack container">
+                    <section class="carousel schedule--carousel" data-carousel-autoplay
+                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
+                            auto-advancing</button>
+                        <div class="carousel__track" tabindex="0">
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/boomjb.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">7:00 PM - 10:00
+                                        PM</span>
+                                    <h2 class="section-header__title">
+                                        Boom's Jukebox</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Tunes and talks with Harry and Quinn.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+                            <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
+                                aria-roledescription="slide" aria-label="1 of 3">
+                                <figure class="schedule-carousel__media"><img src="img/surfingtheweb.png" alt=""
+                                        loading="lazy">
+                                </figure>
+                                <div class="carousel__copy stack">
+                                    <span class="badge badge--accent badge--pill schedule--pill__badge">10:00 PM - 1:00
+                                        AM</span>
+                                    <h2 class="section-header__title">
+                                        Surfing The Web</h2>
+                                    <blockquote>
+                                        <p class="section-header__intro">Technology topics with Aiden and Angus.</p>
+                                        <div class="result-card__actions">
+                                            <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                Follow <span class="arrow">↗</span>
+                                            </a>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            </article>
+
+                        </div>
+                        <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden>
+                        </div>
+                        <button type="button" class="carousel__control carousel__control--prev"
+                            aria-label="Previous slide"></button>
+                        <button type="button" class="carousel__control carousel__control--next"
+                            aria-label="Next slide"></button>
+                    </section>
+                </section>
+            </div><!-- /.tabs__panels -->
+        </section>
+        <section class="container section stack" aria-labelledby="featured-title">
+            <header class="section-header stack">
+                <span class="badge badge--accent badge--pill badge-podcast">BEHIND THE MIC</span>
+                <h2 class="section-header__title">Our <span class="italic">Hosts</span></h2>
+                <p class="section-header__intro">Meet the voices behind Boom Radio!</p>
+            </header>
+            <ul class="media-gallery media-gallery--card" style="--thumb-min: 13rem;">
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/caitlyn.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Caitlyn</h2>
+                            <p>Presenter</p>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
+                                    <path
+                                        d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                                    fill-rule="evenodd">
+                                    <path
+                                        d="M365.014.667C408.68 0 452.011.333 495.342 0c2.667 51 21 102.999 58.33 138.998 37.332 37 89.997 54 141.328 59.666v134.332c-47.998-1.667-96.33-11.667-139.994-32.333-19-8.667-36.665-19.667-53.998-31-.333 97.332.334 194.665-.666 291.663-2.667 46.666-18 93-44.998 131.332-43.665 64-119.328 105.665-196.992 106.999-47.664 2.666-95.329-10.334-135.994-34.333C55.028 725.658 7.696 652.992.697 574.993c-.667-16.667-1-33.333-.334-49.666 6-63.333 37.332-123.999 85.997-165.332 55.33-47.999 132.66-70.999 204.99-57.332.667 49.333-1.332 98.665-1.332 147.998-33-10.667-71.664-7.667-100.663 12.333-20.999 13.667-36.998 34.666-45.331 58.333-7 17-5 35.666-4.667 53.666 8 54.666 60.664 100.665 116.662 95.665 37.332-.333 72.997-22 92.33-53.666 6.332-11 13.332-22.333 13.665-35.333 3.334-59.666 2-118.998 2.334-178.664.333-134.332-.334-268.33.666-402.328"
+                                        transform="translate(165 112)" />
+                                </svg>
+
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+
+                                    <path
+                                        d="m13.73635 5.85251 4.00467 -4.11665 2.3248 2.3808 -4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766 -2.3248 2.3338L12.0005 12.099l-5.74052 5.76852 -2.3248 -2.3248 4.22864 -4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248 -2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"
+                                        ></path>
+                                </svg>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/janelle.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Janelle</h2>
+                            <p>Presenter</p>
+                                                        <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
+                                    <path
+                                        d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                                    fill-rule="evenodd">
+                                    <path
+                                        d="M365.014.667C408.68 0 452.011.333 495.342 0c2.667 51 21 102.999 58.33 138.998 37.332 37 89.997 54 141.328 59.666v134.332c-47.998-1.667-96.33-11.667-139.994-32.333-19-8.667-36.665-19.667-53.998-31-.333 97.332.334 194.665-.666 291.663-2.667 46.666-18 93-44.998 131.332-43.665 64-119.328 105.665-196.992 106.999-47.664 2.666-95.329-10.334-135.994-34.333C55.028 725.658 7.696 652.992.697 574.993c-.667-16.667-1-33.333-.334-49.666 6-63.333 37.332-123.999 85.997-165.332 55.33-47.999 132.66-70.999 204.99-57.332.667 49.333-1.332 98.665-1.332 147.998-33-10.667-71.664-7.667-100.663 12.333-20.999 13.667-36.998 34.666-45.331 58.333-7 17-5 35.666-4.667 53.666 8 54.666 60.664 100.665 116.662 95.665 37.332-.333 72.997-22 92.33-53.666 6.332-11 13.332-22.333 13.665-35.333 3.334-59.666 2-118.998 2.334-178.664.333-134.332-.334-268.33.666-402.328"
+                                        transform="translate(165 112)" />
+                                </svg>
+
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+
+                                    <path
+                                        d="m13.73635 5.85251 4.00467 -4.11665 2.3248 2.3808 -4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766 -2.3248 2.3338L12.0005 12.099l-5.74052 5.76852 -2.3248 -2.3248 4.22864 -4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248 -2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"
+                                        ></path>
+                                </svg>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/em.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Em</h2>
+                            <p>Presenter</p>
+                                                        <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
+                                    <path
+                                        d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                                    fill-rule="evenodd">
+                                    <path
+                                        d="M365.014.667C408.68 0 452.011.333 495.342 0c2.667 51 21 102.999 58.33 138.998 37.332 37 89.997 54 141.328 59.666v134.332c-47.998-1.667-96.33-11.667-139.994-32.333-19-8.667-36.665-19.667-53.998-31-.333 97.332.334 194.665-.666 291.663-2.667 46.666-18 93-44.998 131.332-43.665 64-119.328 105.665-196.992 106.999-47.664 2.666-95.329-10.334-135.994-34.333C55.028 725.658 7.696 652.992.697 574.993c-.667-16.667-1-33.333-.334-49.666 6-63.333 37.332-123.999 85.997-165.332 55.33-47.999 132.66-70.999 204.99-57.332.667 49.333-1.332 98.665-1.332 147.998-33-10.667-71.664-7.667-100.663 12.333-20.999 13.667-36.998 34.666-45.331 58.333-7 17-5 35.666-4.667 53.666 8 54.666 60.664 100.665 116.662 95.665 37.332-.333 72.997-22 92.33-53.666 6.332-11 13.332-22.333 13.665-35.333 3.334-59.666 2-118.998 2.334-178.664.333-134.332-.334-268.33.666-402.328"
+                                        transform="translate(165 112)" />
+                                </svg>
+
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+
+                                    <path
+                                        d="m13.73635 5.85251 4.00467 -4.11665 2.3248 2.3808 -4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766 -2.3248 2.3338L12.0005 12.099l-5.74052 5.76852 -2.3248 -2.3248 4.22864 -4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248 -2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"
+                                        ></path>
+                                </svg>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/angus.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Angus</h2>
+                            <p>Presenter</p>                             <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
+                                    <path
+                                        d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                                    fill-rule="evenodd">
+                                    <path
+                                        d="M365.014.667C408.68 0 452.011.333 495.342 0c2.667 51 21 102.999 58.33 138.998 37.332 37 89.997 54 141.328 59.666v134.332c-47.998-1.667-96.33-11.667-139.994-32.333-19-8.667-36.665-19.667-53.998-31-.333 97.332.334 194.665-.666 291.663-2.667 46.666-18 93-44.998 131.332-43.665 64-119.328 105.665-196.992 106.999-47.664 2.666-95.329-10.334-135.994-34.333C55.028 725.658 7.696 652.992.697 574.993c-.667-16.667-1-33.333-.334-49.666 6-63.333 37.332-123.999 85.997-165.332 55.33-47.999 132.66-70.999 204.99-57.332.667 49.333-1.332 98.665-1.332 147.998-33-10.667-71.664-7.667-100.663 12.333-20.999 13.667-36.998 34.666-45.331 58.333-7 17-5 35.666-4.667 53.666 8 54.666 60.664 100.665 116.662 95.665 37.332-.333 72.997-22 92.33-53.666 6.332-11 13.332-22.333 13.665-35.333 3.334-59.666 2-118.998 2.334-178.664.333-134.332-.334-268.33.666-402.328"
+                                        transform="translate(165 112)" />
+                                </svg>
+
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+
+                                    <path
+                                        d="m13.73635 5.85251 4.00467 -4.11665 2.3248 2.3808 -4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766 -2.3248 2.3338L12.0005 12.099l-5.74052 5.76852 -2.3248 -2.3248 4.22864 -4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248 -2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"
+                                        ></path>
+                                </svg>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="media-gallery__item">
+                    <figure>
+                        <img class="media-gallery__image" src="img/em.jpg"
+                            alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
+                        <figcaption class="media-gallery__caption">
+                            <h2>Em</h2>
+                            <p>Presenter</p>
+                                                        <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" />
+                                    <path
+                                        d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                                    fill-rule="evenodd">
+                                    <path
+                                        d="M365.014.667C408.68 0 452.011.333 495.342 0c2.667 51 21 102.999 58.33 138.998 37.332 37 89.997 54 141.328 59.666v134.332c-47.998-1.667-96.33-11.667-139.994-32.333-19-8.667-36.665-19.667-53.998-31-.333 97.332.334 194.665-.666 291.663-2.667 46.666-18 93-44.998 131.332-43.665 64-119.328 105.665-196.992 106.999-47.664 2.666-95.329-10.334-135.994-34.333C55.028 725.658 7.696 652.992.697 574.993c-.667-16.667-1-33.333-.334-49.666 6-63.333 37.332-123.999 85.997-165.332 55.33-47.999 132.66-70.999 204.99-57.332.667 49.333-1.332 98.665-1.332 147.998-33-10.667-71.664-7.667-100.663 12.333-20.999 13.667-36.998 34.666-45.331 58.333-7 17-5 35.666-4.667 53.666 8 54.666 60.664 100.665 116.662 95.665 37.332-.333 72.997-22 92.33-53.666 6.332-11 13.332-22.333 13.665-35.333 3.334-59.666 2-118.998 2.334-178.664.333-134.332-.334-268.33.666-402.328"
+                                        transform="translate(165 112)" />
+                                </svg>
+
+                            </a>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+
+                                    <path
+                                        d="m13.73635 5.85251 4.00467 -4.11665 2.3248 2.3808 -4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766 -2.3248 2.3338L12.0005 12.099l-5.74052 5.76852 -2.3248 -2.3248 4.22864 -4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248 -2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"
+                                        ></path>
+                                </svg>
+                            </a>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+
+
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container site-footer__content cluster">
+            <section class="footer-block stack">
+                <img class="site-footer__logo" src="img/boom-white.png" alt="Site logo">
+                <p class="site-footer__copyright">&copy; 2026 Boom Radio. All rights reserved.</p>
+            </section>
+            <section class="footer-block stack">
+                <h3>USEFUL LINKS</h3>
+                <nav class="site-footer__nav" aria-labelledby="Footer navigation">
+                    <a href="#">Home</a>
+                    <a href="#">Hosts and Schedule</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Latest News</a>
+                </nav>
+            </section>
+            <section class="footer-block stack">
+                <h3>FOLLOW US</h3>
+                <nav class="site-footer__nav" aria-label="Footer navigation">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </nav>
+            </section>
+            <article class="footer-block stack">
+                <h3>CONTACT DETAILS</h3>
+                <section class="contact">
+                    <p>boomradioau@gmail.com</p>
+                    <p>9443 2236</p>
+                    <p>Leederville, Perth (WA)</p>
+                </section>
+            </article>
+        </div>
+        <button id="radio-toggle" type="button" aria-label="Open radio player" aria-expanded="false"
+            aria-controls="radio-panel">
+            <svg class="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 15v-3a8 8 0 0 1 16 0v3" />
+                <rect x="3" y="14" width="4" height="7" rx="1.5" fill="currentColor" />
+                <rect x="17" y="14" width="4" height="7" rx="1.5" fill="currentColor" />
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+        </button>
+
+        <div id="radio-panel" aria-hidden="true">
+            <iframe data-src="https://tunein.com/embed/player/s195836/?autoplay=true" title="BOOM Radio live player"
+                allow="autoplay"></iframe>
+        </div>
+    </footer>
+</body>
+
+</html>
