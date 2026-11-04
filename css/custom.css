@@ -352,6 +352,55 @@
    /* --------- HOME ----------- */
    /*------------------ PODCAST SECTION - (ANDREW) --------------------*/
 
+   /*------------------- Andrew - Home Page -----------------------*/
+   /* ------------------- HERO ------------------------------------*/
+
+   .hero {
+      color: var(--color-bg);
+      margin-block: 0;
+      position: relative;
+      overflow: visible;
+   }
+
+   .hero__content h1 {
+      font-size: 5rem;
+      font-weight: 700;
+   }
+
+   @media (max-width: 40rem) {
+      .hero__content h1 {
+         font-size: 3rem;
+      }
+   }
+
+   .eq { 
+      display: flex; 
+      gap: 6px; 
+      align-items: flex-end; 
+      height: 44px;
+      justify-content: center;
+   }
+
+   .eq i {
+      width: 9px;
+      height: 100%;
+      border-radius: 5px;
+      background: var(--color-bg);
+      transform-origin: bottom;
+      animation: eq 1s ease-in-out infinite;
+   }
+   .eq i:nth-child(2) { animation-delay: .15s; }
+   .eq i:nth-child(3) { animation-delay: .30s; }
+   .eq i:nth-child(4) { animation-delay: .45s; }
+   .eq i:nth-child(5) { animation-delay: .60s; }
+
+   @keyframes eq {
+      0%, 100% { transform: scaleY(.3); }
+      50%      { transform: scaleY(1); }
+   }
+
+   /*------------------ PODCAST SECTION - (ANDREW) --------------------*/
+
    .podcast {
       background: var(--color-text);
       margin-block-start: 0;
@@ -517,6 +566,66 @@
       filter: drop-shadow(8px 8px 0 var(--color-accent));
       border-radius: var(--radius);
    }
+   @media (max-width: 768px){
+   .site-footer__content {
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+         gap: var(--space-5);
+      }
+
+   .site-footer .footer-block:first-child {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+   }
+   .site-footer__logo {
+      height: calc(var(--nav-height) * 2.5);
+      width: auto;
+      margin: 0 auto;
+   }
+   .site-footer__copyright {
+      margin: 0;
+      text-align: center;
+   }
+   .site-footer .footer-block {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+   }
+
+   .site-footer h3 {
+      text-align: center;
+   }
+
+   /* Quick links */
+   .site-footer .footer-block nav {
+      align-items: center;
+   }
+
+   .site-footer__nav {
+      margin-inline: auto;
+   }
+
+   /* Contact details */
+   .site-footer .contact {
+      text-align: center;
+   }
+
+   /* Social media */
+   .site-footer .footer-block:last-child nav {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-5);
+   }
+
+   .site-footer .footer-block:last-child nav a {
+      font-size: 2.2rem;
+      margin-left: 1.5rem;
+   }
+
+}
    /* ----------- RADIO PLAYER ----------- */
    /* Floating button */
    #radio-toggle {
