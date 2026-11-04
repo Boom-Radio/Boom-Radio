@@ -23,16 +23,6 @@
         </figure>
       </li>
     </ul>
-
-  FIXED COLUMNS INSTEAD OF AUTO-FIT:
-    By default .media-gallery auto-fits as many --thumb-min-wide
-    columns as the container allows. Set --col-count (and optionally
-    --col-count-md / --col-count-lg), the same variables .grid uses,
-    to force an exact column count per breakpoint instead:
-      <ul class="media-gallery" style="--col-count: 1; --col-count-md: 2; --col-count-lg: 4;">
-    --col-widths (plus -md/-lg) works the same way it does on .grid,
-    for explicit, unequal track sizes instead of a repeated count.
-    Setting neither changes nothing - auto-fit stays the default.
   ---------------------------------------------------------------------
 */
 
@@ -41,24 +31,6 @@
     list-style: none;
     padding: 0;
     --thumb-min: 12rem;
-    --col-layout: var(--col-widths, repeat(var(--col-count, auto-fill), minmax(min(100%, var(--thumb-min)), 1fr)));
-    --col-layout-md: var(--col-widths-md, repeat(var(--col-count-md), minmax(min(100%, var(--thumb-min)), 1fr)));
-    --col-layout-lg: var(--col-widths-lg, repeat(var(--col-count-lg), minmax(min(100%, var(--thumb-min)), 1fr)));
-    display: grid;
-    gap: var(--space-4);
-    grid-template-columns: var(--col-layout);
-  }
-
-  @media (min-width: 768px) {
-    .media-gallery {
-      grid-template-columns: var(--col-layout-md, var(--col-layout));
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .media-gallery {
-      grid-template-columns: var(--col-layout-lg, var(--col-layout-md, var(--col-layout)));
-    }
     display: grid;
     gap: var(--space-4);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--thumb-min)), 1fr));
