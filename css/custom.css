@@ -389,7 +389,7 @@
     font-weight: 700;
   }
 
-  .title {
+  .hero-title {
     margin-block-end: var(--space-2);
     font-size: clamp(2.25rem, 5vw, 3.5rem);
     line-height: 1.1;
@@ -452,11 +452,6 @@
     margin-block-start: var(--space-4);
   }
 
-  .title {
-    margin-block-end: var(--space-4);
-    font-size: 1.125rem;
-    line-height: 1.3;
-  }
 
   .list {
     display: grid;
@@ -491,25 +486,6 @@
   .card__copy p {
     font-size: 0.8rem;
     line-height: 1.35;
-  }
-
-  @media (max-width: 48rem) {
-    .container {
-      width: min(88%, 40rem);
-    }
-
-    .layout {
-      gap: var(--space-4);
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    }
-
-    .article {
-      padding: var(--space-4);
-    }
-
-    .card__copy {
-      padding-inline: var(--space-2);
-    }
   }
 
   @media (max-width: 30rem) {
