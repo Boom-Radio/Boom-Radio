@@ -647,10 +647,6 @@
    .site-footer__copyright {
       margin-inline-start: -2.5rem;
    }
-      .contact p {
-         margin-block-end: var(--space-2);
-         color: var(--color-bg);
-      }
 
    .footer-block nav {
       display: flex;
@@ -742,7 +738,6 @@
    .section-header__intro--podcast {
       color: var(--color-bg);
    }
-   
 
    .podcast-navigation {
       padding-block-start: var(--space-8);
@@ -881,72 +876,6 @@
       filter: drop-shadow(8px 8px 0 var(--color-accent));
       border-radius: var(--radius);
    }
-    @media (max-width: 768px){
-      .site-footer__content {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: var(--space-5);
-         }
-
-      .site-footer .footer-block:first-child {
-         width: 100%;
-         align-items: center;
-         text-align: center;
-      }
-.site-footer__logo {
-   height: calc(var(--nav-height) * 2.5);
-   width: auto;
-   margin: 0 auto;
-}
-      .site-footer__copyright {
-         margin: 0;
-         text-align: center;
-      }
-             .site-footer .footer-block {
-                width: 100%;
-                align-items: center;
-                text-align: center;
-             }
-      
-             .site-footer h3 {
-                text-align: center;
-             }
-      
-             /* Quick links */
-             .site-footer .footer-block nav {
-                align-items: center;
-             }
-      
-             .site-footer__nav {
-                margin-inline: auto;
-             }
-      
-             /* Contact details */
-             .site-footer .contact {
-                text-align: center;
-             }
-      
-             /* Social media */
-             .site-footer .footer-block:last-child nav {
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: var(--space-5);
-             }
-      
-             .site-footer .footer-block:last-child nav a {
-                font-size: 2.2rem;
-                margin-left: 1.5rem;
-             }
-
-}
-
-
-
-
-
-
 }
 
 
