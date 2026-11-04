@@ -66,15 +66,6 @@
       --color-accent__two: #FF8FC4;
       --color-accent__three: #FFC72C;
 
-      --radio-size: 80px;
-      --radio-gap: 16px;
-      --radio-edge: 20px;
-
-      --text-spacing__sml: -0.02em;
-      /* For small text such as eyebrow and block texts */
-      --text-spacing__big: -0.06em;
-      /* For headers and titles */
-
 
       --shadow-brand: 5px 5px 0 var(--color-accent);
 
@@ -368,23 +359,10 @@
       transition: transform .15s, box-shadow .15s;
    }
 
-   #radio-toggle svg {
-      width: 26px;
-      height: 26px;
-      grid-area: 1 / 1;
-   }
-
-   #radio-toggle .icon-close {
-      display: none;
-   }
-
-   #radio-toggle.is-open .icon-headphones {
-      display: none;
-   }
-
-   #radio-toggle.is-open .icon-close {
-      display: block;
-   }
+   #radio-toggle svg { width: 26px; height: 26px; grid-area: 1 / 1; }
+   #radio-toggle .icon-close { display: none; }
+   #radio-toggle.is-open .icon-headphones { display: none; }
+   #radio-toggle.is-open .icon-close { display: block; }
 
    #radio-toggle:hover {
       transform: translateY(-2px) rotate(-6deg) scale(1.06);
@@ -424,26 +402,10 @@
    }
 
    @keyframes radio-pulse {
-      0% {
-         transform: scale(1);
-         opacity: 0;
-      }
-
-      15% {
-         opacity: .55;
-      }
-
-      70% {
-         transform: scale(1.6);
-         opacity: 0;
-      }
-
-      100% {
-         transform: scale(1.6);
-         opacity: 0;
-      }
-
-      /* short rest before the next pulse */
+      0%   { transform: scale(1);   opacity: 0;   }
+      15%  {                        opacity: .55; }
+      70%  { transform: scale(1.6); opacity: 0;   }
+      100% { transform: scale(1.6); opacity: 0;   }  /* short rest before the next pulse */
    }
 
    /* Popout panel, sits ABOVE the button */
@@ -481,15 +443,9 @@
    }
 
    @media (prefers-reduced-motion: reduce) {
-
       #radio-toggle,
-      #radio-panel {
-         transition: none;
-      }
-
-      #radio-toggle::after {
-         animation: none;
-      }
+      #radio-panel { transition: none; }
+      #radio-toggle::after { animation: none; }
    }
 
    /*  Arial fonts to be used as per styleguide, weight can be adjusted overall for headings as we see fit, just added placeholder value for now.  */
@@ -498,7 +454,7 @@
    h3,
    h4,
    p,
-   span,
+   span, 
    button,
    a {
       font-family: Arial, Helvetica, sans-serif;
@@ -508,52 +464,9 @@
    h2,
    h3,
    h4 {
-      letter-spacing: var(--text-spacing__big);
-   }
-
-   p,
-   span,
-   a,
-   button {
-      letter-spacing: var(--text-spacing__sml);
-   }
-
-   h1,
-   h2,
-   h3,
-   h4 {
       font-weight: 600;
    }
 
-   main {
-      background: var(--color-bg);
-   }
-
-   /* SECTION HEADER GLOBAL STYLING - Keeping sizes uniform across pages */
-   .section-header__title {
-      font-size: clamp(3rem, 2rem + 4vw, 5rem);
-      letter-spacing: var(--text-spacing__big);
-   }
-
-   .section-header__intro {
-      font-size: 1.4rem;
-      letter-spacing: -0.03em;
-      /* sp change*/
-   }
-
-   .badge {
-      transform: rotate(-3deg);
-      font-size: clamp(0.75rem, 0.75rem + 1vw, 1.125rem);
-   }
-
-   .italic {
-      color: var(--color-accent);
-      font-style: italic;
-   }
-
-   /* .btn-general for all buttons, then include an additional class for colors from below */
-   .btn-general {
-      --px: 1.5rem;
    /* .btn-general for all buttons, then include an additional class for colors from below */
    .btn-general {
       --px: 0.8rem;
@@ -636,6 +549,7 @@
       background: var(--color-bg);
       color: var(--color-text);
       border: 2px solid var(--color-text);
+
    }
 
    .btn-bg-dark {
@@ -658,6 +572,8 @@
       color: var(--color-text);
       border: 2px solid var(--color-text);
    }
+
+
 
    /* ------- NAVIGATION ------- */
    .site-header {
@@ -765,12 +681,6 @@
       color: var(--color-accent);
    }
 
-   .footer-block {
-      display: flex;
-      flex-direction: column;
-      text-align: start;
-   }
-     
    .hero-split {
       margin-block: 0;
       padding-block: clamp(3rem, 7vw, 7rem);
@@ -894,18 +804,13 @@
    .mission-section .stat-card:nth-child(3) {
       background-color: var(--color-accent__two);
 
-   }
 
-   .eq {
-      display: flex;
-      gap: 6px;
-      align-items: flex-end;
-      height: 44px;
-      justify-content: center;
    }
 
    .mission-section .stat-card:nth-child(even) {
       transform: rotate(4deg);
+
+
    }
 
    .mission-section .stat-card__label {
@@ -921,32 +826,11 @@
       margin-block-end: var(--space-4);
    }
 
-   .eq i:nth-child(2) {
-      animation-delay: .15s;
-   }
-
-   .eq i:nth-child(3) {
-      animation-delay: .30s;
-   }
-
-   .eq i:nth-child(4) {
-      animation-delay: .45s;
-   }
-
-   .eq i:nth-child(5) {
-      animation-delay: .60s;
-   }
-
-   @keyframes eq {
-
-      0%,
-      100% {
-         transform: scaleY(.3);
-      }
-
-      50% {
-         transform: scaleY(1);
-      }
+   .mission-section .stat-card__value {
+      font-size: clamp(1.5rem, 2vw, 2.25rem);
+      line-height: 1.1;
+      color: var(--color-text);
+      margin-block-end: var(--space-3);
    }
 
    .mission-section .stat-card__sub {
@@ -1005,19 +889,6 @@
       margin-bottom: 0.6rem;
    }
 
-   .badge-podcast {
-      border: transparent;
-      color: var(--color-text);
-      background: var(--color-accent__three);
-      /* font-size: clamp(1rem, 1rem + 1vh, 1.5rem); */
-      align-self: flex-start;
-      justify-self: start;
-      width: fit-content;
-      letter-spacing: var(--text-spacing__sml);
-      /* sp change*/
-      box-shadow: 5px 5px 0px var(--color-text);
-   }
-     
    .get-involved p {
       margin-bottom: 1rem;
    }
@@ -1048,51 +919,6 @@
       margin-bottom: 100px;
    }
 
-   /* ---- nita's wave --*/
-
-   .section-wave {
-      position: relative;
-      isolation: isolate;
-
-   }
-
-   .section-wave::before,
-   .section-wave::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background-image: url("../img/wave.svg");
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-   }
-
-   /* Top wave */
-   .section-wave::before {
-      top: 0;
-      background-position: top center;
-      transform: translateY(-99%);
-   }
-
-   /* Bottom wave */
-   .section-wave::after {
-      bottom: 0;
-      background-position: bottom center;
-      transform: translateY(99%) scaleY(-1);
-   }
-
-   /* Hide bottom wave when not required */
-   .section-wave--top-only::after {
-      display: none;
-   }
-
-   /** --- End **/
-
-   @media (max-width: 767px) {
-      .wave-marquee {
-         bottom: 0rem;
    @media (max-width: 480px) {
       .get-involved {
          gap: 0.75rem;
@@ -1105,30 +931,6 @@
          height: 78px;
          font-size: 0.7rem;
       }
-
-      .schedule--carousel h2 {
-         font-size: clamp(1.75rem, 5vw, 5rem);
-         line-height: 1.1;
-      }
-
-      .schedule--carousel p {
-         font-size: clamp(1rem, 2.5vw, 1.5rem);
-         line-height: 1.5;
-      }
-
-      .schedule--carousel .schedule__time {
-         font-size: clamp(0.75rem, 1.5vw, 1.125rem);
-      }
-
-      .schedule--carousel__btn {
-         font-size: clamp(0.75rem, 1.5vw, 1rem);
-         padding: clamp(0.5rem, 1.5vw, 0.875rem) clamp(0.875rem, 2.5vw, 1.75rem);
-
-         width: fit-content;
-         transition: transform 0.3s ease;
-      }
-
-
    }
 
    .social-section {
@@ -1334,205 +1136,6 @@
       flex-direction: column;
       color: var(--color-bg);
    }
-
-   /*---- Schedule - Steph ----*/
-
-   a.breadcrumb__link:hover {
-      color: var(--color-accent);
-   }
-
-   .schedule--pill__badge {
-      border: transparent;
-      color: var(--color-text);
-      background: var(--color-accent);
-
-      align-self: flex-start;
-      justify-self: start;
-      width: fit-content;
-      letter-spacing: var(--text-spacing__sml);
-      /* sp change*/
-      box-shadow: 5px 5px 0px var(--color-text);
-   }
-
-
-   .tabs__list {
-      gap: 1rem;
-      border-bottom: none;
-   }
-
-   .tabs__label {
-      flex: 1;
-      min-width: 0;
-      text-align: center;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 0.5rem 1rem;
-      border: 2px solid #1a0b05;
-      border-radius: 999px;
-
-      text-decoration: none;
-      color: #1a0b05;
-      font-weight: 600;
-      box-shadow: 3px 3px 0 var(--color-text);
-      transition:
-         transform 0.3s ease-in-out,
-         background-color 0.3s ease-in-out,
-         box-shadow 0.3s ease-in-out;
-   }
-
-   .tabs__input:checked+.tabs__label {
-      background-color: var(--color-accent);
-      border-color: var(--color-text);
-   }
-
-   .tabs__label:hover {
-      transform: translate(3px, 3px);
-      filter: drop-shadow(1px 1px 0 var(--btn-shadow));
-      background-color: var(--color-text);
-      color: var(--color-bg);
-   }
-
-   .schedule--carousel {
-
-      border-radius: 10px;
-      box-shadow: 6px 6px 0px var(--color-accent);
-   }
-
-   .schedule-section {
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      background-color: #1a0904;
-      padding-block: 4rem;
-   }
-
-   .schedule-carousel__media img {
-      aspect-ratio: 3 / 4;
-      /* Portrait */
-      max-width: 300px;
-      /* border: 2px solid var(--color-text); */
-      border: none;
-      border-radius: var(--radius);
-      filter: drop-shadow(8px 8px 0 var(--color-text));
-      overflow: hidden;
-      transform: rotate(3deg);
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-   }
-
-   .carousel__slide {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-12);
-      /* Controls space between image and text */
-   }
-
-   .carousel__content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      /* keeps everything aligned left */
-   }
-
-   .schedule--carousel__btn {
-      margin-top: 1.5rem;
-      align-self: flex-start;
-
-   }
-
-
-   /* --- Schedule - Presenter - Steph --- */
-
-   .media-gallery--card .media-gallery__item {
-      max-width: 220px;
-      width: 100%;
-      height: 100%;
-      border: none;
-   }
-
-   /*--- icon - presenter - Steph --- */
-
-
-   .presenter-icon {
-      fill: var(--color-muted);
-      stroke: none;
-      width: 20px;
-      height: 20px;
-   }
-
-      .presenter-icon:hover {
-      fill: var(--color-accent);
-
-   }
-
-   .media-gallery__caption a {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-   }
-
-   .media-gallery {
-      grid-auto-rows: 1fr;
-   }
-
-
-   .schedule-wave__top {
-      width: 100%;
-      height: calc(var(--nav-height) * 1.5);
-   }
-
-   .tabs__panel {
-      padding-block: 0 var(--space-12);
-   }
-
-   .carousel__slide {
-      padding-block: var(--space-12);
-   }
-
-   .schedule--carousel {
-      margin-block: 0 var(--space-12);
-   }
-
-   .section-scheule__carousel {
-      background: var(--color-text);
-   }
-
-   .breadcrumb {
-      padding-block-start: var(--space-8);
-   }
-
-   .section-header__schedule {
-      padding-block-end: var(--space-4);
-
-   }
-
-
-
-   .carousel {
-      background: var(--color-bg);
-   }
-
-   .schedule--carousel .carousel-autoplay-toggle {
-      position: absolute;
-      inset: auto 1rem 1rem auto;
-      z-index: 10;
-      cursor: pointer;
-      font-size: 0.75rem;
-   }
-
-
-   @media (max-width: 767px) {
-      .schedule--pill__badge {
-         font-size: clamp(0.75rem, 1.5vw, 1.125rem);
-         padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
-         width: fit-content;
-      }
-   }
        .footer-block nav a:hover{
          color: var(--color-accent);
          transition: color 0.3s ease;
@@ -1550,22 +1153,22 @@
       color: var(--color-bg);
    }
 
-  /* Social media icons in a row */
-  .site-footer .footer-block:last-child nav {
-     flex-direction: row;
-     align-items: center;
-     gap: var(--space-6);
-  }
+      /* Social media icons in a row */
+      .site-footer .footer-block:last-child nav {
+         flex-direction: row;
+         align-items: center;
+         gap: var(--space-6);
+      }
+   
+      .site-footer .footer-block:last-child nav a {
+         font-size: 2.5rem;
+         color: var(--color-bg);
 
-  .site-footer .footer-block:last-child nav a {
-     font-size: 2.5rem;
-     color: var(--color-bg);
-
-  }
-  .site-footer .footer-block:last-child nav a:hover{
-     color: var(--color-accent);
-     transform: scale(1.4);
-  }
+      }
+      .site-footer .footer-block:last-child nav a:hover{
+         color: var(--color-accent);
+         transform: scale(1.4);
+      }
 }
 
 
