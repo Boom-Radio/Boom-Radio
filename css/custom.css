@@ -553,9 +553,6 @@
 
    /* .btn-general for all buttons, then include an additional class for colors from below */
    .btn-general {
-      --px: 1.5rem;
-   /* .btn-general for all buttons, then include an additional class for colors from below */
-   .btn-general {
       --px: 0.8rem;
       --py: 0.65rem;
       --squish: 2px;
@@ -718,9 +715,7 @@
    .section-wave {
       position: relative;
       isolation: isolate;
-       outline: 3px solid var(--color-text);
-      
-
+      outline: 3px solid var(--color-text);
    }
 
    .section-wave::before,
@@ -1053,7 +1048,6 @@
    .section-wave {
       position: relative;
       isolation: isolate;
-
    }
 
    .section-wave::before,
@@ -1093,11 +1087,15 @@
    @media (max-width: 767px) {
       .wave-marquee {
          bottom: 0rem;
+      }
+   }
+
    @media (max-width: 480px) {
       .get-involved {
          gap: 0.75rem;
          padding: 1rem;
       }
+   }
 
       .get-involved .get-involved__circle {
          flex-basis: 78px;
@@ -1551,7 +1549,7 @@
    }
 
   /* Social media icons in a row */
-  .site-footer .footer-block:last-child nav {
+  /* .site-footer .footer-block:last-child nav {
      flex-direction: row;
      align-items: center;
      gap: var(--space-6);
@@ -1565,7 +1563,7 @@
   .site-footer .footer-block:last-child nav a:hover{
      color: var(--color-accent);
      transform: scale(1.4);
-  }
+  } */
 }
 
 
