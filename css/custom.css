@@ -72,6 +72,7 @@
     --radio-gap: 16px;
     --radio-edge: 20px;
 
+    --test: 1px;
 
     /* Light (forces light for every visitor, regardless of their own
        OS setting - use the automatic version below instead if you'd
