@@ -59,6 +59,9 @@
     .media-gallery {
       grid-template-columns: var(--col-layout-lg, var(--col-layout-md, var(--col-layout)));
     }
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--thumb-min)), 1fr));
   }
 
   .media-gallery__item {

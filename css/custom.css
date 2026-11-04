@@ -76,6 +76,15 @@
       /* For headers and titles */
 
 
+      --shadow-brand: 5px 5px 0 var(--color-accent);
+
+      --radio-size: 80px;
+      --radio-gap: 16px;
+      --radio-edge: 20px;
+
+
+
+
       /* Light (forces light for every visitor, regardless of their own
        OS setting - use the automatic version below instead if you'd
        rather follow the visitor's own preference): */
@@ -122,8 +131,8 @@
       /* --- Shape & spacing ---------------------------------------------
        --space-unit scales the ENTIRE spacing system at once - every
        --space-* token is calc(--space-unit * N). */
-      /* --radius:     14px;  */
-      /* --radius-lg:  22px;  */
+      --radius: 10px;
+      --radius-lg: 20px;
       /* --space-unit: 0.25rem; */
 
 
@@ -545,6 +554,9 @@
    /* .btn-general for all buttons, then include an additional class for colors from below */
    .btn-general {
       --px: 1.5rem;
+   /* .btn-general for all buttons, then include an additional class for colors from below */
+   .btn-general {
+      --px: 0.8rem;
       --py: 0.65rem;
       --squish: 2px;
       /* padding: var(--py) var(--px); */
@@ -626,6 +638,13 @@
       border: 2px solid var(--color-text);
    }
 
+   .btn-bg-dark {
+      --btn-shadow: var(--color-bg);
+      background: var(--color-text);
+      color: var(--color-bg);
+      border: 2px solid var(--color-text);
+   }
+
    .btn-accent-light {
       --btn-shadow: var(--color-bg);
       background: var(--color-accent);
@@ -687,41 +706,63 @@
       }
    }
 
-   /* ------- FOOTER ------- */
-   .site-footer {
-      background: var(--color-text);
+
+
+
+
+
+   
+   /* About BOOM — Hero section */
+
+   /* Base wave setup */
+   .section-wave {
+      position: relative;
+      isolation: isolate;
+       outline: 3px solid var(--color-text);
+      
+
+   }
+
+   .section-wave::before,
+   .section-wave::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-image: url("../img/wave.svg");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+     
+   }
+
+   /* Top wave */
+   .section-wave::before {
+      top: 0;
+      background-position: top center;
+      transform: translateY(-99%);
+   }
+
+   /* Bottom wave */
+   .section-wave::after {
+      bottom: 0;
+      background-position: bottom center;
+      transform: translateY(100%) scaleY(-1);
+     
+   }
+
+   /* Hide bottom wave when not required */
+   .section-wave--top-only::after {
+      display: none;
+   }
+
+
+
+   .site-header__brand span,
+   .hero-split__title span,
+   .site-footer__title span {
       color: var(--color-accent);
-      padding-block-end: var(--space-2);
-      border-block-start: 2px solid var(--color-accent);
-   }
-
-   .site-footer__nav {
-      margin-block-end: var(--space-2);
-      gap: var(--space-2);
-      /* gap: 4px; */
-   }
-
-   .site-footer__content {
-      display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
-   }
-
-   .site-footer__logo {
-      display: block;
-      height: calc(var(--nav-height) * 3);
-      width: auto;
-      margin-block-start: -2.8rem;
-      margin-inline: -2.5rem 2.5rem;
-   }
-
-   .site-footer__copyright {
-      margin-inline-start: -2.5rem;
-   }
-
-   .footer-block nav {
-      display: flex;
-      flex-direction: column;
    }
 
    .footer-block {
@@ -729,89 +770,130 @@
       flex-direction: column;
       text-align: start;
    }
-
-   .contact p {
-      margin-block-end: var(--space-2);
-   }
-
-   /*------------------- Andrew - Home Page -----------------------*/
-   /* ------------------- HERO ------------------------------------
-   .carousel {
-      position: relative;
-      border-radius: 0;
-      background: var(--color-bg);
-      border: none;
-   }
-
-   .carousel__slide {
-      padding: 0;
-   }
-
-   .carousel__media {
-      aspect-ratio: 21 / 9;
-      border: 0;
-      border-radius: 0;
-   }
-
-   .carousel__copy {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: var(--space-6);
-      background: linear-gradiant(90deg, rgb(0 0 0 / 0.6), transparent 70%);
-      align-items: center;
-      pointer-events: none;
-   }
-
-   .hero {
-      color: var(--color-bg);
+     
+   .hero-split {
       margin-block: 0;
-      position: relative;
-      overflow: visible;
+      padding-block: clamp(3rem, 7vw, 7rem);
+      gap: clamp(2.5rem, 7vw, 6rem);
    }
 
-   .carousel-autoplay-toggle {
-      display: none;
+   @container hero-actions (max-width: 380px) {
+
+      .hero-split__actions .btn {
+         width: 100%;
+      }
    }
 
-   .carousel-control {
-      background: var(--color-bg);
-   }
-
-   .carousel__copy > * {
-      max-width: 40ch;
-      text-shadow:
-         0 1px 2px color-mix(in oklab, var(--color-text) 60%, transparent),
-         0 4px 16px color-mix(in oklab, var(--color-text) 40%, transparent);
-      padding-inline-end: var(--space-12);
+   .festival-kicker {
+      width: fit-content;
+      padding: 0.2rem 0.60rem;
+      border-radius: var(--radius);
+      background: var(--color-accent__three);
       color: var(--color-text);
+      font-weight: 900;
+
+      transform: rotate(-3deg);
+      border: 2px solid var(--color-text);
    }
 
-   .carousel__copy a,
-   .carousel__copy button {
-      pointer-events: auto;
-   }*/
-
-   .hero__content h1 {
-      font-size: 5rem;
-      font-weight: 700;
+   .hero-split__title {
+      max-width: none;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
    }
 
-   @media (max-width: 40rem) {
-      /*.carousel__media {
-         aspect-ratio: 4 / 5;
-      }
+   .hero-split__title span {
+      display: inline;
+      color: var(--color-accent);
+      font-style: italic;
+   }
 
-      .carousel__copy {
-         justify-content: flex-end;
-         background: linear-gradient(0deg, rgba(0 0 0 / 0.7), transparent 70%);
-      }
+   .hero-split__image {
+      width: min(100%, 34rem);
+      margin-inline: auto;
+      filter: drop-shadow(16px 16px 0 var(--color-accent));
+      background-color: #111;
+      border-radius: 12px;
+      transform: rotate(3deg);
+   }
 
-      .hero__content h1 {
-         font-size: 3rem;
-      }*/
+   /* value section */
+   /* OUR MISSION SECTION */
+   .mission-section {
+      position: relative;
+      isolation: isolate;
+      background-color: var(--color-text);
+      padding-block: clamp(3rem, 5vw, 5rem);
+      margin-block-start: 0;
+      margin-bottom: 10rem;
+   }
+
+   /* Section heading */
+
+   .mission-section {
+      margin-top: 1.5rem;
+   }
+
+   .mission-section .section-header {
+      max-width: 48rem;
+      margin-block-end: var(--space-8);
+   }
+
+   .mission-section .section-header__eyebrow {
+      color: var(--color-accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+   }
+
+   .mission-section .section-header__title {
+      max-width: none;
+      margin-block: var(--space-2);
+      color: var(--color-bg);
+   }
+
+   .mission-section p {
+      color: var(--color-bg);
+   }
+
+   /* Four mission cards */
+   .mission-section .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-4);
+      align-items: center;
+      padding-block: 2rem;
+   }
+
+   .mission-section .stat-card {
+      padding: clamp(1.25rem, 2vw, 2rem);
+      padding-inline: 1.5rem;
+      border-radius: var(--radius-lg);
+      /* box-shadow: 4px 4px 0 var(--color-accent); */
+      box-shadow: var(--shadow-brand);
+      min-width: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-left: 2rem;
+
+   }
+
+   /* Tilt each card differently */
+   .mission-section .stat-card:nth-child(odd) {
+      transform: rotate(-3deg);
+
+
+   }
+
+   .mission-section .stat-card:nth-child(1) {
+      background-color: var(--color-accent__three);
+
+
+   }
+
+   .mission-section .stat-card:nth-child(3) {
+      background-color: var(--color-accent__two);
+
    }
 
    .eq {
@@ -822,13 +904,21 @@
       justify-content: center;
    }
 
-   .eq i {
-      width: 9px;
-      height: 100%;
-      border-radius: 5px;
-      background: var(--color-bg);
-      transform-origin: bottom;
-      animation: eq 1s ease-in-out infinite;
+   .mission-section .stat-card:nth-child(even) {
+      transform: rotate(4deg);
+   }
+
+   .mission-section .stat-card__label {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--color-text);
+      color: var(--color-bg);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      font-weight: 800;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      margin-block-end: var(--space-4);
    }
 
    .eq i:nth-child(2) {
@@ -859,38 +949,60 @@
       }
    }
 
-   .wave {
-      width: 100%;
+   .mission-section .stat-card__sub {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--color-muted);
    }
 
-   /*------------------ PODCAST SECTION - (ANDREW) --------------------*/
-
-   .podcast {
-      background: var(--color-text);
-      margin-block-start: 0;
-      position: relative;
-      margin-block: 1.4rem;
-      z-index: 2;
+   @media (hover: hover) {
+      .mission-section .stat-card:hover {
+         transform: rotate(0deg) translateY(-8px);
+         /* box-shadow: 8px 8px 0 var(--color-accent); */
+         box-shadow: var(--shadow-brand);
+      }
    }
 
+   /* Tablet */
+   @media (max-width: 900px) {
+      .mission-section .grid {
+         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+   }
 
-   .podcast-content {
+   /* Mobile */
+   @media (max-width: 560px) {
+      .mission-section {
+         padding-block: 4rem;
+      }
+
+      .mission-section::before {
+         height: 40px;
+      }
+
+      .mission-section .grid {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   /* Get Involved Card */
+   .get-involved {
       display: flex;
       flex-direction: row;
+      align-items: center;
       justify-content: space-between;
-      color: var(--color-bg);
-      gap: var(--space-8);
+      gap: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--color-accent);
+      color: var(--color-text);
+      border: 1px solid var(--color-text);
+      border-radius: 10px;
+      box-shadow: 4px 4px 0 var(--color-text);
+
    }
 
-   .section-header__podcast {
-      color: var(--color-bg);
-      display: flex;
-      flex-direction: column;
-   }
-
-   .section-header__intro--podcast {
-      color: var(--color-bg);
-      padding-block-start: 2rem;
+   .get-involved h2 {
+      margin-bottom: 0.6rem;
    }
 
    .badge-podcast {
@@ -905,37 +1017,35 @@
       /* sp change*/
       box-shadow: 5px 5px 0px var(--color-text);
    }
+     
+   .get-involved p {
+      margin-bottom: 1rem;
+   }
 
-   .podcast-img {
-      max-height: auto;
-      width: 40%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      transform: rotate(-3deg);
-      filter: drop-shadow(12px 12px 0 var(--color-accent));
+   /* Circular Join the Team button */
+   .get-involved .get-involved__circle {
+      flex: 0 0 100px;
+      width: 100px;
+      height: 100px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 50%;
-      overflow: hidden;
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      transform: rotate(8deg);
+      transition: transform 0.25s ease;
+      background-color: var(--color-accent__three);
    }
 
-   .podcast-navigation {
-      display: flex;
-      gap: 2rem;
-      margin-top: auto;
-      align-self: flex-start;
-      font-size: 1.25rem;
+   .get-involved .get-involved__circle:hover {
+      transform: rotate(0deg) scale(1.05);
    }
 
-   .wave-marquee {
-      display: block;
-      width: 100%;
-      height: auto;
-      background: var(--color-bg);
-      position: absolute;
-      /* bottom: -0.5rem; */
-      bottom: -1.5rem;
-      left: 0;
-      z-index: 1;
-      background: transparent;
+   .get-involved-section {
+      margin-bottom: 100px;
    }
 
    /* ---- nita's wave --*/
@@ -983,10 +1093,17 @@
    @media (max-width: 767px) {
       .wave-marquee {
          bottom: 0rem;
+   @media (max-width: 480px) {
+      .get-involved {
+         gap: 0.75rem;
+         padding: 1rem;
       }
 
-      .podcast {
-         margin-block: -0.125rem;
+      .get-involved .get-involved__circle {
+         flex-basis: 78px;
+         width: 78px;
+         height: 78px;
+         font-size: 0.7rem;
       }
 
       .schedule--carousel h2 {
@@ -1014,53 +1131,208 @@
 
    }
 
-   /* ------------------- ABOUT TEASER (Andrew) -----------------------------*/
-   .badge-about__teaser {
-      background: var(--color-accent__two);
-      color: var(--color-text);
-      border: 2px solid var(--color-text);
-
-      align-self: flex-start;
-      justify-self: start;
-      width: fit-content;
+   .social-section {
+      background-color: var(--color-text);
    }
 
-   .section-about__teaser {
+   .social-section h2 {
+      color: var(--color-bg);
+
+   }
+
+   .social-section__header {
       display: flex;
       justify-content: space-between;
-      gap: var(--space-24);
-      flex-direction: row-reverse;
-      padding-block-start: var(--space-16);
+      align-items: center;
+      gap: 24px;
+   }
+   
+
+   .social-section__links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
    }
 
-   .header-about__teaser {
+      .social-section__link {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         padding: 10px 18px;         
+         border-radius: 999px;
+         background-color: var(--color-bg);
+         color: var(--color-text);
+         text-decoration: none;
+         font-weight: 600;
+         transition:
+            background-color 0.25s ease,
+            color 0.25s ease,
+            border-color 0.25s ease;
+      }
+   
+      .social-section__link:hover,
+      .social-section__link:focus-visible {
+         background-color: var(--color-accent);
+         border-color: var(--color-accent);
+         color: var(--color-bg);
+      }
+
+   .social-section__link span {
+      display: inline-block;
+      transition: transform 0.25s ease;
+   }
+
+   .social-section__link:hover span,
+   .social-section__link:focus-visible span {
+      transform: translate(3px, -3px);
+   }
+
+   .social-section__grid {
+      --thumb-min: 0;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+   }
+
+
+
+  .social-card {
+     text-decoration: none;
+     color: inherit;
+     /* border: 2px solid var(--color-text); */
+     /* border-radius: 12px; */
+     overflow: hidden;
+     margin-left: 1.4rem;      
+   box-shadow: var(--shadow-brand);
+     transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+   .social-card:hover {
+      transform: translateY(-4px);
+   }
+
+   .social-card:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 4px;
+   }
+
+   @media (max-width: 900px) {
+      .social-section__grid {
+         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+   }
+
+   @media (max-width: 480px) {
+      .social-section__grid {
+         grid-template-columns: 1fr;
+      }
+   }
+
+      /* Sponsors Carousel */
+   
+      .sponsors-section {
+         background: var(--color-text);
+         color: var(--color-bg);
+         padding-block: 3rem;
+      }
+   
+      .sponsors-track {
+         width: 100%;
+         overflow: hidden;
+         background: var(--color-bg);
+         border: 2px solid var(--color-accent);
+         border-radius: 14px;
+         box-shadow: var(--shadow-brand);
+         padding-block: 3rem;
+      }
+      .sponsors-track {
+         width: 100%;
+         overflow: hidden;
+         
+      }
+      .section-header__title {
+         color: var(--color-accent);
+      }
+   
+      .sponsors-track__inner {
+         display: flex;
+         align-items: center;
+         gap: var(--space-6);
+         width: max-content;
+         animation: sponsors-scroll 30s linear infinite;
+      }
+   
+      .sponsors-logo {
+         flex: 0 0 180px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+   
+      .sponsors-logo img {
+         display: block;
+         width: 100%;
+         max-width: 160px;
+         height: 80px;
+         object-fit: contain;
+      }
+   
+      @keyframes sponsors-scroll {
+         from {
+            transform: translateX(0);
+         }
+   
+         to {
+            transform: translateX(calc(-50% - (var(--space-6) / 2)));
+         }
+      }
+   
+      @media (prefers-reduced-motion: reduce) {
+         .sponsors-track__inner {
+            animation: none;
+         }
+      }
+
+
+   /* ------- FOOTER ------- */
+   .site-footer {
+      background: var(--color-text);
+      color: var(--color-accent);
+      padding-block-end: var(--space-2);
+      border-block-start: 2px solid var(--color-accent);
+   }
+
+   .site-footer__nav {
+      margin-block-end: var(--space-2);
+      gap: var(--space-2);
+      /* gap: 4px; */
+   }
+
+   .site-footer__content {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+   }
+   .site-footer h3 {
+      font-size: 1.2rem;
+   }
+
+   .site-footer__logo {
+      display: block;
+      height: calc(var(--nav-height) * 3);
+      width: auto;
+      margin-block-start: -2.8rem;
+      margin-inline: -2.5rem 2.5rem;
+   }
+
+   .site-footer__copyright {
+      margin-inline-start: -2.5rem;
+   }
+
+   .footer-block nav {
       display: flex;
       flex-direction: column;
-   }
-
-   .header-about__teaser p {
-      padding-block-end: var(--space-8);
-   }
-
-   .section-about__intro {
-      color: var(--color-text);
-   }
-
-   .site-about__teaser--nav {
-      display: flex;
-      gap: 2rem;
-      margin-top: auto;
-      align-self: flex-end;
-      font-size: 1.25rem;
-   }
-
-   .about-teaser__img {
-      display: block;
-      height: 348px;
-      width: auto;
-      transform: rotate(-3deg);
-      filter: drop-shadow(8px 8px 0 var(--color-accent));
-      border-radius: var(--radius);
+      color: var(--color-bg);
    }
 
    /*---- Schedule - Steph ----*/
@@ -1080,7 +1352,6 @@
       letter-spacing: var(--text-spacing__sml);
       /* sp change*/
       box-shadow: 5px 5px 0px var(--color-text);
-
    }
 
 
@@ -1089,10 +1360,7 @@
       border-bottom: none;
    }
 
-
-
    .tabs__label {
-
       flex: 1;
       min-width: 0;
       text-align: center;
@@ -1250,7 +1518,6 @@
    }
 
    .schedule--carousel .carousel-autoplay-toggle {
-
       position: absolute;
       inset: auto 1rem 1rem auto;
       z-index: 10;
@@ -1266,6 +1533,39 @@
          width: fit-content;
       }
    }
+       .footer-block nav a:hover{
+         color: var(--color-accent);
+         transition: color 0.3s ease;
+       }
+
+
+   .footer-block {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+   }
+
+   .contact p {
+      margin-block-end: var(--space-2);
+      color: var(--color-bg);
+   }
+
+  /* Social media icons in a row */
+  .site-footer .footer-block:last-child nav {
+     flex-direction: row;
+     align-items: center;
+     gap: var(--space-6);
+  }
+
+  .site-footer .footer-block:last-child nav a {
+     font-size: 2.5rem;
+     color: var(--color-bg);
+
+  }
+  .site-footer .footer-block:last-child nav a:hover{
+     color: var(--color-accent);
+     transform: scale(1.4);
+  }
 }
 
 
