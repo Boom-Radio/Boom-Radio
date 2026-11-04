@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boom Radio brings you the greatest hits, live shows, podcasts, news, and entertainment. Listen online anytime and enjoy classic boom.">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/core.css">
 
     <link rel="stylesheet" href="css/components/header-nav.css">
     <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/components/carousel.css">
+    <link rel="stylesheet" href="css/components/carousel-arrow-addon.css">
+    <link rel="stylesheet" href="css/components/section-header.css">
+    <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
 
     <link rel="stylesheet" href="css/custom.css">
     <title>BOOM Radio</title>
+    <script src="js/carousel-arrow-addon.js" defer></script>
+    <script src="js/carousel-autoplay-addon.js" defer></script>
+    <script src="js/radio.js" defer></script>
 </head>
 <body>
     <header class="site-header drawer-right">
@@ -27,11 +37,92 @@
                 <a href="#" class="site-nav__link">Hosts</a>
                 <a href="#" class="site-nav__link">About</a>
                 <a href="#" class="site-nav__link">News</a>
-                <a href="#" class="site-nav__link btn-general btn-cta"><span class="dot"></span>On Air: Listen Live</a>
+                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air: Listen Live</a>
             </nav>
         </div>
     </header>
     <main>
+        <section id="hero" class="hero hero--cycle" aria-labelledby="hero-title">
+        <div class="hero__cycle-layers" aria-hidden="true">
+            <div class="hero__cycle-layer" style="--i: 0; background-image: url('img/mug_boom.png');"></div>
+            <div class="hero__cycle-layer" style="--i: 1; background-image: url('img/boom-black.png');"></div>
+            <div class="hero__cycle-layer" style="--i: 2; background-image: url('img/mug_boom.png');"></div>
+        </div>
+        <header class="hero__content stack">
+            <h1 id="hero-title__home" class="hero__title">NOT JUST NOISE</h1>
+            <!-- wrap nav -->
+            <!-- <a href="#" class="btn btn--primary">Start learning</a> -->
+             <div class="eq" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i>
+            </div>
+        </header>
+        <!-- <label class="hero-cycle-toggle">
+            <input class="hero-cycle-pause" type="checkbox">
+            Pause background motion
+        </label> -->
+        <svg class="wave-marquee" viewBox="0 -50 1440 150" aria-hidden="true">
+            <defs>
+                <path id="wave" d="M-360 50 C -240 90, -120 90, 0 50
+                                C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50
+                                S 1680 10, 1800 50"/>
+            </defs>
+    
+            <!-- dark fill, closed off just below the lowest point of the wave -->
+            <path fill="#180702"
+                    d="M-10 50 L0 50 C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50 L1450 50 L1450 100 L-10 100 Z"/>
+    
+            <!-- ribbon, lifted 22 so it overlaps the dark fill slightly -->
+            <g transform="translate(0 -16)">
+                <use class="wave-outline" href="#wave" fill="none" stroke="#180702" stroke-width="40"/>
+                <use class="wave-ribbon" href="#wave" fill="none" stroke="#F15922" stroke-width="32"/>
+    
+                <text class="wave-text" font-size="16" font-weight="700" fill="#180702" dominant-baseline="central"
+                    textLength="2880" lengthAdjust="spacing">
+                <textPath href="#wave" startOffset="0">
+                    <animate attributeName="startOffset" from="0" to="-720" dur="15s" repeatCount="indefinite"/>
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                    ON AIR ● LISTEN NOW ● PERTH ●&#160;
+                </textPath>
+                </text>
+            </g>
+        </svg>
+    </section>
+
+
+        <section class="section podcast">
+            <div class="container podcast-content">
+                <header class="section-header section-header__podcast stack">
+                    <span class="badge badge--accent badge--pill badge-podcast">PODCAST</span>
+                    <h1 class="section-header__title section-header__title--podcast">Weekly Podcasts</h1>
+                    <p class="section-header__intro section-header__intro--podcast">One or two sentences of intro copy.
+                        One or two sentences of intro copy.
+                        One or two sentences of intro copy.
+                    </p>
+                    <nav class="podcast-navigation" aria-labelledby="podcast navigation">
+                        <a href="#" class="site-nav__link btn-general btn-accent-light">Listen now <span class="arrow">➜</span></a>
+                        <a href="#" class="site-nav__link btn-general btn-bg">Podcast news <span class="arrow">➜</span></a>
+                    </nav>
+                </header>
+                <img class="podcast-img" src="img/mug_boom.png" alt="podcast feature image">
+            </div>
+        </section>
+
+        <section class="section container section-about__teaser">
+            <header class="section-header stack header-about__teaser">
+                <span class="badge badge--accent badge--pill badge-about__teaser">ABOUT US</span>
+                <h1 class="section-header__title">All Things <span class="italic">BOOM!</span></h1>
+                <p class="section-header__intro section-about__intro">
+                    About us teaser...About us teaser...About us teaser...About us teaser...About us teaser...About us teaser...
+                    About us teaser...About us teaser...About us teaser...About us teaser...
+                </p>
+                <nav class="site-about__teaser--nav" aria-label="home about teaser navigation">
+                    <a class="site-nav__link btn-general btn-accent-dark" href="#">About Us <span class="arrow">➜</span></a>
+                </nav>
+            </header>
+            <img class="about-teaser__img" src="img/boom-logo-black.png" alt="boom logo">
+        </section>
 
     </main>
     <footer class="site-footer">
@@ -66,7 +157,23 @@
                 </section>
             </article>
         </div>
+        <button id="radio-toggle" type="button" aria-label="Open radio player" aria-expanded="false" aria-controls="radio-panel">
+        <svg class="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
+            <rect x="3" y="14" width="4" height="7" rx="1.5" fill="currentColor"/>
+            <rect x="17" y="14" width="4" height="7" rx="1.5" fill="currentColor"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+        </button>
+
+        <div id="radio-panel" aria-hidden="true">
+        <iframe
+            data-src="https://tunein.com/embed/player/s195836/?autoplay=true"
+            title="BOOM Radio live player"
+            allow="autoplay"></iframe>
+        </div>
     </footer>
-    <script src="js/carousel-arrow-addon.js"></script>
 </body>
 </html>
