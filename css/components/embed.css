@@ -1,0 +1,113 @@
+/*
+  embed.css
+  ---------------------------------------------------------------------
+  Responsive wrapper for third-party embedded media that arrives as an
+  <iframe> with hardcoded width and height attributes - YouTube, Vimeo,
+  Google Maps, Spotify.
+
+  WHY A WRAPPER IS NEEDED:
+    An <iframe> is a replaced element. Unlike an <img>, it has no
+    intrinsic aspect ratio for the browser to work back from, so the
+    obvious fix - width: 100%; height: auto - collapses it to zero
+    height. The wrapper owns the ratio and the iframe simply fills it.
+
+  Requires: css/reset.css, css/core.css
+  This file is optional - only link it on pages that embed media.
+
+  HTML STRUCTURE:
+    <div class="embed">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+        title="Repotting a root-bound fern"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+  USING YOUTUBE'S EMBED CODE:
+    On the video, choose Share > Embed and copy what YouTube gives you.
+    Before pasting it in, make three edits:
+
+    1. DELETE width="560" height="315".
+       The wrapper sets both. Left in place they do nothing here, but
+       they are what makes an unwrapped embed overflow a phone screen.
+
+    2. DELETE frameborder="0".
+       It is a deprecated HTML attribute and fails validation. The
+       `border: 0` rule below already removes the border.
+
+    3. REPLACE title="YouTube video player" with a real description of
+       this specific video.
+       The title is what a screen reader announces for the frame. Every
+       video on the page reading out "YouTube video player" tells the
+       user nothing about which is which. This is the same rule as alt
+       text on an image, and it is a WCAG 4.1.2 failure to skip it.
+
+    Optionally swap www.youtube.com for www.youtube-nocookie.com. Same
+    player, but it does not set tracking cookies until the visitor
+    actually presses play.
+
+  RATIOS:
+    .embed              16/9 - the YouTube default, use this unless you
+                        have a reason not to
+    .embed--4-3         4/3  - older or archival footage
+    .embed--square      1/1  - social clips
+    Anything else, set the ratio per instance from the HTML:
+      <div class="embed" style="--embed-ratio: 21 / 9;">
+
+  NOTE: --embed-ratio is a custom-property hook the component is
+  designed to accept, so setting it inline is fine. A raw inline
+  property like style="height: 400px" is not - it would fight the
+  aspect-ratio and reintroduce the problem this file exists to solve.
+
+  WITH A CAPTION:
+    <figure>
+      <div class="embed">
+        <iframe ...></iframe>
+      </div>
+      <figcaption class="embed-caption">What this video is.</figcaption>
+    </figure>
+    .embed only owns the ratio wrapper; wrap it in <figure> when the
+    video needs a caption, the same relationship gallery.css's
+    <figure>/<figcaption> already uses for a photo.
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+
+  .embed {
+    aspect-ratio: var(--embed-ratio, 16 / 9);
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+  }
+
+  /* Direct children only. A nested embed inside slotted third-party
+     markup should keep whatever sizing that markup gave it. */
+  .embed > iframe,
+  .embed > video,
+  .embed > object {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .embed--4-3 {
+    --embed-ratio: 4 / 3;
+  }
+
+  .embed--square {
+    --embed-ratio: 1 / 1;
+  }
+
+  /* Caption sits outside .embed, not inside it - anything inside the
+     wrapper is subject to the aspect ratio and would be clipped. Pair
+     them with a .stack, or use <figure>/<figcaption> as below. */
+  .embed-caption {
+    margin-block-start: var(--space-2);
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+} /* end @layer components */

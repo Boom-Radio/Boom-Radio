@@ -489,9 +489,9 @@
   .related-products {
     margin-block-start: var(--space-24);
   }
+
+
 }
-
-
 /*
   Small, atomic, single-property helper classes - deliberately placed
   in utilities rather than layout. The layer order (see the top of

@@ -1,0 +1,114 @@
+/*
+  alert.css
+  ---------------------------------------------------------------------
+  Contextual feedback message: an optional icon, an optional title, and
+  body text, in four semantic colour variants (info/success/warning/
+  error) set via --_alert-color. .alert--banner drops the border-radius
+  and inline borders for a full-width strip instead of an inset box.
+
+  A dismissible variant pairs .alert__close with js/alert-dismiss.js -
+  see the comment at the end of this file for that markup.
+
+  Requires: css/reset.css, css/core.css
+
+  HTML STRUCTURE:
+    <div class="alert alert--info" role="note">
+      <span class="alert__icon" aria-hidden="true">ℹ</span>
+      <div class="alert__body">
+        <p class="alert__title">Title</p>
+        <p class="alert__message">Message text.</p>
+      </div>
+    </div>
+
+  WHY <p> FOR TITLE/MESSAGE, AND <div> STAYS ON .alert__body:
+    Both are genuinely prose - a bold lead sentence and a paragraph of
+    body copy - so <p> is the honest tag, and it costs nothing: p is
+    already in reset.css's margin: 0 list, so nothing shifts. .alert__body
+    itself stays a <div> on purpose: .alert is display: flex (a row),
+    so without a wrapper, title and message would become separate row
+    items sitting beside the icon instead of stacked above one another -
+    the wrapper is doing real grouping work, not just holding a class.
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+  .alert {
+    --_alert-color: var(--color-info);
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius);
+    border: 1px solid color-mix(in oklab, var(--_alert-color) 40%, transparent);
+    background: color-mix(in oklab, var(--_alert-color) 10%, var(--color-bg));
+  }
+
+  .alert--success { --_alert-color: var(--color-success); }
+  .alert--warning { --_alert-color: var(--color-warning); }
+  .alert--error   { --_alert-color: var(--color-error); }
+  .alert--info    { --_alert-color: var(--color-info); }
+
+  .alert--banner {
+    border-radius: 0;
+    border-inline: none;
+  }
+
+  .alert__icon {
+    flex-shrink: 0;
+    color: var(--_alert-color);
+    font-size: 1.375rem;
+    line-height: 1.5;
+  }
+
+  .alert__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .alert__title {
+    font-weight: 700;
+    color: var(--_alert-color);
+    margin-block-end: 0.2rem;
+  }
+
+  .alert__message {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+
+  .alert__close {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-muted);
+    font-size: 1.125rem;
+    line-height: 1;
+    padding: 0.2rem 0.35rem;
+    border-radius: var(--radius);
+    align-self: flex-start;
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .alert__close:hover {
+    color: var(--color-text);
+    background: color-mix(in oklab, var(--_alert-color) 12%, transparent);
+  }
+}
+
+/*
+  Dismissible alert:
+
+    <div class="alert alert--info" data-dismissible>
+      ...
+      <button type="button" class="alert__close" data-dismiss aria-label="Dismiss">&times;</button>
+    </div>
+
+  data-dismiss / data-dismissible are plain attribute hooks, not new
+  classes - .alert__close still carries all the visual styling above.
+  See js/alert-dismiss.js: one delegated click listener removes the
+  nearest data-dismissible ancestor of whatever data-dismiss element
+  was activated. A real <button> means Enter/Space dismiss it too,
+  same as a click - unlike the label+hidden-checkbox this replaced,
+  which a keyboard user could not reach at all.
+*/

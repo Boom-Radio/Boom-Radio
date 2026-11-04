@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/core.css">
+
+  <link rel="stylesheet" href="css/components/header-nav.css">
+  <link rel="stylesheet" href="css/components/site-footer.css">
+  <link rel="stylesheet" href="css/components/gallery.css">
+  <link rel="stylesheet" href="css/components/gallery-card-addon.css">
+  <link rel="stylesheet" href="css/components/alert.css">
+  <link rel="stylesheet" href="css/components/badge.css">
+  <link rel="stylesheet" href="css/components/data-display.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <title>BOOM Radio</title>
+</head>
+
+<body>
+  <header class="site-header drawer-right">
+    <div class="site-header__inner container">
+      <a href="#" class="site-header__brand">
+        <img src="img/boom-black.png" alt="Site Logo">
+      </a>
+      <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Menu">
+        <span aria-hidden="true">☰</span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+        <a href="#" class="site-nav__link">Home</a>
+        <a href="#" class="site-nav__link">Hosts</a>
+        <a href="#" class="site-nav__link">About</a>
+        <a href="#" class="site-nav__link">News</a>
+        <a href="#" class="site-nav__link btn-general btn-cta"><span class="dot"></span>On Air: Listen Live</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Framework component: hero-split -->
+    <section id="top" class="hero-split hero-split--reverse container" aria-labelledby="hero-title">
+      <!-- <div class="hero-split__media">
+        <img
+          src="images/offset-poster.svg"
+          alt=""
+          class="hero-split__image"
+          decoding="async"
+          fetchpriority="high">
+      </div> -->
+
+      <div class="hero-split__content">
+        <a class="btn btn--warning btn--sm" href="#">Text Content</a>
+        <h1 id="hero-title" class="site-header__brand">
+          Our Featured <span class="">news</span>
+        </h1>
+        <p class="hero-split__subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam
+          nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut aliquam tincidunt, nunc nisl aliquam nunc, eget
+          aliquam nisl nunc vel nisl.
+        </p>
+
+      </div>
+
+    </section>
+    <svg class="wave-marquee" viewBox="0 -50 1440 150" aria-hidden="true">
+      <defs>
+        <path id="wave" d="M-360 50 C -240 90, -120 90, 0 50
+                                C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50
+                                S 1680 10, 1800 50" />
+      </defs>
+
+      <!-- dark fill, closed off just below the lowest point of the wave -->
+      <path fill="#180702"
+        d="M-10 50 L0 50 C 120 10, 240 10, 360 50 S 600 90, 720 50 S 960 10, 1080 50 S 1320 90, 1440 50 L1450 50 L1450 100 L-10 100 Z" />
+
+      <!-- ribbon, lifted 22 so it overlaps the dark fill slightly -->
+      <g transform="translate(0 -16)">
+        <use href="#wave" fill="none" stroke="#180702" stroke-width="40" />
+        <!-- <use href="#wave" fill="none" stroke="#F15922" stroke-width="32" /> -->
+
+        <!-- <text font-size="16" font-weight="700" fill="#180702" dominant-baseline="central" textLength="2880"
+          lengthAdjust="spacing">
+          <textPath href="#wave" startOffset="0">
+            <animate attributeName="startOffset" from="0" to="-720" dur="15s" repeatCount="indefinite" />
+            ON AIR ● LISTEN NOW ● PERTH ●&#160;
+            ON AIR ● LISTEN NOW ● PERTH ●&#160;
+            ON AIR ● LISTEN NOW ● PERTH ●&#160;
+            ON AIR ● LISTEN NOW ● PERTH ●&#160;
+          </textPath>
+        </text> -->
+      </g>
+    </svg>
+
+
+
+    <section id="news" class="media-gallary section news-section" aria-labelledby="news-title">
+      <div class="container grid" style="--col-count: 1; --col-count-md: 2;">
+          <div class="btn-general btn-bg-light news-image__item">
+          <img class="news-image__item img" src="img/news.png" alt="news feature image">
+        </div>
+        <div class="stack">
+          <!-- <header class="section-header section-header__news"> -->
+          <span class="section-header__eyebrow text-accent"></span>
+          <h2 class="section-header__title text-light">Featured news</h2>
+          <p class="section-header__intro text-light">
+            Blog post content
+
+
+
+          </p>
+          <nav class="news-navigation" aria-labelledby="news navigation">
+            <a href="#" class="site-nav__link btn-general btn-accent-light">Button1 <span class="arrow">➜</span></a>
+            <a href="#" class="btn-general btn-bg">Button2 <span class="arrow">➜</span></a>
+          </nav>
+          <p class="text-light">
+            More details
+          </p>
+       
+          <a href="#" class="site-nav__link btn-general btn-accent-light">
+            Read more ...
+          </a>
+        </div>
+      </div>  
+    </section>
+    <!-- Framework component: data-display / kv-list -->
+
+
+
+    <!-- Framework component: gallery + gallery-card-addon -->
+    <section id="history" class="section history-section" aria-labelledby="speakers-title">
+      <div class="container">
+        <header class="section-header stack">
+          <span class="section-header__eyebrow text-light">Previous news-------</span>
+          <h2 id="speakers-title" class="section-header__title text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </header>
+
+        <ul class="media-gallery history-section" style="--col-count: 1; --col-count-md: 2; --col-count-lg: 3;">
+          <li class=" btn-general btn-bg-light history-gallery__item ">
+            <div class="media-gallery__frame media-gallery__frame--square">
+              <img class="media-gallery__image" src="img/news.png" alt="">
+            </div>
+            <div class="media-gallery__body">
+              <h3 class="media-gallery__title">News Title</h3>
+              <span class="btn-general btn-cta history-gallery__btn">Read More</span>
+            </div>
+          </li>
+
+          <li class=" btn-general btn-bg-light history-gallery__item ">
+            <div class="media-gallery__frame media-gallery__frame--square">
+              <img class="media-gallery__image" src="img/news.png" alt="">
+            </div>
+            <div class="media-gallery__body">
+              <h3 class="media-gallery__title">News Title</h3>
+              <span class="btn-general btn-cta history-gallery__btn">Read More</span>
+            </div>
+          </li>
+
+          <li class=" btn-general btn-bg-light history-gallery__item ">
+            <div class="media-gallery__frame media-gallery__frame--square">
+              <img class="media-gallery__image" src="img/news.png" alt="">
+            </div>
+            <div class="media-gallery__body">
+              <h3 class="media-gallery__title">News Title</h3>
+              <span class="btn-general btn-cta history-gallery__btn">Read More</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Framework component: alert -->
+    <div class="alert alert--info alert--banner" role="note">
+      <!-- <span class="alert__icon text-dark text-center" aria-hidden="true">●</span> -->
+      <div class="alert__body container">
+        <!-- <p class="btn-warning text-dark">Missed one? Dig through the archieve.</p> -->
+                <h2 id="archieve-title" class="site-header__brand text-center">
+         ● Missed one? <span class="text-accent">Dig through the archieve.</span>
+        </h2>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__content cluster">
+      <section class="footer-block stack">
+        <img class="site-footer__logo" src="img/boom-white.png" alt="Site logo">
+        <p class="site-footer__copyright">&copy; 2026 Boom Radio. All rights reserved.</p>
+      </section>
+      <section class="footer-block stack">
+        <h3>USEFUL LINKS</h3>
+        <nav class="site-footer__nav" aria-labelledby="Footer navigation">
+          <a href="#">Home</a>
+          <a href="#">Hosts and Schedule</a>
+          <a href="#">About Us</a>
+          <a href="#">Latest News</a>
+        </nav>
+      </section>
+      <section class="footer-block stack">
+        <h3>FOLLOW US</h3>
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+        </nav>
+      </section>
+      <article class="footer-block stack">
+        <h3>CONTACT DETAILS</h3>
+        <section class="contact">
+          <p>boomradioau@gmail.com</p>
+          <p>9443 2236</p>
+          <p>Leederville, Perth (WA)</p>
+        </section>
+      </article>
+    </div>
+  </footer>
+  <script src="js/carousel-arrow-addon.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+/*
+  gallery-card-addon.css
+  ---------------------------------------------------------------------
+  Turns gallery.css's plain image tile into a CARD: an image on top,
+  then a body with a title and an optional action underneath. It stops
+  there deliberately - nothing here knows about prices, star ratings,
+  authors or route grades. Those belong to the addons that stack on
+  top of this one.
+
+  WHY THIS FILE EXISTS
+    All of this used to live in gallery-product-addon.css, which meant
+    gallery-book-addon.css and gallery-route-addon.css both declared
+    "Requires: gallery-product-addon.css" purely to borrow the generic
+    tile behaviour. A library catalogue tile depending on e-commerce
+    product styling is the file layout telling you the abstraction sits
+    one level too low. Now the shared behaviour is its own level:
+
+      gallery.css                base grid, frame, image, caption
+      gallery-card-addon.css     image-card: hover, body, title, CTA
+      gallery-product-addon.css  price + rating
+      gallery-book-addon.css     author + portrait cover
+      gallery-route-addon.css    setter + spec row
+
+    The last three each require gallery.css and this file, and none of
+    them requires another sibling.
+
+  THE .media-gallery--card MODIFIER IS REQUIRED
+    The first three rules below target gallery.css's own base classes.
+    Without the modifier gating them, merely loading this file would
+    give every plain photo gallery on the page a card's hover lift -
+    a stylesheet loaded for one component silently restyling another.
+    Everything after those three is safe unmodified, because __body,
+    __title and __cta only exist on a card tile in the first place.
+
+  Requires: css/reset.css, css/core.css, css/components/gallery.css
+
+  HTML STRUCTURE:
+    <ul class="media-gallery media-gallery--card">
+      <li class="media-gallery__item">
+        <a href="#" class="media-gallery__frame">
+          <img src="..." alt="..." class="media-gallery__image" />
+          <span class="badge badge--accent media-gallery__tag">New</span>
+        </a>
+        <div class="media-gallery__body">
+          <h3 class="media-gallery__title"><a href="#">Tile title</a></h3>
+          <a href="#" class="btn btn--secondary media-gallery__cta">View</a>
+        </div>
+      </li>
+    </ul>
+
+  WITHOUT A LINK, for a non-navigable tile (e.g. a person):
+    <li class="media-gallery__item">
+      <div class="media-gallery__frame">
+        <img src="..." alt="..." class="media-gallery__image" />
+      </div>
+      <div class="media-gallery__body">
+        <h3 class="media-gallery__title">Name</h3>
+        <p>Role / location</p>
+      </div>
+    </li>
+    Drop the anchor on .frame and .title, and the .media-gallery__cta
+    element, when there's nowhere for the tile to link to. Every rule
+    below targets .media-gallery__item/__frame/__tag/__body/__title -
+    none of them require an <a> to be present, so this costs no extra
+    CSS.
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+
+  .media-gallery--card .media-gallery__item {
+    transition:
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .media-gallery--card .media-gallery__item:hover {
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
+  }
+
+  /* Anchors the tag badge. gallery.css never sets position on __frame. */
+  .media-gallery--card .media-gallery__frame {
+    position: relative;
+  }
+
+  .media-gallery__tag {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+  }
+
+  /* Cancels the absolute positioning above for a tag shown in
+     isolation outside a .media-gallery__frame - e.g. a documentation
+     preview comparing two tag styles side by side. */
+  .media-gallery__tag--static {
+    position: static;
+  }
+
+  .media-gallery__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    flex: 1 1 auto;
+  }
+
+  .media-gallery__title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .media-gallery__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .media-gallery__title a:hover,
+  .media-gallery__title a:focus-visible {
+    color: var(--color-accent-text);
+  }
+
+  .media-gallery__cta {
+    width: 100%;
+    margin-block-start: var(--space-2);
+  }
+
+} /* end @layer components */
