@@ -1,0 +1,128 @@
+/*
+  hero-split.css
+  ---------------------------------------------------------------------
+  Image on one side, text on the other - a side-by-side alternative
+  to the centred, full-bleed hero.css.  Optional: only link this on
+  pages that use the split layout instead of the standard hero.
+
+  Requires: css/reset.css, css/core.css
+
+  HTML STRUCTURE:
+    <section id="hero" class="hero-split container">
+      <div class="hero-split__media">
+        <img src="..." alt="..." class="hero-split__image" />
+      </div>
+      <div class="hero-split__content" aria-labelledby="hero-title">
+        <h1 id="hero-title" class="hero-split__title">...</h1>
+        <p class="hero-split__subtitle">...</p>
+        <nav class="hero-split__actions" aria-label="Hero actions">...</nav>
+      </div>
+    </section>
+
+  SWAPPING SIDES:
+    Add "hero-split--reverse" to the outer <section> - same idea as
+    "drawer-right" on the nav.  One class, no HTML reordering:
+
+    <section id="hero" class="hero-split hero-split--reverse container">
+
+  RESPONSIVE, WITHOUT A BREAKPOINT:
+    Each side has a minimum width (flex-basis) and flex-wrap: wrap.
+    When the viewport is too narrow to fit both sides at that
+    minimum, the second one wraps to its own row automatically -
+    image and text stack vertically on phones with no media query
+    deciding when.
+  ---------------------------------------------------------------------
+*/
+
+
+@layer components {
+
+  /* -----------------------------------------------------------------
+     LAYOUT
+
+     flex-direction: row (the default) lays media and content out
+     side by side, in HTML source order - media first, since it
+     comes first in the markup.
+
+     flex-wrap: wrap + flex-basis (below) is what makes this
+     responsive without a media query: once both sides can't fit at
+     their minimum width simultaneously, the browser wraps the
+     second one onto its own row on its own.
+  ----------------------------------------------------------------- */
+  .hero-split {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-8);
+    margin-block: var(--space-8);
+  }
+
+  /* -----------------------------------------------------------------
+     REVERSE - the entire "swap sides" feature is this one property.
+
+     row-reverse flips the VISUAL order of the two children without
+     touching the HTML at all - .hero-split__media still comes first
+     in the DOM (and in a screen reader's reading order), it just
+     paints on the right instead of the left.
+  ----------------------------------------------------------------- */
+  .hero-split--reverse {
+    flex-direction: row-reverse;
+  }
+
+
+  /* -----------------------------------------------------------------
+     MEDIA SIDE
+
+     flex: 1 1 20rem - grow and shrink freely, but never below 20rem.
+     That minimum is what triggers the wrap-to-stacked behaviour on
+     narrow screens.
+  ----------------------------------------------------------------- */
+  .hero-split__media {
+    flex: 1 1 20rem;
+  }
+
+  .hero-split__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+
+
+  /* -----------------------------------------------------------------
+     CONTENT SIDE
+
+     Same flex-basis as the media side, so both sides wrap at the
+     same point and end up sharing the space evenly when there's
+     room for both.
+
+     Spacing between the heading, subtitle, and actions is set
+     directly here - not borrowed from a shared utility - so this
+     component has no dependency on anything else existing first.
+  ----------------------------------------------------------------- */
+  .hero-split__content {
+    flex: 1 1 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .hero-split__title {
+    font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-split__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-muted);
+    max-width: 52ch;
+  }
+
+  .hero-split__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+} /* end @layer components */
