@@ -45,12 +45,11 @@
                 <span class="visually-hidden">Menu</span>
             </button>
             <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
-                <a href="#" class="site-nav__link">Home</a>
-                <a href="#" class="site-nav__link">Hosts</a>
-                <a href="#" class="site-nav__link">About</a>
-                <a href="#" class="site-nav__link">News</a>
-                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air:
-                    Listen Live</a>
+                <a href="index.html" class="site-nav__link">Home</a>
+                <a href="schedule.html" class="site-nav__link">Hosts</a>
+                <a href="about.html" class="site-nav__link">About</a>
+                <a href="news.html" class="site-nav__link">News</a>
+                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air: Listen Live</a>
             </nav>
         </div>
     </header>
@@ -74,7 +73,7 @@
             <div class="tabs__list container" role="radiogroup" aria-label="Event categories">
                 <input type="radio" name="event-tabs" id="tab-1" class="tabs__input" checked>
                 <label class="tabs__label" for="tab-1">MON</label>
-                
+
                 <input type="radio" name="event-tabs" id="tab-2" class="tabs__input">
                 <label class="tabs__label" for="tab-2">TUE</label>
 
@@ -177,7 +176,7 @@
 
                 <section class="tabs__panel stack container">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        aria-labelledby="Example content carousel" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
@@ -259,7 +258,7 @@
 
                 <section class="tabs__panel stack container">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        aria-label="Example content carousel4" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
@@ -341,7 +340,7 @@
 
                 <section class="tabs__panel stack container">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        aria-label="Example content carousel3" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
@@ -422,7 +421,7 @@
 
                 <section class="tabs__panel stack container">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        aria-label="Example content carousel2" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
@@ -503,7 +502,7 @@
 
                 <section class="tabs__panel stack container">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        aria-label="Example content carousel" aria-roledescription="carousel">
+                        aria-label="Example content carousel1" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
@@ -577,7 +576,7 @@
                         <figcaption class="media-gallery__caption">
                             <h2>Caitlyn</h2>
                             <p>Presenter</p>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -588,7 +587,7 @@
                                         d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="instagram link">
                                 <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
                                     fill-rule="evenodd">
                                     <path
@@ -597,7 +596,7 @@
                                 </svg>
 
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
 
                                     <path
@@ -616,7 +615,7 @@
                         <figcaption class="media-gallery__caption">
                             <h2>Janelle</h2>
                             <p>Presenter</p>
-                                                        <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -627,7 +626,7 @@
                                         d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
                                     fill-rule="evenodd">
                                     <path
@@ -636,7 +635,7 @@
                                 </svg>
 
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
 
                                     <path
@@ -654,7 +653,7 @@
                         <figcaption class="media-gallery__caption">
                             <h2>Em</h2>
                             <p>Presenter</p>
-                                                        <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -665,7 +664,7 @@
                                         d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
                                     fill-rule="evenodd">
                                     <path
@@ -674,7 +673,7 @@
                                 </svg>
 
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
 
                                     <path
@@ -691,7 +690,8 @@
                             alt="Painting of a sunlit canyon road between red rock formations" loading="lazy">
                         <figcaption class="media-gallery__caption">
                             <h2>Angus</h2>
-                            <p>Presenter</p>                             <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <p>Presenter</p>
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -702,7 +702,7 @@
                                         d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
                                     fill-rule="evenodd">
                                     <path
@@ -711,7 +711,7 @@
                                 </svg>
 
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
 
                                     <path
@@ -729,7 +729,7 @@
                         <figcaption class="media-gallery__caption">
                             <h2>Em</h2>
                             <p>Presenter</p>
-                                                        <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -740,7 +740,7 @@
                                         d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" />
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
                                     fill-rule="evenodd">
                                     <path
@@ -749,7 +749,7 @@
                                 </svg>
 
                             </a>
-                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/boomradioau/" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
                                 <svg class="presenter-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
 
                                     <path
