@@ -176,7 +176,7 @@
   }
 
   .section {
-    padding-block:0;
+    padding-block: var(--space-12);
   }
 
   /* Cancels .section's top padding for a section that follows another
