@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read the latest news and stories from BOOM Radio.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/components/header-nav.css">
+    <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/components/news.css">
+    <title>News | BOOM Radio</title>
+    <script src="js/radio.js" defer></script>
+</head>
+<body>
+    <header class="site-header drawer-right">
+        <div class="site-header__inner container">
+            <a href="#" class="site-header__brand">
+                <img src="img/boom-black.png" alt="Site Logo">
+            </a>
+            <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Menu">
+                <span aria-hidden="true">☰</span>
+                <span class="visually-hidden">Menu</span>
+            </button>
+            <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+                <a href="#" class="site-nav__link">Home</a>
+                <a href="#" class="site-nav__link">Hosts</a>
+                <a href="#" class="site-nav__link">About</a>
+                <a href="#" class="site-nav__link">News</a>
+                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air: Listen Live</a>
+            </nav>
+        </div>
+    </header>
+    <main class="news-page">
+        <section class="news-intro" aria-labelledby="news-title">
+            <div class="news-container">
+                <nav class="news-breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">News</span>
+                </nav>
+                <p class="news-categories">Tags, categories</p>
+                <h1 class="news-title" id="news-title">Random blog</h1>
+                <img class="news-feature-image" src="" alt="Microphone and headphones in the BOOM Radio studio">
+            </div>
+            <img class="news-wave" src="img/wave.svg" alt="" aria-hidden="true">
+        </section>
+
+        <section class="news-content" aria-labelledby="article-author">
+            <div class="news-container">
+                <h2 class="news-author" id="article-author">
+                    <span>Written by... Author</span>
+                    <span class="news-author__rule" aria-hidden="true"></span>
+                </h2>
+                <div class="news-layout">
+                    <article class="news-article">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+                    </article>
+                    <aside class="related-news" aria-labelledby="related-news-title">
+                        <h2 class="related-news__title" id="related-news-title">Related news articles</h2>
+                        <div class="related-news__list">
+                            <article class="related-card">
+                                <div class="related-card__image" aria-hidden="true"></div>
+                                <div class="related-card__copy">
+                                    <h3>Related news article</h3>
+                                    <p>A short description for this story.</p>
+                                </div>
+                            </article>
+                            <article class="related-card">
+                                <div class="related-card__image" aria-hidden="true"></div>
+                                <div class="related-card__copy">
+                                    <h3>Related news article</h3>
+                                    <p>A short description for this story.</p>
+                                </div>
+                            </article>
+                            <article class="related-card">
+                                <div class="related-card__image" aria-hidden="true"></div>
+                                <div class="related-card__copy">
+                                    <h3>Related news article</h3>
+                                    <p>A short description for this story.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container site-footer__content cluster">
+            <section class="footer-block stack">
+                <img class="site-footer__logo" src="img/boom-white.png" alt="Site logo">
+                <p class="site-footer__copyright">&copy; 2026 Boom Radio. All rights reserved.</p>
+            </section>
+            <section class="footer-block stack">
+                <h3>USEFUL LINKS</h3>
+                <nav class="site-footer__nav" aria-labelledby="Footer navigation">
+                    <a href="#">Home</a>
+                    <a href="#">Hosts and Schedule</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Latest News</a>
+                </nav>
+            </section>
+            <section class="footer-block stack">
+                <h3>FOLLOW US</h3>
+                <nav class="site-footer__nav" aria-label="Footer navigation">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </nav>
+            </section>
+            <article class="footer-block stack">
+                <h3>CONTACT DETAILS</h3>
+                <section class="contact">
+                    <p>boomradioau@gmail.com</p>
+                    <p>9443 2236</p>
+                    <p>Leederville, Perth (WA)</p>
+                </section>
+            </article>
+        </div>
+        <button id="radio-toggle" type="button" aria-label="Open radio player" aria-expanded="false" aria-controls="radio-panel">
+        <svg class="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
+            <rect x="3" y="14" width="4" height="7" rx="1.5" fill="currentColor"/>
+            <rect x="17" y="14" width="4" height="7" rx="1.5" fill="currentColor"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+        </button>
+
+        <div id="radio-panel" aria-hidden="true">
+        <iframe
+            data-src="https://tunein.com/embed/player/s195836/?autoplay=true"
+            title="BOOM Radio live player"
+            allow="autoplay"></iframe>
+        </div>
+    </footer>
+</body>
+</html>
