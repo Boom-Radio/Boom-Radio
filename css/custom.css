@@ -74,6 +74,7 @@
       /* For small text such as eyebrow and block texts */
       --text-spacing__big: -0.06em;
       /* For headers and titles */
+      --text-spacing__eyebrow: 0.08em;
 
 
       --shadow-brand: 5px 5px 0 var(--color-accent);
@@ -395,6 +396,42 @@
       font-style: italic;
     }
 
+/* -----------------------------------------------------------
+                         SECTION HEADERS
+------------------------------------------------------------*/
+    .mission-section .section-header {
+      max-width: 48rem;
+      margin-block-end: var(--space-8);
+    }
+    
+    .mission-section .section-header__eyebrow {
+        color: var(--color-accent);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: var(--text-spacing__eyebrow);
+    }
+    
+    .mission-section .section-header__title {
+        max-width: none;
+        margin-block: var(--space-2);
+        color: var(--color-bg);
+    }
+
+    .section-header__title {
+        font-size: clamp(3rem, 2rem + 4vw, 5rem);
+        letter-spacing: var(--text-spacing__big);
+    }
+    
+    .section-header__intro {
+        font-size: 1.4rem;
+      letter-spacing: -0.03em;
+      /* sp change*/
+    }
+
+    .section-header__title {
+          color: var(--color-accent);
+      }
+
     /* -----------------------------------------------------------
                          WAVES
      ------------------------------------------------------------*/
@@ -455,17 +492,6 @@
     .site-header__brand img {
       height: var(--nav-height);
       width: auto;
-    }
-
-    .section-header__title {
-        font-size: clamp(3rem, 2rem + 4vw, 5rem);
-        letter-spacing: var(--text-spacing__big);
-    }
-    
-    .section-header__intro {
-        font-size: 1.4rem;
-      letter-spacing: -0.03em;
-      /* sp change*/
     }
     
     .dot {
@@ -802,19 +828,12 @@
       50%      { transform: scaleY(1); }
    }
 
-   @media (max-width: 767px) {
-      .wave-marquee {
-          bottom: 0rem;
-        }
-   }
-
    /* -----------------------------------------------------------
                         PODCAST - HOME PAGE
     ------------------------------------------------------------*/
 
    .podcast {
       background: var(--color-text);
-      margin-block-start: 0;
       position: relative;
       margin-block: 1.4rem;
       z-index: 2;
@@ -1049,11 +1068,11 @@
                          OUR MISSION SECTION
      ------------------------------------------------------------*/
     .mission-section {
-        position: relative;
+      position: relative;
       isolation: isolate;
       background-color: var(--color-text);
       padding-block: clamp(3rem, 5vw, 5rem);
-      margin-block-start: 0;
+      /* margin-block-start: 0; */
       margin-bottom: 10rem;
     }
 
@@ -1068,24 +1087,6 @@
     
     .mission-section {
       margin-top: 1.5rem;
-    }
-    
-    .mission-section .section-header {
-      max-width: 48rem;
-      margin-block-end: var(--space-8);
-    }
-    
-    .mission-section .section-header__eyebrow {
-        color: var(--color-accent);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    
-    .mission-section .section-header__title {
-        max-width: none;
-      margin-block: var(--space-2);
-      color: var(--color-bg);
     }
 
     .mission-section p {
@@ -1227,29 +1228,29 @@
       background-color: var(--color-accent__three);
     }
     
+    
     .get-involved .get-involved__circle:hover {
-        transform: rotate(0deg) scale(1.05);
+      transform: rotate(0deg) scale(1.05);
     }
     
     .get-involved-section {
       margin-bottom: 100px;
     }
     
-
-   
-   @media (max-width: 480px) {
+    
+    @media (max-width: 480px) {
       .get-involved {
-          gap: 0.75rem;
-         padding: 1rem;
-        }
+        gap: 0.75rem;
+        padding: 1rem;
+      }
+      .get-involved .get-involved__circle {
+          flex-basis: 78px;
+          width: 78px;
+          height: 78px;
+          font-size: 0.7rem;
+      }
     }
 
-    .get-involved .get-involved__circle {
-        flex-basis: 78px;
-        width: 78px;
-        height: 78px;
-        font-size: 0.7rem;
-    }
 
     .social-section {
         background-color: var(--color-text);
@@ -1370,9 +1371,6 @@
           overflow: hidden;
           
         }
-      .section-header__title {
-          color: var(--color-accent);
-      }
       
       .sponsors-track__inner {
           display: flex;
@@ -1494,13 +1492,13 @@
         font-size: clamp(0.75rem, 1.5vw, 1.125rem);
     }
 
-    .schedule--carousel__btn {
+    /* .schedule--carousel__btn {
         font-size: clamp(0.75rem, 1.5vw, 1rem);
         padding: clamp(0.5rem, 1.5vw, 0.875rem) clamp(0.875rem, 2.5vw, 1.75rem);
         
         width: fit-content;
         transition: transform 0.3s ease;
-    }
+    } */
     
 
     .schedule-section {
