@@ -1,0 +1,117 @@
+/*
+  carousel-autoplay-addon.css
+  ---------------------------------------------------------------------
+  Advances the carousel-arrow-addon.js carousel automatically,
+  following the W3C WAI-ARIA Authoring Practices Guide's carousel
+  pattern (https://www.w3.org/WAI/ARIA/apg/patterns/carousel/):
+  rotation stops the moment focus enters the carousel or the pointer
+  hovers it, and clicking an arrow or dragging the track stops it for
+  good - only the toggle button restarts it after that. Focus and
+  hover are both transient: rotation picks back up on its own once
+  focus leaves the carousel entirely or the pointer moves off it,
+  since both are continuous conditions rather than a discrete "the
+  user asked for this" action. See js/carousel-autoplay-addon.js for
+  the full behavior.
+
+  Opt-in per instance via data-carousel-autoplay - .carousel alone is
+  also used by carousels that were never meant to move on their own,
+  so autoplay only attaches to a carousel that explicitly asks for it.
+
+  This file only positions the toggle button. The actual show/hide-
+  until-enhanced behavior, shape, color, and hover treatment are all
+  inherited for free from nothing extra needed here - it's a plain
+  text control, not a circular icon button matching .carousel__control's
+  prev/next styling: the two are different kinds of control (navigate
+  a specific direction vs. stop a background behavior for good) and
+  don't need to look alike.
+
+  Requires: css/reset.css, css/core.css, css/components/carousel.css,
+            css/components/carousel-arrow-addon.css
+  JavaScript: js/carousel-arrow-addon.js (required),
+              js/carousel-autoplay-addon.js (this addon's own script)
+
+  HTML STRUCTURE:
+    Add data-carousel-autoplay to carousel-arrow-addon.css's own
+    structure, and add the toggle as the FIRST child inside .carousel,
+    before .carousel__track - the APG pattern requires the rotation
+    control to be the first tab stop inside the carousel.
+    <section class="carousel" data-carousel-autoplay aria-label="Recent projects" aria-roledescription="carousel">
+      <button type="button" class="carousel-autoplay-toggle" hidden>Stop auto-advancing</button>
+      <div class="carousel__track" tabindex="0">
+        <article class="carousel__slide" aria-roledescription="slide" aria-label="1 of 3">...</article>
+        ...one per slide, aria-label incrementing...
+      </div>
+      <div class="carousel__status visually-hidden" aria-live="polite" aria-atomic="true" hidden></div>
+      <button type="button" class="carousel__control carousel__control--prev" aria-label="Previous slide"></button>
+      <button type="button" class="carousel__control carousel__control--next" aria-label="Next slide"></button>
+    </section>
+
+  hidden ON THE TOGGLE BY DEFAULT:
+    js/carousel-autoplay-addon.js only clears it after confirming this
+    specific carousel already has .carousel--enhanced (added by
+    carousel-arrow-addon.js once THAT script's own validation passes)
+    - the same reasoning as carousel__status starting hidden in
+    carousel-arrow-addon.css. Without this, a page where either script
+    fails to load would show a "Stop auto-advancing" button for a
+    slideshow that was never running - a dead control promising to
+    stop something that doesn't exist.
+
+  NO aria-pressed ON THE TOGGLE:
+    Its own text label already changes to describe the next action
+    ("Stop auto-advancing" / "Resume auto-advancing"), and the APG
+    pattern is explicit that a rotation control with a changing label
+    should not also carry aria-pressed - a screen reader would
+    announce the new label AND a now-contradictory-sounding pressed
+    state for the same single change, saying the same thing twice in
+    two different vocabularies.
+
+  aria-roledescription IS STATIC MARKUP, AND role="group" IS DELIBERATELY
+  NOT ADDED:
+    The slide count doesn't change at runtime, unlike the live status
+    region, so there's nothing here for a script to compute - write
+    "1 of 3", "2 of 3", etc. directly per slide. The APG pattern's own
+    reference markup also adds role="group" to each slide, but its
+    example slides are <li> elements - .carousel__slide is <article>,
+    and role="group" is not an ARIA-allowed role override for
+    <article> (axe-core's aria-allowed-role flags it). aria-roledescription
+    works fine layered on an element's own implicit role, so it's used
+    alone here instead of paired with an invalid role.
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+  /* Positioned to the bottom-right corner, independent of DOM order -
+     it still has to be the FIRST child inside .carousel in markup
+     (the "first tab stop" rule above), but visual position and tab
+     order are two separate concerns once this is taken out of normal
+     flow. Same technique .carousel__control's prev/next buttons and
+     hero-cycle-addon.css's own toggle already use: position: absolute
+     against .carousel (already position: relative, set by
+     carousel-arrow-addon.css). A solid background is needed here in
+     a way the old inline-flow placement never required, since this
+     corner can land over a slide's photo instead of the card's own
+     background - plain muted text with no backdrop would risk
+     failing contrast against an arbitrary image underneath it. */
+  .carousel-autoplay-toggle {
+    position: absolute;
+    z-index: 2;
+    inset-block-end: var(--space-2);
+    inset-inline-end: var(--space-2);
+    display: inline-block;
+    margin: 0;
+    padding: calc(var(--space-2) / 2) var(--space-2);
+    border: none;
+    border-radius: var(--radius);
+    background: rgb(0 0 0 / 0.58);
+    color: #ffffff;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .carousel-autoplay-toggle:hover,
+  .carousel-autoplay-toggle:focus-visible {
+    background: rgb(0 0 0 / 0.72);
+    color: #ffffff;
+  }
+}

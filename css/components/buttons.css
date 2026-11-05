@@ -1,0 +1,60 @@
+/*
+  buttons.css
+  ---------------------------------------------------------------------
+  .btn, .btn--primary, and .btn--secondary are used on nearly every
+  page in this project, so they're baked directly into core.css - see
+  that file for the base button. This file is the optional extension:
+  the additional variants and states that most pages don't need.
+
+  Requires: css/reset.css, css/core.css
+
+  HTML STRUCTURE:
+    <button type="button" class="btn btn--primary btn--sm">Small button</button>
+    <button type="button" class="btn btn--primary" disabled>Disabled button</button>
+    <span class="btn btn--secondary" aria-disabled="true">Disabled link</span>
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn--sm { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+  .btn--lg { padding: 1rem 1.75rem; font-size: 1rem; }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--color-text);
+    border-color: transparent;
+  }
+
+  .btn--ghost:hover {
+    background: color-mix(in oklab, var(--color-text) 10%, transparent);
+  }
+
+  .btn--danger {
+    background: var(--color-error);
+    color: var(--color-bg);
+    border-color: color-mix(in oklab, var(--color-error) 62%, var(--color-bg) 38%);
+  }
+
+  .btn--danger:hover {
+    background: color-mix(in oklab, var(--color-error) 88%, var(--color-bg) 12%);
+  }
+
+  /* A quieter warning than .btn--danger's solid fill - for a trigger
+     that opens a confirmation step (the confirmation itself is what
+     should carry the loud, solid .btn--danger). */
+  .btn--danger-outline {
+    background: transparent;
+    border-color: var(--color-error);
+    color: var(--color-error);
+  }
+
+  .btn--danger-outline:hover {
+    background: color-mix(in oklab, var(--color-error) 12%, transparent);
+  }
+}
