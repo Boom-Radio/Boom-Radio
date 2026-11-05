@@ -504,7 +504,12 @@
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600;
     }
-    
+    .site-nav__link.active {
+      color: var(--color-accent);
+      font-weight: 800;
+      
+    }
+     
     .site-header__brand img {
       height: var(--nav-height);
       width: auto;
@@ -1147,6 +1152,7 @@
       transform: rotate(4deg);
     }
     
+   
     .mission-section .stat-card__label {
       display: inline-block;
       align-self: flex-start;
@@ -1195,23 +1201,28 @@
         .mission-section .grid {
          grid-template-columns: 1fr;
         }
+        .mission-section .stat-card,
+        .mission-section .stat-card:nth-child(odd),
+        .mission-section .stat-card:nth-child(even) {
+          transform: none;
+          margin-left: 0;
+        }
     }
     
     /* Get Involved Card */
-    .get-involved {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--color-accent);
-      color: var(--color-text);
-      border: 1px solid var(--color-text);
-      border-radius: 10px;
-      box-shadow: 4px 4px 0 var(--color-text);
-      
-    }
+ .get-involved {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1.5rem;
+   padding: 1.75rem 2rem;
+   background: var(--color-accent);
+   color: var(--color-text);
+   border: 2px solid var(--color-text);
+   border-radius: 12px;
+   box-shadow: 6px 6px 0 var(--color-text);
+ }
     
     .get-involved h2 {
       margin-bottom: 0.6rem;
@@ -1221,28 +1232,24 @@
         margin-bottom: 1rem;
    }
    
-   /* Circular Join the Team button */
-   .get-involved .get-involved__circle {
-      flex: 0 0 100px;
-      width: 100px;
-      height: 100px;
+   /* Circular Join the Team Circle */
+    .get-involved .get-involved__circle {
+      flex: 0 0 130px;
+      width: 130px;
+      height: 130px;
       padding: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       text-align: center;
-      font-size: 0.8rem;
-      line-height: 1.2;
+      font-size: 1rem;
+      line-height: 1.1;
+      font-weight: 600;
       transform: rotate(8deg);
-      transition: transform 0.25s ease;
       background-color: var(--color-accent__three);
     }
-    
-    
-    .get-involved .get-involved__circle:hover {
-      transform: rotate(0deg) scale(1.05);
-    }
+   
     
     .get-involved-section {
       margin-bottom: 100px;
