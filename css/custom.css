@@ -350,6 +350,7 @@
     /* -----------------------------------------------------------
                          GLOBAL STYLING
      ------------------------------------------------------------*/
+
     h1,
     h2,
     h3,
@@ -385,47 +386,62 @@
      main {
        background: var(--color-bg);
      }
-
-     .badge {
-        transform: rotate(-3deg);
-        font-size: clamp(0.75rem, 0.75rem + 1vw, 1.125rem);
-    }
     
     .italic {
         color: var(--color-accent);
       font-style: italic;
     }
 
+    /* Badges should have 5px drop shadow */
+    .badge {
+      border: none;
+      align-self: flex-start;
+      justify-self: start;
+      width: fit-content;
+      letter-spacing: var(--text-spacing__sml);
+
+      transform: rotate(-3deg);
+      font-size: clamp(0.75rem, 0.75rem + 1vw, 1.125rem);
+      /* sp change*/
+    }
+
 /* -----------------------------------------------------------
                          SECTION HEADERS
 ------------------------------------------------------------*/
-    .mission-section .section-header {
-      max-width: 48rem;
-      margin-block-end: var(--space-8);
+    h1.section-header__title, .hero-title {
+      font-size: clamp(3rem, 2rem + 4vw, 5rem);
+      letter-spacing: var(--text-spacing__sml);
     }
-    
+
+    h2.section-header__title {
+      /* font-size: clamp(2.5rem, 1.5rem + 3vw, 4rem); */
+      font-size: clamp(2rem, 1rem + 2vw, 4rem);
+      letter-spacing: var(--text-spacing__sml);
+    }
+
     .mission-section .section-header__eyebrow {
-        color: var(--color-accent);
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: var(--text-spacing__eyebrow);
+      color: var(--color-accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: var(--text-spacing__eyebrow);
     }
     
     .mission-section .section-header__title {
-        max-width: none;
-        margin-block: var(--space-2);
-        color: var(--color-bg);
+      max-width: none;
+      margin-block: var(--space-2);
+      color: var(--color-bg);
     }
-
-    .section-header__title {
-        font-size: clamp(3rem, 2rem + 4vw, 5rem);
-        letter-spacing: var(--text-spacing__big);
+    
+    .mission-section .section-header {
+      max-width: 48rem;
+      margin-block-end: var(--space-8);
+      
     }
     
     .section-header__intro {
         font-size: 1.4rem;
-      letter-spacing: -0.03em;
-      /* sp change*/
+        letter-spacing: -0.03em;
+        /* sp change*/
     }
 
     .section-header__title {
@@ -529,10 +545,13 @@
                          BUTTONS
      ------------------------------------------------------------*/
     .btn-general {
-        --px: 0.8rem;
+      --px: 0.8rem;
       --py: 0.65rem;
       --squish: 2px;
       /* padding: var(--py) var(--px); */
+      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      font-weight: 500;
+
       padding-block: var(--py);
       padding-inline: var(--px);
       --btn-shadow: transparent;
@@ -840,16 +859,10 @@
    }
 
     .badge-podcast {
-      border: transparent;
       color: var(--color-text);
       background: var(--color-accent__three);
-      /* font-size: clamp(1rem, 1rem + 1vh, 1.5rem); */
-      align-self: flex-start;
-      justify-self: start;
-      width: fit-content;
-      letter-spacing: var(--text-spacing__sml);
       /* sp change*/
-      box-shadow: 5px 5px 0px var(--color-text);
+      box-shadow: 5px 5px 0px var(--color-bg);
     }
 
    .podcast-content {
@@ -955,13 +968,10 @@
                         ABOUT TEASER
     ------------------------------------------------------------*/
    .badge-about__teaser {
-      background: var(--color-accent__two);
+      background: var(--color-accent__three);
       color: var(--color-text);
-      border: 2px solid var(--color-text);
-      box-shadow: 6px 6px 0 var(--color-text);
-      align-self: flex-start;
-      justify-self: start;
-      width: fit-content;
+      /* border: 2px solid var(--color-text); */
+      box-shadow: 5px 5px 0 var(--color-text);
    }
 
    .section-about__teaser {
@@ -1030,22 +1040,23 @@
     }
     
     .festival-kicker {
-        width: fit-content;
-      padding: 0.2rem 0.60rem;
-      border-radius: var(--radius);
-      background: var(--color-accent__three);
+      /* width: fit-content; */
+      /* padding: 0.2rem 0.60rem; */
+      /* border-radius: var(--radius); */
       color: var(--color-text);
-      font-weight: 900;
+      background: var(--color-accent__three);
+      box-shadow: 5px 5px 0 var(--color-text);
+      /* font-weight: 900; */
       
-      transform: rotate(-3deg);
-      border: 2px solid var(--color-text);
+      /* transform: rotate(-3deg); */
+      /* border: 2px solid var(--color-text); */
     }
     
     .hero-split__title {
       max-width: none;
-      font-size: clamp(1.8rem, 3vw, 3rem);
+      /* font-size: clamp(1.8rem, 3vw, 3rem); */
       line-height: 1.1;
-      letter-spacing: -0.04em;
+      /* letter-spacing: -0.04em; */
     }
 
     .hero-split__title span {
@@ -1419,17 +1430,12 @@
      ------------------------------------------------------------*/
 
     .schedule--pill__badge {
-        border: transparent;
       color: var(--color-text);
-      background: var(--color-accent);
-
-      align-self: flex-start;
-      justify-self: start;
-      width: fit-content;
-      letter-spacing: var(--text-spacing__sml);
+      background: var(--color-accent__three);
       /* sp change*/
       box-shadow: 5px 5px 0px var(--color-text);
     }
+
     
     
     .tabs__list {
@@ -1479,7 +1485,7 @@
     }
 
     .schedule--carousel h2 {
-        font-size: clamp(1.75rem, 5vw, 5rem);
+        /* font-size: clamp(1.75rem, 5vw, 5rem); */
         line-height: 1.1;
     }
 
@@ -1492,13 +1498,14 @@
         font-size: clamp(0.75rem, 1.5vw, 1.125rem);
     }
 
-    /* .schedule--carousel__btn {
-        font-size: clamp(0.75rem, 1.5vw, 1rem);
-        padding: clamp(0.5rem, 1.5vw, 0.875rem) clamp(0.875rem, 2.5vw, 1.75rem);
+    .schedule--carousel__btn {
+      margin-top: 1.5rem;
+      align-self: flex-start;
+      /* padding: clamp(0.5rem, 1.5vw, 0.875rem) clamp(0.875rem, 2.5vw, 1.75rem); */
         
-        width: fit-content;
-        transition: transform 0.3s ease;
-    } */
+        /* width: fit-content; */
+        /* transition: transform 0.3s ease; */
+    }
     
 
     .schedule-section {
@@ -1539,11 +1546,6 @@
       /* keeps everything aligned left */
     }
 
-    .schedule--carousel__btn {
-      margin-top: 1.5rem;
-      align-self: flex-start;
-
-    }
 
     
     /* --- Schedule - Presenter - Steph --- */
