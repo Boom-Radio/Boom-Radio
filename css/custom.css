@@ -347,16 +347,16 @@
    /* ------- ARTICLE PAGE - KIAN ------- */
 
 @layer components {
-   .intro {
+   /* .intro {
       position: relative;
       isolation: isolate;
       background: var(--color-bg);
-   }
+   } */
 
-   .container {
+   /* .container {
       width: min(76%, 64rem);
       margin-inline: auto;
-   }
+   } */
 
    .breadcrumbs {
       display: flex;
@@ -388,25 +388,30 @@
    }
 
    .feature-image {
-      width: 100%;
-      aspect-ratio: 1.5 / 1;
-      object-fit: cover;
-      object-position: center 75%;
+      display: flex;
+      width: auto;
+      max-height: 450px;
+      /* aspect-ratio: 1.5 / 1; */
+      object-fit: fill;
+      /* object-position: center 75%; */
+      align-self: center;
    }
 
-   .wave {
+   /* .wave {
       position: absolute;
       inset-inline: 0;
       bottom: 0;
       width: 100%;
       height: 5rem;
-   }
+   } */
 
    .content {
-      min-height: 24rem;
-      padding-block: var(--space-12) var(--space-12);
+      /* min-height: 24rem; */
+      /* padding-block: var(--space-12) var(--space-12); */
       background: #180702;
       color: var(--color-bg);
+      margin-block-start: var(--space-12);
+      padding-block-end: var(--space-12);
    }
 
    .author {
@@ -427,13 +432,13 @@
    .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
-      margin-block: var(--space-12);
+      /* margin-block: var(--space-12); */
       gap: var(--space-8);
       align-items: stretch;
    }
 
    .article {
-      max-height: 24rem;
+      /* max-height: 24rem; */
       overflow: auto;
       padding: var(--space-6);
       border-radius: 0.5rem;
@@ -487,9 +492,9 @@
    }
 
    @media (max-width: 48rem) {
-      .container {
+      /* .container {
          width: min(88%, 40rem);
-      }
+      } */
 
       .layout {
          gap: var(--space-4);
@@ -506,9 +511,9 @@
    }
 
    @media (max-width: 30rem) {
-      .container {
+      /* .container {
          width: calc(100% - 2rem);
-      }
+      } */
 
       .intro {
          padding-block-end: calc(var(--space-8) + 3rem);
