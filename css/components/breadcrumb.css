@@ -63,7 +63,7 @@
 
   .breadcrumb__link:hover,
   .breadcrumb__link:focus-visible {
-    color: var(--color-accent-text);
+    color: var(--color-accent);
   }
 
 } /* end @layer components */
