@@ -397,6 +397,23 @@
       align-self: center;
    }
 
+   .hero-split__news--img {
+      max-width: 450px;
+      height: auto;
+      align-self: flex-end;
+      background-color: var(--color-bg);
+   }
+
+   .hero-split__news {
+      justify-content: space-around;
+   }
+
+   .badge-news {
+      color: var(--color-text);
+      background: var(--color-bg);
+      box-shadow: 5px 5px 0 var(--color-text);
+   }
+
    /* .wave {
       position: absolute;
       inset-inline: 0;
@@ -411,7 +428,7 @@
       background: #180702;
       color: var(--color-bg);
       margin-block-start: var(--space-12);
-      padding-block-end: var(--space-12);
+      padding-block: var(--space-12);
    }
 
    .author {
