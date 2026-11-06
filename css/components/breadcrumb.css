@@ -25,7 +25,7 @@
      0 by default so a breadcrumb dropped into a .stack or other
      spaced ancestor doesn't get spacing from two sources at once. */
   .breadcrumb {
-    margin-block-end: var(--breadcrumb-gap, 0);
+    margin-block: var(--breadcrumb-gap, 1rem);
   }
 
   .breadcrumb__list {

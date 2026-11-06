@@ -427,6 +427,7 @@
    .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+      margin-block: var(--space-12);
       gap: var(--space-8);
       align-items: stretch;
    }
@@ -441,7 +442,7 @@
    }
 
    .article p + p {
-      margin-block-start: var(--space-4);
+      margin-block: var(--space-4);
    }
 
    .related__title {
