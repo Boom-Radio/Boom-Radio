@@ -524,8 +524,9 @@
    }
 }
 
-@layer utilities {
-  /*
-    Custom utility classes - sit in the highest-priority layer.
-  */
+   @layer utilities {
+   /*
+      Custom utility classes - sit in the highest-priority layer.
+   */
+   }
 }
