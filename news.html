@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/components/site-footer.css">
     <link rel="stylesheet" href="css/components/section-header.css">
     <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/card.css">
 
     <link rel="stylesheet" href="css/custom.css">
     <title>Show Schedule | Boom Radio</title>
@@ -66,10 +67,53 @@
         </section>
         <section class="section-news__previous">
             <div class="container">
-                <header class="section-header stack">
-                    <h3 class="section-header__title">PREVIOUS FEATURES</h3>
+                <header class="section-header stack section-news__previous--heading">
+                    <h3 class="section-header__title">PREVIOUS FEATURES </h3>
+                    <span class="author__rule" aria-hidden="true"></span>
                 </header>
+                <article>
+                    <ul class="auto-grid" style="--min: 40%;">
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image one">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image two">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image three">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image four">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
             </div>
+        </section>
+        <section class="section section-archive__teaser">
+            <header class="section-header stack archive-teaser">
+                <h3 class="section-header__title">Missed one? <span class="text-black">Dig through the archive.</span></h3>
+                <a href="#" class="btn-general btn-accent-dark news-archive__btn">See all previous news <span class="arrow">➜</span></a>
+            </header>
         </section>
     </main>
     <footer class="site-footer">
