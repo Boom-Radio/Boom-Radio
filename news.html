@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Boom Radio brings you the greatest hits, live shows, podcasts, news, and entertainment. Listen online anytime and enjoy classic boom.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+
+    <link rel="stylesheet" href="css/components/header-nav.css">
+    <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/components/section-header.css">
+    <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/card.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Show Schedule | Boom Radio</title>
+    <script src="js/carousel-arrow-addon.js" defer></script>
+    <script src="js/carousel-autoplay-addon.js" defer></script>
+    <script src="js/radio.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header drawer-right">
+        <div class="site-header__inner container">
+            <a href="index.html" class="site-header__brand">
+                <img src="img/boom-black.png" alt="Boom Radio home">
+            </a>
+            <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Open navigation menu">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+                <a href="index.html" class="site-nav__link">Home</a>
+                <a href="schedule.html" class="site-nav__link" aria-current="page">Hosts</a>
+                <a href="about.html" class="site-nav__link">About</a>
+                <a href="#" class="site-nav__link">News</a>
+                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot" aria-hidden="true"></span>On Air:
+                    Listen Live</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <header class="section section-header stack container">
+            <span class="badge badge--accent badge--pill badge-latestnews">FEATURED</span>
+            <h1 class="section-header__title">Our Featured Artists</h1>
+        </header>
+        <section class="section section-wave section-wave--top-only section-latest">
+            <div class="container site-news__last">
+                <img class="latest-news__img" src="img/placeholder-450x500.png" alt="Latest news post image">
+                <header class="section-header stack section-latest__content">
+                    <h2 class="section-header__title">Example Name Post</h2>
+                    <div class="blog-categories">
+                        <a>
+                            <p class="news-tag"> Genre </p>
+                        </a>
+                        <a>
+                            <p class="news-tag"> Category </p>
+                        </a>
+                    </div>
+                    <p class="section-latest__incerpt section-header__intro">One or two sentences of intro copy.</p>
+                    <a href="#" class="btn-general btn-accent-light section-latest__btn">Read more <span class="arrow">➜</span></a>
+                </header>
+            </div>
+        </section>
+        <section class="section-news__previous">
+            <div class="container">
+                <header class="section-header stack section-news__previous--heading">
+                    <h3 class="section-header__title">PREVIOUS FEATURES </h3>
+                    <span class="author__rule" aria-hidden="true"></span>
+                </header>
+                <article>
+                    <ul class="auto-grid previous-grid">
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image one">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image two">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image three">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                        <li class="card stack previous-card">
+                            <img class="card-news__img" src="img/placeholder-450x500.png" alt="previous news image" aria-label="previous news image four">
+                            <div class="previous-card__content stack">
+                                <h4 class="card__title">Blog Heading</h4>
+                                <p class="text-muted">Short Incerpt of blog...</p>
+                                <a href="#" class="btn-general btn-cta previous-card__btn">Read more <span class="arrow">➜</span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        <section class="section section-archive__teaser">
+            <header class="section-header stack archive-teaser">
+                <h3 class="section-header__title">Missed one? <span class="text-black">Dig through the archive.</span></h3>
+                <a href="#" class="btn-general btn-accent-dark news-archive__btn">See all previous news <span class="arrow">➜</span></a>
+            </header>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container site-footer__content cluster">
+            <section class="footer-block stack">
+                <img class="site-footer__logo" src="img/boom-white.png" alt="Boom Radio">
+                <p class="site-footer__copyright">&copy; 2026 Boom Radio. All rights reserved.</p>
+            </section>
+            <section class="footer-block stack">
+                <h3 id="footer-links-heading">USEFUL LINKS</h3>
+                <nav class="site-footer__nav" aria-labelledby="footer-links-heading">
+                    <a href="#">Home</a>
+                    <a href="#">Hosts and Schedule</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Latest News</a>
+                </nav>
+            </section>
+            <section class="footer-block stack">
+                <h3 id="footer-social-heading">FOLLOW US</h3>
+                <nav class="site-footer__nav" aria-labelledby="footer-social-heading">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </nav>
+            </section>
+            <article class="footer-block stack">
+                <h3 id="footer-contact-heading">CONTACT DETAILS</h3>
+                <section class="contact" aria-labelledby="footer-contact-heading">
+                    <p>boomradioau@gmail.com</p>
+                    <p>9443 2236</p>
+                    <p>Leederville, Perth (WA)</p>
+                </section>
+            </article>
+        </div>
+        <button id="radio-toggle" type="button" aria-label="Open radio player" aria-expanded="false"
+            aria-controls="radio-panel">
+            <svg class="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 15v-3a8 8 0 0 1 16 0v3" />
+                <rect x="3" y="14" width="4" height="7" rx="1.5" fill="currentColor" />
+                <rect x="17" y="14" width="4" height="7" rx="1.5" fill="currentColor" />
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+        </button>
+
+        <div id="radio-panel" aria-hidden="true">
+            <iframe data-src="https://tunein.com/embed/player/s195836/?autoplay=true" title="BOOM Radio live player"
+                allow="autoplay"></iframe>
+        </div>
+    </footer>
+</body>
+
+</html>
