@@ -1859,6 +1859,67 @@
       margin-left: 1.5rem;
     }
   }
+
+    /* -----------------------------------------------------------
+                    LATEST NEWS PAGE - ANDY
+    ------------------------------------------------------------*/
+    .news-tag {
+      border: 2px solid var(--color-bg);
+      border-radius: var(--radius-lg);
+      color: var(--color-bg);
+      padding-inline: var(--space-4);
+    }
+
+    .site-news__last {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-8);
+    }
+
+    .latest-news__img {
+      max-height: 500px;
+      width: auto;
+      transform: rotate(-3deg);
+      box-shadow: 8px 8px 0 var(--color-accent);
+      border: transparent;
+    }
+
+    .badge-latestnews {
+      background: var(--color-accent__three);
+      color: var(--color-text);
+      box-shadow: 5px 5px 0 var(--color-text);
+    }
+
+    .section-latest {
+      background: var(--color-text);
+    }
+
+    .blog-categories {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-4);
+    }
+
+    .section-latest__incerpt {
+      color: var(--color-bg);
+      padding-block-start: var(--space-12);
+    }
+
+    .section-latest__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-latest__btn {
+      margin-top: auto;
+      align-self: flex-end;
+    }
+
+    .section-news__previous {
+      background: var(--color-text);
+      padding-block-start: var(--space-24);
+    }
+
 }
 
 
