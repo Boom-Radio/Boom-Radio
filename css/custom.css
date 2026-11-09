@@ -1993,6 +1993,127 @@
     color: var(--color-text);
    }
 
+/* -----------------------------------------------------------
+                BLOG / PAGE.PHP - ANDY
+------------------------------------------------------------*/  
+    
+    .blog-tag__collection {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+    }
+
+    .blog-tag {
+      border: 2px solid var(--color-text);
+      border-radius: var(--radius-lg);
+      padding-inline: var(--space-4);
+    }
+
+    .section-header__blog {
+      text-align: center;
+    }
+
+    .blog-img {
+      display: block;
+      max-height: 450px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: var(--radius);
+    }
+
+    .blog-content__wrapper {
+      background: var(--color-text);
+      margin-block-start: var(--space-24);
+      padding-block-end: var(--space-4);
+    }
+
+    .blog-content__header {
+      display: flex;
+    }
+
+    .blog__rule {
+      flex: 1;
+      height: 6px;
+      background: var(--color-accent);
+      margin-inline-start: var(--space-4);
+      align-self: center;
+    }
+
+    .blog-content {
+      background: var(--color-text);
+      padding-block-end: var(--space-12);
+    }
+
+    .blog-content__container {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-8);
+    }
+
+    .blog-article {
+      flex: 3;
+      background: var(--color-bg);
+      color: var(--colot-text);
+      border-radius: var(--radius);
+      padding: var(--space-8);
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .blog-aside {
+      flex: 2;
+      min-width: 0;
+    }
+
+    .blog-aside__card {
+      background: var(--color-bg);
+      color: var(--color-text);
+
+      display: flex;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .blog-card__text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .blog-card__img {
+      display: block;
+      width: 170px;
+      height: 170px;
+      object-fit: fill;
+      border-radius: var(--radius);
+
+      flex-shrink: 0;
+    }
+
+    .blog-tag__related {
+      margin-block-start: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: flex-start;
+    }
+
+    .blog-tag__related p {
+      font-size: 12px;
+      border: 1px solid var(--color-text);
+    }
+    
+    .related-card__btn {
+      align-self: flex-end;
+    }
+
+    @media (max-width: 1200px) {
+      .blog-content__container {
+        flex-direction: column;
+      }
+    }
+
 }
 
 
