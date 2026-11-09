@@ -1901,7 +1901,7 @@
 
     .blog-categories {
       display: flex;
-      flex-direction: row;
+      flex-direction: row; 
       gap: var(--space-4);
     }
 
@@ -1937,6 +1937,7 @@
       flex: 1;
       height: 6px;
       background: var(--color-accent);
+      margin-inline-start: var(--space-4);
    }
 
    .section-news__previous--heading {
