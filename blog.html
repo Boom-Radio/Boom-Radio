@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boom Radio brings you the greatest hits, live shows, podcasts, news, and entertainment. Listen online anytime and enjoy classic boom.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+
+    <link rel="stylesheet" href="css/components/header-nav.css">
+    <link rel="stylesheet" href="css/components/site-footer.css">
+    <link rel="stylesheet" href="css/components/carousel.css">
+    <link rel="stylesheet" href="css/components/carousel-arrow-addon.css">
+    <link rel="stylesheet" href="css/components/carousel-autoplay-addon.css">
+    <link rel="stylesheet" href="css/components/section-header.css">
+    <link rel="stylesheet" href="css/components/badge.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/hero-cycle-addon.css">
+    <link rel="stylesheet" href="css/components/gallery.css">
+
+    <link rel="stylesheet" href="css/components/form-extended.css">
+    <link rel="stylesheet" href="css/components/breadcrumb.css">
+    <link rel="stylesheet" href="css/components/tabs.css">
+    <link rel="stylesheet" href="css/components/result-card.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/placeholder-tile.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <title>BOOM Radio</title>
+    <script src="js/carousel-arrow-addon.js" defer></script>
+    <script src="js/carousel-autoplay-addon.js" defer></script>
+    <script src="js/radio.js" defer></script>
+</head>
+<body>
+    <header class="site-header drawer-right">
+        <div class="site-header__inner container">
+            <a href="index.html" class="site-header__brand">
+                <img src="img/boom-black.png" alt="Site Logo">
+            </a>
+            <button type="button" class="site-header__toggle" popovertarget="site-nav" aria-label="Menu">
+                <span aria-hidden="true">☰</span>
+                <span class="visually-hidden">Menu</span>
+            </button>
+            <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
+                <a href="index.html" class="site-nav__link">Home</a>
+                <a href="schedule.html" class="site-nav__link">Hosts</a>
+                <a href="about.html" class="site-nav__link">About</a>
+                <a href="news.html" class="site-nav__link">News</a>
+                <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air: Listen Live</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+    <nav class="breadcrumb container" aria-label="Breadcrumb">
+        <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html">Home</a></li>
+            <li class="breadcrumb__item" aria-current="page">Schedule</li>
+        </ol>
+    </nav>
+
+    <header class="section-header section container stack section-header__blog">
+        <h1 id="schedule-title" class="section-header__title title-dark">Blog Post Heading</h1>
+        <p class="section-header__intro">02 / 11 / 2026</p>
+        <div class="blog-tag__collection">
+            <p class="blog-tag">Tags</p>
+            <p class="blog-tag">And</p>
+            <p class="blog-tag">Categories</p>
+        </div>
+    </header>
+
+    <img class="blog-img" src="img/brett-jordan-CnwvXh8l_iE-unsplash.jpg" alt="Blog Image">
+
+    <section class="section blog-content__wrapper section-wave section-wave--top-only">
+        <div class="container">
+            <header class="section-header stack blog-content__header">
+                <h3 class="section-header__title blog-previous__title">Author's Name</h3>
+                <span class="blog__rule" aria-hidden="true"></span>
+            </header>
+        </div>
+    </section>
+
+    <section class="blog-content">
+        <div class="container blog-content__container">
+            <article class="blog-article">
+                <p>This is where the blog post text content goes.</p>
+            </article>
+            <aside class="blog-aside">
+                <header class="section-header stack blog-content__header">
+                    <h3 class="section-header__title blog-related">Related news</h3>
+                </header>
+                <ul class="auto-grid blog-card__ul" style="--min: 100%;">
+                    <li class="card stack blog-aside__card">
+                        <img class="blog-card__img" src="img/brett-jordan-CnwvXh8l_iE-unsplash.jpg" alt="blog post image">
+                        <div class="blog-card__text stack">
+                            <h2 class="card__title">Blog Title</h2>
+                            <div class="blog-tag__collection blog-tag__related">
+                                <p class="blog-tag">Tags</p>
+                                <p class="blog-tag">And</p>
+                                <p class="blog-tag">Categories</p>
+                                <p class="blog-tag">Categories</p>
+                            </div>
+                            <a class="btn-general btn-accent related-card__btn" href="blog.html">Read More <span class="arrow">➜</span></a>
+                        </div>
+                    </li>
+                    <li class="card stack blog-aside__card">
+                        <img class="blog-card__img" src="img/brett-jordan-CnwvXh8l_iE-unsplash.jpg" alt="blog post image">
+                        <div class="blog-card__text stack">
+                            <h2 class="card__title">Blog Title</h2>
+                            <div class="blog-tag__collection blog-tag__related">
+                                <p class="blog-tag">Tags</p>
+                                <p class="blog-tag">And</p>
+                                <p class="blog-tag">Categories</p>
+                            </div>
+                            <a class="btn-general related-card__btn" href="blog.html">Read More <span class="arrow">➜</span></a>
+                        </div>
+                    </li>
+                    <li class="card stack blog-aside__card">
+                        <img class="blog-card__img" src="img/brett-jordan-CnwvXh8l_iE-unsplash.jpg" alt="blog post image">
+                        <div class="blog-card__text stack">
+                            <h2 class="card__title">Blog Title</h2>
+                            <div class="blog-tag__collection blog-tag__related">
+                                <p class="blog-tag">Tags</p>
+                                <p class="blog-tag">And</p>
+                                <p class="blog-tag">Categories</p>
+                            </div>
+                            <a class="btn-general btn-accent related-card__btn" href="blog.html">Read More <span class="arrow">➜</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    </main>
+    <footer class="site-footer">
+        <div class="container site-footer__content cluster">
+            <section class="footer-block stack">
+                <img class="site-footer__logo" src="img/boom-white.png" alt="Site logo">
+                <p class="site-footer__copyright">&copy; 2026 Boom Radio. All rights reserved.</p>
+            </section>
+            <section class="footer-block stack">
+                <h3>USEFUL LINKS</h3>
+                <nav class="site-footer__nav" aria-labelledby="Footer navigation">
+                    <a href="#">Home</a>
+                    <a href="#">Hosts and Schedule</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Latest News</a>
+                </nav>
+            </section>
+            <section class="footer-block stack">
+                <h3>FOLLOW US</h3>
+                <nav class="site-footer__nav" aria-label="Footer navigation">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </nav>
+            </section>
+            <article class="footer-block stack">
+                <h3>CONTACT DETAILS</h3>
+                <section class="contact">
+                    <p>boomradioau@gmail.com</p>
+                    <p>9443 2236</p>
+                    <p>Leederville, Perth (WA)</p>
+                </section>
+            </article>
+        </div>
+        <button id="radio-toggle" type="button" aria-label="Open radio player" aria-expanded="false" aria-controls="radio-panel">
+        <svg class="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
+            <rect x="3" y="14" width="4" height="7" rx="1.5" fill="currentColor"/>
+            <rect x="17" y="14" width="4" height="7" rx="1.5" fill="currentColor"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+        </button>
+
+        <div id="radio-panel" aria-hidden="true">
+        <iframe
+            data-src="https://tunein.com/embed/player/s195836/?autoplay=true"
+            title="BOOM Radio live player"
+            allow="autoplay"></iframe>
+        </div>
+    </footer>
+</body>
+</html>
