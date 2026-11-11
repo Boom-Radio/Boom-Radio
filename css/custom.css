@@ -739,6 +739,13 @@
       margin-bottom: 10rem;
    }
 
+   .mission-section .stat-card__value {
+      font-size: clamp(1.5rem, 2vw, 2.25rem);
+      line-height: 1.1;
+      color: var(--color-text);
+      margin-block-end: var(--space-3);
+   }
+
    /* Section heading */
 
    .mission-section {
