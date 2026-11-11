@@ -1,0 +1,82 @@
+/*
+  card.css
+  ---------------------------------------------------------------------
+  A generic content container: surface background, border, rounded
+  corners, padding. No image slot, no title/price convention - just a
+  box to put content in. Compare with result-card.css (a horizontal
+  list-row) and gallery-product-addon.css (an image-forward tile).
+
+  NOTE: .card, .card__title, and .card p are used on nearly every page
+  in this project, and .card--danger (a "danger zone" modifier) is used
+  wherever a card needs to flag an irreversible action - all of them
+  are baked directly into core.css -
+  that copy is what actually renders on any page that only loads
+  core.css. This file exists as a standalone, single-component
+  reference copy only (every component in this project gets one) - it
+  documents which rules belong to this component. Never link it
+  directly: linking core.css already gets you these rules, and linking
+  both would load the same selectors twice.
+
+  .card__title is a class, not a tag selector, on purpose - a card's
+  heading can legitimately be an h2 or h3 depending on the page's own
+  outline, so the styling hook shouldn't care which.
+
+  Requires: css/reset.css, css/core.css
+
+  HTML STRUCTURE:
+    <div class="card">
+      <h2 class="card__title">Card title</h2>
+      <p>Card content.</p>
+    </div>
+  ---------------------------------------------------------------------
+*/
+
+@layer components {
+  /* container-type/container-name make the card a named containment
+     context so the @container rule below sizes the title against the
+     CARD's width rather than the viewport - see the fuller note in
+     core.css. */
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--card-padding, var(--space-6));
+    min-height: var(--card-min-height, auto);
+    container-type: inline-size;
+    container-name: card;
+  }
+
+  .card__title {
+    font-size: var(--card-heading-size, 1.125rem);
+    font-weight: 600;
+    margin-block-end: var(--space-2);
+  }
+
+  .card p {
+    color: var(--color-muted);
+    font-size: var(--card-body-size, 0.9375rem);
+    line-height: 1.6;
+  }
+
+  /* Flags a card as a destructive/high-caution area (a "danger zone"
+     block of irreversible actions) - the same warning-colour intent
+     as .btn--danger, applied to the container instead of a button. */
+  .card--danger {
+    border-color: var(--color-error);
+  }
+
+  /* @container measures the CONTENT box, so with --space-6 padding
+     and a 1px border this trips at roughly 430px of card, not 380. */
+  @container card (min-width: 380px) {
+    .card__title {
+      /* Derived from the same hook, not a second fixed size. Override
+         --card-heading-size once and both steps follow it. */
+      font-size: calc(var(--card-heading-size, 1.125rem) + 0.25rem);
+    }
+
+    .card p {
+      font-size: calc(var(--card-body-size, 0.9375rem) + 0.0625rem);
+      line-height: 1.7;
+    }
+  }
+}
