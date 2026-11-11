@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/core.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
 
     <link rel="stylesheet" href="css/components/header-nav.css">
@@ -34,7 +34,7 @@
                 <a href="index.html" class="site-nav__link">Home</a>
                 <a href="schedule.html" class="site-nav__link">Hosts</a>
                 <a href="about.html" class="site-nav__link active">About</a>
-                <a href="news.html" class="site-nav__link">News</a>
+                <a href="#" class="site-nav__link">News</a>
                 <a href="#radio" class="site-nav__link btn-general btn-cta open-radio"><span class="dot"></span>On Air: Listen Live</a>
             </nav>
         </div>
@@ -118,20 +118,15 @@
         </section>
 
         <!-- Get Involved Section -->
-        <section class="container section get-involved-section">
-            <ul class="grid" style="--col-count: 1;">
-                <li class="card stack get-involved">
-                    <div>
-                        <h2>Want to get involved?</h2>
-                        <p>Whether you're a fan and want...</p>
-
-                        <a href="https://www.northmetrotafe.wa.edu.au/courses/diploma-screen-and-media-broadcast-radio-and-podcasting" target="blank" class="btn-general btn-bg-dark">
-                            Learn more <span class="arrow" aria-hidden="true">→</span>
-                        </a>
-                    </div>
-
-                    <a href="#" class="btn-general get-involved get-involved__circle">
-                        <strong>JOIN THE<br>TEAM</strong>
+    <section class="container section get-involved-section">
+        <ul class="grid" style="--col-count: 1;">
+            <li class="card stack get-involved">
+                <div>
+                    <h2>Want to get involved?</h2>
+                    <p>Whether you're a fan and want...</p>
+    
+                    <a href="#" class="btn-general btn-bg-dark">
+                        Learn more <span class="arrow" aria-hidden="true">→</span>
                     </a>
                 </div>
     
@@ -152,15 +147,15 @@
                     </h2>
 
                     <nav class="social-section__links" aria-label="Follow BOOM Radio">
-                        <a href="https://www.instagram.com/boomradioau/" target="blank" class="social-section__link">
+                        <a href="#" class="social-section__link">
                             Instagram <span aria-hidden="true">↗</span>
                         </a>
 
-                        <a href="https://www.facebook.com/boomradioau/" target="blank" class="social-section__link">
+                        <a href="#" class="social-section__link">
                             Facebook <span aria-hidden="true">↗</span>
                         </a>
 
-                        <a href="https://www.tiktok.com/@boomradioau" target="blank" class="social-section__link">
+                        <a href="#" class="social-section__link">
                             TikTok <span aria-hidden="true">↗</span>
                         </a>
                     </nav>
@@ -314,6 +309,7 @@
                     <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                 </nav>
             </section>
+            
         </div>
         <button id="radio-toggle" type="button" aria-label="Open radio player" aria-expanded="false"
             aria-controls="radio-panel">
@@ -328,10 +324,12 @@
                 <path d="M6 6l12 12M18 6L6 18" />
             </svg>
         </button>
+        
         <div id="radio-panel" aria-hidden="true">
             <iframe data-src="https://tunein.com/embed/player/s195836/?autoplay=true" title="BOOM Radio live player"
                 allow="autoplay"></iframe>
         </div>
+      
     </footer>
     <script src="js/carousel-arrow-addon.js"></script>
     <script src="js/radio.js"></script>
