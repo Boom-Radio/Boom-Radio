@@ -548,6 +548,20 @@
     50% {
       opacity: .35;
     }
+    
+    .site-nav__link {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+    .site-nav__link.active {
+      color: var(--color-accent);
+      font-weight: 800;
+      
+    }
+     
+    .site-header__brand img {
+      height: var(--nav-height);
+      width: auto;
 
     100% {
       opacity: 1;
@@ -1491,6 +1505,19 @@
     .sponsors-track__inner {
       animation: none;
     }
+    
+   
+    .mission-section .stat-card__label {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--color-text);
+      color: var(--color-bg);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      font-weight: 800;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      margin-block-end: var(--space-4);
   }
 
 
@@ -1670,6 +1697,18 @@
     .media-gallery {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+    
+    .get-involved p {
+        margin-bottom: 1rem;
+   }
+   
+   /* Circular Join the Team Circle */
+    .get-involved .get-involved__circle {
+      flex: 0 0 130px;
+      width: 130px;
+      height: 130px;
+      padding: 0;
+      display: inline-flex;
   }
 
 
@@ -1835,6 +1874,16 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      font-size: 1rem;
+      line-height: 1.1;
+      font-weight: 600;
+      transform: rotate(8deg);
+      background-color: var(--color-accent__three);
+    }
+   
+    
+    .get-involved-section {
+      margin-bottom: 100px;
       gap: var(--space-5);
     }
 
@@ -2125,6 +2174,21 @@
       align-items: center;
     }
 
+    .email-header {
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    
+    .site-footer__logo {
+        display: block;
+        height: calc(var(--nav-height) * 3);
+        width: auto;
+        margin-block-start: -2.8rem;
+        margin-inline: -2.5rem 2.5rem;
+    }
+    
+    .site-footer__copyright {
+        margin-inline-start: -2.5rem;
     .blog-card__text {
       display: flex;
       flex-direction: column;
