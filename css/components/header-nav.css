@@ -235,13 +235,7 @@
     font-weight: 500;
     color: var(--color-text);
   }
-    .site-nav__link:hover,
-    .site-nav .menu a:hover {
-      background: var(--color-hover);
-      color: var(--color-text);
-    }
 
-    
   /* -------------------------------------------------------------------
      CTA LINK - styled as a filled accent button in the nav
   ------------------------------------------------------------------- */
