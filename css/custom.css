@@ -513,6 +513,9 @@
     .site-header__brand img {
       height: var(--nav-height);
       width: auto;
+
+    100% {
+      opacity: 1;
     }
     
     .dot {
@@ -1164,6 +1167,180 @@
       padding: 0.5rem 0.8rem;
       border-radius: 999px;
       margin-block-end: var(--space-4);
+  }
+
+
+
+
+  /* -----------------------------------------------------------
+                         SCHEDUELE - STEPH
+     ------------------------------------------------------------*/
+  .breadcrumb {
+    padding-block-start: var(--space-8);
+  }
+
+
+.breadcrumb__link:hover,
+.breadcrumb__link:focus-visible {
+    color: var(--color-accent);
+}
+
+  .schedule--pill__badge {
+    color: var(--color-text);
+    background: var(--color-accent__three);
+    /* sp change*/
+    box-shadow: 5px 5px 0px var(--color-text);
+  }
+
+  .section-header__schedule {
+    padding-block-end: var(--space-4);
+  }
+
+  .title-dark {
+    color: var(--color-text);
+  }
+
+  .tabs__panel {
+    padding-block: 0 var(--space-12);
+  }
+
+  .tabs__list {
+    gap: 1rem;
+    border-bottom: none;
+  }
+
+  .tabs__label {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem 1rem;
+    border: 2px solid #1a0b05;
+    border-radius: 999px;
+
+    text-decoration: none;
+    color: #1a0b05;
+    font-weight: 600;
+    box-shadow: 3px 3px 0 var(--color-text);
+    transition:
+      transform 0.3s ease-in-out,
+      background-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+  }
+
+  .tabs__input:checked+.tabs__label {
+    background-color: var(--color-accent);
+    border-color: var(--color-text);
+  }
+
+  .tabs__label:hover {
+    transform: translate(3px, 3px);
+    filter: drop-shadow(1px 1px 0 var(--btn-shadow));
+    background-color: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .schedule--carousel {
+
+    border-radius: 10px;
+    box-shadow: 6px 6px 0px var(--color-accent);
+  }
+
+  .schedule--carousel h2 {
+    line-height: 1.1;
+  }
+
+  /* sp: changes here */
+  h2.schedule-carousel--header {
+    font-size: clamp(2.5rem, 1.75rem + 3vw, 4rem);
+    color: var(--color-accent);
+  }
+
+  .schedule--carousel p {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    line-height: 1.5;
+  }
+
+  .schedule--carousel .schedule__time {
+    font-size: clamp(0.75rem, 1.5vw, 1.125rem);
+  }
+
+  .schedule--carousel__btn {
+    margin-top: 1.5rem;
+    align-self: flex-start;
+    /* padding: clamp(0.5rem, 1.5vw, 0.875rem) clamp(0.875rem, 2.5vw, 1.75rem); */
+
+    /* width: fit-content; */
+    /* transition: transform 0.3s ease; */
+  }
+
+
+  .schedule-section {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background-color: #1a0904;
+    padding-block: 4rem;
+  }
+
+  .schedule-carousel__media img {
+    aspect-ratio: 3 / 4;
+    /* Portrait */
+    max-width: 300px;
+    /* border: 2px solid var(--color-text); */
+    border: none;
+    border-radius: var(--radius);
+    filter: drop-shadow(8px 8px 0 var(--color-text));
+    overflow: hidden;
+    transform: rotate(3deg);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-12);
+    /* Controls space between image and text */
+  }
+
+  .carousel__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* keeps everything aligned left */
+  }
+
+
+
+  /* --- Schedule - Presenter - Steph --- */
+
+ .media-gallery--card {
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(100%, var(--thumb-min)), 1fr)
+    );
+
+    gap: var(--space-4);
+    justify-content: flex-start;
+}
+
+.media-gallery--card .media-gallery__item {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+  /* Tablet + Mobile */
+  @media (max-width: 900px) {
+    .card-container {
+      grid-template-columns: repeat(2, 1fr);
     }
     
    
@@ -1239,6 +1416,169 @@
       height: 130px;
       padding: 0;
       display: inline-flex;
+  }
+
+
+  @media (max-width: 600px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+
+    .media-gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  /* --- card - presenter - Steph --- */
+
+  /*--- icon - presenter - Steph --- */
+
+  .presenter-icon {
+    fill: var(--color-muted);
+    stroke: none;
+    width: 20px;
+    height: 20px;
+  }
+
+  .presenter-icon:hover {
+    fill: var(--color-accent);
+
+  }
+
+  .media-gallery__caption a {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+  }
+
+  .media-gallery {
+    grid-auto-rows: 1fr;
+  }
+
+  .schedule-wave__top {
+    width: 100%;
+    height: calc(var(--nav-height) * 1.5);
+  }
+
+
+
+  .carousel__slide {
+    padding-block: var(--space-12);
+  }
+
+  .schedule--carousel {
+    margin-block: 0 var(--space-12);
+  }
+
+  .section-scheule__carousel {
+    background: var(--color-text);
+  }
+
+
+
+  .carousel {
+    background: var(--color-bg);
+  }
+
+  .schedule--carousel .carousel-autoplay-toggle {
+    position: absolute;
+    inset: auto 1rem 1rem auto;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 0.75rem;
+  }
+
+
+  @media (max-width: 767px) {
+    .schedule--pill__badge {
+      font-size: clamp(0.75rem, 1.5vw, 1.125rem);
+      padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+      width: fit-content;
+    }
+  }
+
+  /* -----------------------------------------------------------
+                            SITE FOOTER
+    ------------------------------------------------------------*/
+  .site-footer {
+    background: var(--color-text);
+    color: var(--color-accent);
+    padding-block-end: var(--space-2);
+    border-block-start: 2px solid var(--color-accent);
+  }
+
+
+  .site-footer__nav {
+    margin-block-end: var(--space-2);
+    gap: var(--space-2);
+    /* gap: 4px; */
+  }
+
+  .site-footer__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .site-footer h3 {
+    font-size: 1.2rem;
+  }
+
+  .site-footer__logo {
+    display: block;
+    height: calc(var(--nav-height) * 3);
+    width: auto;
+    margin-block-start: -2.8rem;
+    margin-inline: -2.5rem 2.5rem;
+  }
+
+  .site-footer__copyright {
+    margin-inline-start: -2.5rem;
+  }
+
+  .footer-block {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+  }
+
+  .footer-block nav {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-bg);
+  }
+
+  .footer-block nav a:hover {
+    color: var(--color-accent);
+    transition: color 0.3s ease;
+  }
+
+  .contact p {
+    margin-block-end: var(--space-2);
+    color: var(--color-bg);
+  }
+
+  /* Social media icons in a row */
+  .site-footer .footer-block:last-child nav {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .site-footer .footer-block:last-child nav a {
+    font-size: 2.5rem;
+    color: var(--color-bg);
+
+  }
+
+  .site-footer .footer-block:last-child nav a:hover {
+    color: var(--color-accent);
+    transform: scale(1.4);
+  }
+
+  @media (max-width: 768px) {
+    .site-footer__content {
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
@@ -1253,6 +1593,19 @@
     
     .get-involved-section {
       margin-bottom: 100px;
+      gap: var(--space-5);
+    }
+
+    .site-footer .footer-block:first-child {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+
+    .site-footer__logo {
+      height: calc(var(--nav-height) * 2.5);
+      width: auto;
+      margin: 0 auto;
     }
     
     
@@ -1685,6 +2038,11 @@
     
     .site-footer__copyright {
         margin-inline-start: -2.5rem;
+    .blog-card__text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
     }
 
     .footer-block {
