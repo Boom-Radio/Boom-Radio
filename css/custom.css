@@ -548,6 +548,15 @@
     50% {
       opacity: .35;
     }
+    .site-nav__link.active {
+      color: var(--color-accent);
+      font-weight: 800;
+      
+    }
+     
+    .site-header__brand img {
+      height: var(--nav-height);
+      width: auto;
 
     100% {
       opacity: 1;
@@ -1491,6 +1500,19 @@
     .sponsors-track__inner {
       animation: none;
     }
+    
+   
+    .mission-section .stat-card__label {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--color-text);
+      color: var(--color-bg);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      font-weight: 800;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      margin-block-end: var(--space-4);
   }
 
 
@@ -1670,6 +1692,73 @@
     .media-gallery {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+    
+    @media (hover: hover) {
+      .mission-section .stat-card:hover {
+          transform: rotate(0deg) translateY(-8px);
+          /* box-shadow: 8px 8px 0 var(--color-accent); */
+          box-shadow: var(--shadow-brand);
+        }
+   }
+   
+   /* Tablet */
+   @media (max-width: 900px) {
+       .mission-section .grid {
+         grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+   }
+   
+   /* Mobile */
+   @media (max-width: 560px) {
+       .mission-section {
+         padding-block: 4rem;
+        }
+        
+        .mission-section::before {
+         height: 40px;
+        }
+        
+        .mission-section .grid {
+         grid-template-columns: 1fr;
+        }
+        .mission-section .stat-card,
+        .mission-section .stat-card:nth-child(odd),
+        .mission-section .stat-card:nth-child(even) {
+          transform: none;
+          margin-left: 0;
+        }
+    }
+    
+    /* Get Involved Card */
+ .get-involved {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1.5rem;
+   padding: 1.75rem 2rem;
+   background: var(--color-accent);
+   color: var(--color-text);
+   border: 2px solid var(--color-text);
+   border-radius: 12px;
+   box-shadow: 6px 6px 0 var(--color-text);
+ }
+    
+    .get-involved h2 {
+      margin-bottom: 0.6rem;
+    }
+    
+    .get-involved p {
+        margin-bottom: 1rem;
+   }
+   
+   /* Circular Join the Team Circle */
+    .get-involved .get-involved__circle {
+      flex: 0 0 130px;
+      width: 130px;
+      height: 130px;
+      padding: 0;
+      display: inline-flex;
   }
 
 
@@ -1835,6 +1924,16 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      font-size: 1rem;
+      line-height: 1.1;
+      font-weight: 600;
+      transform: rotate(8deg);
+      background-color: var(--color-accent__three);
+    }
+   
+    
+    .get-involved-section {
+      margin-bottom: 100px;
       gap: var(--space-5);
     }
 
@@ -2125,6 +2224,38 @@
       align-items: center;
     }
 
+    
+    .site-footer__nav {
+        margin-block-end: var(--space-2);
+        gap: var(--space-2);
+        /* gap: 4px; */
+    }
+    
+    .site-footer__content {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    
+    .site-footer h3 {
+        font-size: 1.2rem;
+    }
+
+    .email-header {
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    
+    .site-footer__logo {
+        display: block;
+        height: calc(var(--nav-height) * 3);
+        width: auto;
+        margin-block-start: -2.8rem;
+        margin-inline: -2.5rem 2.5rem;
+    }
+    
+    .site-footer__copyright {
+        margin-inline-start: -2.5rem;
     .blog-card__text {
       display: flex;
       flex-direction: column;
