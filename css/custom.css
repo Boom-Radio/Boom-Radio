@@ -1830,6 +1830,11 @@
     transform: scale(1.4);
   }
 
+  .email-header {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
   @media (max-width: 768px) {
     .site-footer__content {
       flex-direction: column;
