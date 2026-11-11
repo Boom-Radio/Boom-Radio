@@ -82,7 +82,7 @@
     --color-muted: color-mix(in oklab, var(--color-text) 80%, var(--color-bg));
     --color-border: color-mix(in oklab, var(--color-surface) 70%, var(--color-text) 18%);
     --color-border-strong: color-mix(in oklab, var(--color-surface) 45%, var(--color-text) 35%);
-    --color-hover: color-mix(in oklab, var(--color-bg) 85%, var(--color-accent));
+    --color-hover: color-mix(in oklab, var(--color-bg) 60%, var(--color-accent));
     --color-backdrop: rgb(0 0 0 / 0.85);
 
     --shadow-elevated: 0 12px 36px color-mix(in oklab, var(--color-bg) 50%, transparent);
