@@ -1669,6 +1669,11 @@
     .site-footer h3 {
         font-size: 1.2rem;
     }
+
+    .email-header {
+      font-weight: 600;
+      color: var(--color-accent);
+    }
     
     .site-footer__logo {
         display: block;
