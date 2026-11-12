@@ -1280,6 +1280,7 @@
 
   /* Get Involved Card */
   .get-involved {
+    height: 200px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1288,9 +1289,9 @@
     padding: 1.25rem 1.5rem;
     background: var(--color-accent);
     color: var(--color-text);
-    border: 1px solid var(--color-text);
+    border: 2px solid var(--color-text);
     border-radius: 10px;
-    box-shadow: 4px 4px 0 var(--color-text);
+    box-shadow: 5px 5px 0 var(--color-text);
 
   }
 
@@ -1298,31 +1299,46 @@
     margin-bottom: 0.6rem;
   }
 
-  .get-involved p {
+  .get-involved__content {
     margin-bottom: 1rem;
+    max-width: 100ch;
   }
 
   /* Circular Join the Team button */
-  .get-involved .get-involved__circle {
-    flex: 0 0 100px;
-    width: 100px;
-    height: 100px;
+  .get-involved__circle.btn-general,
+  .get-involved__circle.btn-general:hover,
+  .get-involved__circle.btn-general:focus-visible,
+  .get-involved__circle.btn-general:active {
+    margin: 0;
     padding: 0;
-    display: inline-flex;
-    align-items: center;
+    filter: none;
+  }
+
+  .get-involved__circle.btn-general {
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    vertical-align: top;
     justify-content: center;
     border-radius: 50%;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.125rem;
     line-height: 1.2;
-    transform: rotate(8deg);
-    transition: transform 0.25s ease;
-    background-color: var(--color-accent__three);
+    transition: transform .15s ease, box-shadow .15s ease;
+    background: var(--color-accent__three);
+    box-shadow: 5px 5px 0 var(--color-text);
+    border: 2px solid var(--color-text);
+  }
+
+  .get-involved__circle.btn-general:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 var(--color-text);
   }
 
 
-  .get-involved .get-involved__circle:hover {
-    transform: rotate(0deg) scale(1.05);
+  .get-involved__circle.btn-general:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--color-text);
   }
 
   .get-involved-section {
@@ -2022,6 +2038,7 @@
     object-position: center;
     border-radius: var(--radius);
     background: var(--color-text);
+    min-width: 0;
   }
 
   @media (max-width: 840px) {

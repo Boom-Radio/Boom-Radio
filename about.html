@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header drawer-right">
         <div class="site-header__inner container">
             <a href="index.html" class="site-header__brand">
@@ -32,7 +33,8 @@
             </button>
             <nav id="site-nav" class="site-nav" popover aria-label="Main navigation">
                 <a href="index.html" class="site-nav__link">Home</a>
-                <a href="schedule.html" class="site-nav__link">Hosts</a>
+                <a href="schedule.html#main" class="site-nav__link">Schedule</a>
+                <a href="schedule.html#featured-title" class="site-nav__link">Hosts</a>
                 <a href="about.html" class="site-nav__link active">About</a>
                 <a href="news.html" class="site-nav__link">News</a>
                 <a href="#radio" class="btn-general btn-cta open-radio"><span class="dot"></span>On Air: Listen Live</a>
@@ -123,21 +125,20 @@
                 <li class="card stack get-involved">
                     <div>
                         <h2>Want to get involved?</h2>
-                        <p>Whether you're a fan and want...</p>
+                        <p class="get-involved__content">
+                            Turn your passion for storytelling into a career with NMTAFE’s Diploma in Broadcast Radio and Podcasting. Learn live broadcasting, audio production, and podcast creation—all hands-on, all industry-ready. Step up, get involved, and let your voice be heard!
+                        </p>
 
-                        <a href="https://www.northmetrotafe.wa.edu.au/courses/diploma-screen-and-media-broadcast-radio-and-podcasting" target="blank" class="btn-general btn-bg-dark">
+                        <!-- <a href="https://www.northmetrotafe.wa.edu.au/courses/diploma-screen-and-media-broadcast-radio-and-podcasting" target="blank" class="btn-general btn-bg-dark">
                             Learn more <span class="arrow" aria-hidden="true">→</span>
-                        </a>
+                        </a> -->
                     </div>
-
-                    <!-- <a href="#" class="btn-general get-involved get-involved__circle">
-                        <strong>JOIN THE<br>TEAM</strong>
-                    </a> -->
-                </div>
-    
-                <div class="get-involved get-involved__circle">
+                    <a class="get-involved__circle btn-general" href="https://www.northmetrotafe.wa.edu.au/courses/diploma-screen-and-media-broadcast-radio-and-podcasting" taget="blank" class="btn-general get-involved get-involved__circle">
+                        <strong>JOIN THE<br>TEAM <span class="arrow" aria-hidden="true">➜</span></strong>
+                    </a>
+                <!-- <div class="get-involved get-involved__circle">
                     <strong>JOIN THE<br>TEAM</strong>
-                </div>
+                </div> -->
             </li>
         </ul>
     </section>
