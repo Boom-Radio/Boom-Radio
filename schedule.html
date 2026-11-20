@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/components/placeholder-tile.css">
 
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/png" href="img/boom-black.png">
     <title>Show Schedule | Boom Radio</title>
     <script src="js/carousel-arrow-addon.js" defer></script>
     <script src="js/carousel-autoplay-addon.js" defer></script>
@@ -73,7 +74,7 @@
             <p class="section-header__intro">Check out our show schedule and never miss your favourite programs.</p>
         </header>
 
-        <section class="tabs" aria-labelledby="schedule-title">
+        <section class="tabs" aria-label="schedule-title">
             <div class="tabs__list container" role="radiogroup" aria-label="Choose a day of the week">
                 <input type="radio" name="event-tabs" id="tab-1" class="tabs__input" aria-label="Monday" checked>
                 <label class="tabs__label" for="tab-1">MON</label>
@@ -94,17 +95,17 @@
                 <label class="tabs__label" for="tab-6">SUN</label>
             </div>
 
-            <img class="schedule-wave__top" src="img/wave.svg" aria-hidden="true">
+            <img class="schedule-wave__top" src="img/wave.svg" alt="Wave image" aria-hidden="true">
 
             <div class="tabs__panels section-scheule__carousel">
                 <section class="tabs__panel stack container" aria-label="Monday shows">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        role="region" aria-label="Monday radio programmes" aria-roledescription="carousel">
+                         aria-label="Monday radio programmes" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                                 aria-roledescription="slide" aria-label="1 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/MONDAY_BREKKIE.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -118,7 +119,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -126,7 +128,7 @@
                                 </div>
                             </article>
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" aria-roledescription="slide" aria-label="2 of 3">
+                                 aria-roledescription="slide" aria-label="2 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/SPORTS-NATION.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -140,7 +142,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -162,7 +165,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/boomsbackyard/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -181,12 +185,12 @@
 
                 <section class="tabs__panel stack container" aria-label="Tuesday shows">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        role="region" aria-label="Tuesday radio programmes" aria-roledescription="carousel">
+                         aria-label="Tuesday radio programmes" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                                 aria-roledescription="slide" aria-label="1 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/TUESDAY-BREKKIE-1.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -200,7 +204,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -208,7 +213,7 @@
                                 </div>
                             </article>
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" aria-roledescription="slide" aria-label="2 of 3">
+                                 aria-roledescription="slide" aria-label="2 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/tuesday-4pm.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -223,7 +228,9 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
+                                                
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -244,7 +251,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -263,12 +271,12 @@
 
                 <section class="tabs__panel stack container" aria-label="Wednesday shows">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        role="region" aria-label="Wednesday radio programmes" aria-roledescription="carousel">
+                         aria-label="Wednesday radio programmes" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                                 aria-roledescription="slide" aria-label="1 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/jannelandquinn.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -282,7 +290,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -290,7 +299,7 @@
                                 </div>
                             </article>
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" aria-roledescription="slide" aria-label="2 of 3">
+                                 aria-roledescription="slide" aria-label="2 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/wedafternoon.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -304,7 +313,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -326,7 +336,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -345,12 +356,12 @@
 
                 <section class="tabs__panel stack container" aria-label="Thursday shows">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        role="region" aria-label="Thursday radio programmes" aria-roledescription="carousel">
+                         aria-label="Thursday radio programmes" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                                 aria-roledescription="slide" aria-label="1 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/thurdaymorning.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -364,7 +375,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -372,7 +384,7 @@
                                 </div>
                             </article>
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" aria-roledescription="slide" aria-label="2 of 3">
+                                 aria-roledescription="slide" aria-label="2 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/thuafternoon.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -386,7 +398,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -408,7 +421,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -427,12 +441,12 @@
 
                 <section class="tabs__panel stack container" aria-label="Friday shows">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        role="region" aria-label="Friday radio programmes" aria-roledescription="carousel">
+                         aria-label="Friday radio programmes" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                                 aria-roledescription="slide" aria-label="1 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/frimorning.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -446,7 +460,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -454,7 +469,7 @@
                                 </div>
                             </article>
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" aria-roledescription="slide" aria-label="2 of 3">
+                                 aria-roledescription="slide" aria-label="2 of 3">
                                 <figure class="schedule-carousel__media"><img src="img/fri-afternoon.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -468,7 +483,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -490,7 +506,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -509,12 +526,12 @@
 
                 <section class="tabs__panel stack container" aria-label="Sunday shows">
                     <section class="carousel schedule--carousel" data-carousel-autoplay
-                        role="region" aria-label="Sunday radio programmes" aria-roledescription="carousel">
+                         aria-label="Sunday radio programmes" aria-roledescription="carousel">
                         <button type="button" class="carousel-autoplay-toggle no-underline" hidden>Stop
                             auto-advancing</button>
                         <div class="carousel__track" tabindex="0">
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" aria-roledescription="slide" aria-label="1 of 2">
+                                 aria-roledescription="slide" aria-label="1 of 2">
                                 <figure class="schedule-carousel__media"><img src="img/boomjb.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -528,7 +545,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -536,7 +554,7 @@
                                 </div>
                             </article>
                             <article class="carousel__slide grid items-center" style="--col-count-lg: 2;"
-                                role="group" aria-roledescription="slide" aria-label="2 of 2">
+                                 aria-roledescription="slide" aria-label="2 of 2">
                                 <figure class="schedule-carousel__media"><img src="img/surfingtheweb.png" alt=""
                                         loading="lazy">
                                 </figure>
@@ -550,7 +568,8 @@
                                         <div class="result-card__actions">
                                             <a href="https://www.instagram.com/harryandjanelle/" target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn">
+                                                class="btn-accent-dark btn-general btn--sm schedule--carousel__btn"
+                                                aria-label="Visit BOOM Radio on Instagram">
                                                 Follow <span class="arrow" aria-hidden="true">↗</span>
                                             </a>
                                         </div>
@@ -779,7 +798,7 @@
     </main>
     <footer class="site-footer">
         <div class="container site-footer__content cluster">
-            <section class="footer-block stack">
+            <section class="footer-block stack" aria-label="Logo & Copyright">
                 <img class="site-footer__logo" src="img/boom-white.png" alt="Site logo">
                 <p class="site-footer__copyright">&copy; 2026 Boom Radio. All rights reserved.</p>
             </section>
