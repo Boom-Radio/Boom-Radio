@@ -1280,7 +1280,7 @@
 
   /* Get Involved Card */
   .get-involved {
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1297,6 +1297,10 @@
 
   .get-involved h2 {
     margin-bottom: 0.6rem;
+  }
+
+  .get-involved p {
+    color: var(--color-text);
   }
 
   .get-involved__content {
@@ -1345,8 +1349,20 @@
     margin-bottom: 100px;
   }
 
+  @media (max-width: 850px) {
+    .get-involved {
+      flex-direction: column;
+    }
 
-  @media (max-width: 480px) {
+    .get-involved__circle.btn-general {
+      border-radius: var(--radius);
+      height: var(--space-12);
+      width: 100%;
+      padding-block: var(--space-2);
+    }
+  }
+
+  /* @media (max-width: 480px) {
     .get-involved {
       gap: 0.75rem;
       padding: 1rem;
@@ -1358,7 +1374,7 @@
       height: 78px;
       font-size: 0.7rem;
     }
-  }
+  } */
 
 
   .social-section {
@@ -1405,7 +1421,7 @@
   .social-section__link:hover,
   .social-section__link:focus-visible {
     background-color: var(--color-accent);
-    border-color: var(--color-accent);
+    /* border-color: var(--color-accent); */
     color: var(--color-bg);
   }
 
@@ -1932,6 +1948,16 @@
     min-width: 0;
   }
 
+  @media (max-width: 675px) {
+    .site-news__last {
+      flex-direction: column;
+    }
+
+    .section-latest__btn {
+      justify-content: flex-end;
+    }
+  }
+
   .latest-news__img {
     flex: 1;
     max-height: 500px;
@@ -1962,6 +1988,7 @@
   .section-latest__incerpt {
     color: var(--color-bg);
     padding-block-start: var(--space-12);
+    margin-block-end: var(--space-12);
   }
 
   .section-latest__content {
