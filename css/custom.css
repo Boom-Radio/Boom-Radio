@@ -409,6 +409,9 @@
   #site-nav {
     background: var(--color-bg);
   }
+  .site-header__toggle:hover{
+    color: var(--color-text);
+  }
 
   /* -----------------------------------------------------------
                          SECTION HEADERS
@@ -1359,7 +1362,12 @@
       height: var(--space-12);
       width: 100%;
       padding-block: var(--space-2);
+      white-space: nowrap;  
+    
     }
+         .desktop-break {
+           display: none;
+         }
   }
 
   /* @media (max-width: 480px) {
@@ -2092,6 +2100,12 @@
   .text-black {
     color: var(--color-text);
   }
+    @media (max-width: 850px) {
+      .archive-teaser {
+        text-align: center;
+        align-items: center;
+      }
+    }
 
   /* -----------------------------------------------------------
                 BLOG / PAGE.PHP - ANDY
